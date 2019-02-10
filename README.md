@@ -5,10 +5,6 @@ Our main implementation goal is to allow a user to select "tags" or "filters" wh
 
 
 
-(Original Description Below)
-
-# Na&iuml;ve Search: A Software Architecture Demo for CS445 Spring 2019
-
 This repository contains code for a running example in 
 [the Spring 2019 section of CS445 Human-Computer Interaction](http://www.cs.bsu.edu/~pvgestwicki/courses/cs445Sp19/)
 at [Ball State University](https://www.bsu.edu).

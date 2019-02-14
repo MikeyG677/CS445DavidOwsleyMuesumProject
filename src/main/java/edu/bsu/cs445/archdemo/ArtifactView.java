@@ -3,6 +3,7 @@ package edu.bsu.cs445.archdemo;
 import com.google.common.base.Preconditions;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.TitledPane;
 import javafx.scene.image.Image;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -11,6 +12,10 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 
 class ArtifactView extends VBox {
+
+    @SuppressWarnings("unused") // Used in FXML binding
+    @FXML
+    private TitledPane tiltedPaneView;
 
     @SuppressWarnings("unused") // Used in FXML binding
     @FXML
@@ -32,6 +37,7 @@ class ArtifactView extends VBox {
     @FXML
     private Label dateView;
 
+
     ArtifactView(ArtifactRecord record) {
         Preconditions.checkNotNull(record);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("artifactView.fxml"));
@@ -43,6 +49,7 @@ class ArtifactView extends VBox {
             Image image = new Image("http://cspvggp.dhcp.bsu.edu/OMI/" + record.getFileName());
             imageView.setImage(image);
 
+            tiltedPaneView.setText(record.getTitle());
             titleView.setText("Title: " + record.getTitle());
             artistView.setText("Artist: " + record.getArtist());
             subjectView.setText("Subject: " + record.getSubject_LCSH());

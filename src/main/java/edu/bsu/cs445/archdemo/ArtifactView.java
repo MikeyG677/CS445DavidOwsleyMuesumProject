@@ -4,6 +4,7 @@ import com.google.common.base.Preconditions;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.image.Image;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
@@ -15,6 +16,10 @@ class ArtifactView extends VBox {
     @FXML
     private ImageView imageView;
 
+    @SuppressWarnings("unused") // Used in FXML binding
+    @FXML
+    private Label titleView;
+
     ArtifactView(ArtifactRecord record) {
         Preconditions.checkNotNull(record);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("artifactView.fxml"));
@@ -25,6 +30,9 @@ class ArtifactView extends VBox {
 
             Image image = new Image("http://cspvggp.dhcp.bsu.edu/OMI/" + record.getFileName());
             imageView.setImage(image);
+
+            titleView.setText("Test Titles");
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

@@ -43,10 +43,10 @@ class ArtifactView extends VBox {
             Image image = new Image("http://cspvggp.dhcp.bsu.edu/OMI/" + record.getFileName());
             imageView.setImage(image);
 
-            titleView.setText("Title: " + "Test Titles");
-            artistView.setText("Author: " + "Test Titles");
-            subjectView.setText("Subject: " + "Test Titles");
-            dateView.setText("Date:  " + "Test Titles");
+            titleView.setText("Title: " + record.getTitle());
+            artistView.setText("Artist: " + record.getArtist());
+            subjectView.setText("Subject: " + record.getSubject_LCSH());
+            dateView.setText("Date:  " + record.getDate_Made());
 
 
         } catch (IOException e) {

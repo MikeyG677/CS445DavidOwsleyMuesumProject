@@ -25,9 +25,29 @@ class ArtifactRecord {
     @XmlElement(name="CONTENTdm_File_Name")
     private String fileName;
 
+    @SuppressWarnings("unused") // Not set in source code, but set through JAXB.
+    @XmlElement(name="Artist")
+    private String artist;
+
+    @SuppressWarnings("unused") // Not set in source code, but set through JAXB.
+    @XmlElement(name="Subject_LCSH")
+    private String subject_LCSH;
+
+    @SuppressWarnings("unused") // Not set in source code, but set through JAXB.
+    @XmlElement(name="Date_Made")
+    private String date_Made;
+
     String getTitle() {
         return title;
     }
 
     String getFileName() { return fileName; }
+
+    String getArtist(){return artist;}
+
+    String getSubject_LCSH(){return subject_LCSH;}
+
+    String getDate_Made(){return date_Made;}
+
+
 }

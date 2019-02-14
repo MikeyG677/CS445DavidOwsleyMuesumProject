@@ -3,6 +3,7 @@ package edu.bsu.cs445.archdemo;
 import com.google.common.base.Preconditions;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TitledPane;
 import javafx.scene.image.Image;
 import javafx.scene.control.Label;
@@ -37,7 +38,6 @@ class ArtifactView extends VBox {
     @FXML
     private Label dateView;
 
-
     ArtifactView(ArtifactRecord record) {
         Preconditions.checkNotNull(record);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("artifactView.fxml"));
@@ -52,7 +52,6 @@ class ArtifactView extends VBox {
             artistView.setText("Artist: " + record.getArtist());
             subjectView.setText("Subject: " + record.getSubject_LCSH());
             dateView.setText("Date:  " + record.getDate_Made());
-
 
         } catch (IOException e) {
             throw new RuntimeException(e);

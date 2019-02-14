@@ -48,8 +48,6 @@ class ArtifactView extends VBox {
 
             Image image = new Image("http://cspvggp.dhcp.bsu.edu/OMI/" + record.getFileName());
             imageView.setImage(image);
-
-            tiltedPaneView.setText(record.getTitle());
             titleView.setText("Title: " + record.getTitle());
             artistView.setText("Artist: " + record.getArtist());
             subjectView.setText("Subject: " + record.getSubject_LCSH());

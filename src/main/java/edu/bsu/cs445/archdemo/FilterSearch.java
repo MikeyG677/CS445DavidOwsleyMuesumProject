@@ -17,9 +17,13 @@ public class FilterSearch {
     @FXML
     private CheckBox AmericaSearchToggle;
 
+   FilterSearch(){
+
+   }
 
 
-
-
+    public void test(){
+            System.out.println(JapanSearchToggle.selectedProperty());
+    }
 
 }

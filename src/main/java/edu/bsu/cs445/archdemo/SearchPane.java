@@ -68,6 +68,10 @@ public class SearchPane extends VBox {
         }
         resultCount.setText(String.valueOf(records.size()));
         searchHBox.setDisable(false);
+
+        FilterSearch filterSearch = new FilterSearch();
+        filterSearch.test();
+
     }
 
 }

@@ -49,5 +49,4 @@ class ArtifactRecord {
 
     String getDate_Made(){return date_Made;}
 
-
 }

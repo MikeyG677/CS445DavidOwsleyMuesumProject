@@ -59,9 +59,11 @@ public class SearchPane extends VBox {
         String searchTerm = searchField.getText();
         List<ArtifactRecord> records = collection.searchTitles(searchTerm);
         resultBox.getChildren().clear();
+
         if (records.size() > 0) {
-            ArtifactRecord record = records.get(0);
-            resultBox.getChildren().add(new ArtifactView(record));
+            for (ArtifactRecord record : records) {
+                resultBox.getChildren().add(new ArtifactView(record));
+            }
         }
         resultCount.setText(String.valueOf(records.size()));
         searchHBox.setDisable(false);

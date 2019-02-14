@@ -20,6 +20,18 @@ class ArtifactView extends VBox {
     @FXML
     private Label titleView;
 
+    @SuppressWarnings("unused") // Used in FXML binding
+    @FXML
+    private Label artistView;
+
+    @SuppressWarnings("unused") // Used in FXML binding
+    @FXML
+    private Label subjectView;
+
+    @SuppressWarnings("unused") // Used in FXML binding
+    @FXML
+    private Label dateView;
+
     ArtifactView(ArtifactRecord record) {
         Preconditions.checkNotNull(record);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("artifactView.fxml"));
@@ -31,7 +43,11 @@ class ArtifactView extends VBox {
             Image image = new Image("http://cspvggp.dhcp.bsu.edu/OMI/" + record.getFileName());
             imageView.setImage(image);
 
-            titleView.setText("Test Titles");
+            titleView.setText("Title: " + "Test Titles");
+            artistView.setText("Author: " + "Test Titles");
+            subjectView.setText("Subject: " + "Test Titles");
+            dateView.setText("Date:  " + "Test Titles");
+
 
         } catch (IOException e) {
             throw new RuntimeException(e);

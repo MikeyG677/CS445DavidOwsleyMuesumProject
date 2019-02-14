@@ -6,5 +6,8 @@
 
 <fx:root maxHeight="300" maxWidth="300" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
     <Label fx:id="titleView" text="null" />
+    <Label fx:id="artistView" text="null" />
+    <Label fx:id="subjectView" text="null" />
+    <Label fx:id="dateView" text="null" />
     <ImageView fx:id="imageView" fitHeight="300.0" fitWidth="300.0" preserveRatio="true" />
 </fx:root>

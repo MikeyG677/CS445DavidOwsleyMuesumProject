@@ -8,6 +8,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -48,10 +49,16 @@ class ArtifactRecordCollection {
         return ImmutableList.copyOf(result);
     }
 
-    List<ArtifactRecord> searchTags(String query) {
-        List<ArtifactRecord> result = items.stream()
-                .filter(artifactRecord -> artifactRecord.getSubject_LCSH().contains(query))
-                .collect(Collectors.toList());
-        return ImmutableList.copyOf(result);
+    List<ArtifactRecord> searchTags(List<String> query) {
+        List<ArtifactRecord> resultList = new ArrayList<>();
+
+        for(String i : query){
+            System.out.println(i);
+            List<ArtifactRecord> result = items.stream()
+                    .filter(artifactRecord -> artifactRecord.getSubject_LCSH()
+                    .contains(i)).collect(Collectors.toList());
+            resultList.addAll(result);
+        }
+        return ImmutableList.copyOf(resultList);
     }
 }

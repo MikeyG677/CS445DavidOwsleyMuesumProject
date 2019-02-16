@@ -12,6 +12,7 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SearchPane extends VBox {
@@ -68,19 +69,23 @@ public class SearchPane extends VBox {
         searchHBox.setDisable(true);
         String searchTerm = searchField.getText();
 
-        List<ArtifactRecord> records = null;
+        List<ArtifactRecord> records = new ArrayList<>();
+        List<String> queryList = new ArrayList<>();
 
         if(!AmericaSearchToggle.isSelected() && !JapanSearchToggle.isSelected()){
             records = collection.searchTitles(searchTerm);
         }
 
         if (JapanSearchToggle.isSelected()) {
-            records = collection.searchTags("Japan");
-            searchField.setText("");
+            queryList.add("Japan");
         }
 
         if (AmericaSearchToggle.isSelected()) {
-            records = collection.searchTags("America");
+            queryList.add("America");
+        }
+
+        if(!queryList.isEmpty()){
+            collection.searchTags(queryList);
             searchField.setText("");
         }
 

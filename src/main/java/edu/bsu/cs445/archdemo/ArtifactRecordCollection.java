@@ -53,7 +53,6 @@ class ArtifactRecordCollection {
         List<ArtifactRecord> resultList = new ArrayList<>();
 
         for(String i : query){
-            System.out.println(i);
             List<ArtifactRecord> result = items.stream()
                     .filter(artifactRecord -> artifactRecord.getSubject_LCSH()
                     .contains(i)).collect(Collectors.toList());

@@ -44,7 +44,6 @@
                <Insets right="20.0" />
             </padding>
          </CheckBox>
-         <CheckBox mnemonicParsing="false" text="CheckBox" />
 
       </children>
       <VBox.margin>

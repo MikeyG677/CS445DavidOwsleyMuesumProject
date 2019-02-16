@@ -85,7 +85,7 @@ public class SearchPane extends VBox {
         }
 
         if(!queryList.isEmpty()){
-            collection.searchTags(queryList);
+            records = collection.searchTags(queryList);
             searchField.setText("");
         }
 

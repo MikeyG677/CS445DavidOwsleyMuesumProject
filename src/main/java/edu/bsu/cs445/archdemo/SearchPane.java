@@ -67,7 +67,17 @@ public class SearchPane extends VBox {
         Preconditions.checkNotNull(collection, "The collection should already be in memory");
         searchHBox.setDisable(true);
         String searchTerm = searchField.getText();
-        List<ArtifactRecord> records = collection.searchTitles(searchTerm);
+
+        List<ArtifactRecord> records;
+
+        if (JapanSearchToggle.isSelected()) {
+            records = collection.searchTags("Japan");
+            searchField.setText("");
+        }
+        else {
+            records = collection.searchTitles(searchTerm);
+        }
+
         resultBox.getChildren().clear();
 
         if (records.size() > 0) {

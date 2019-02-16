@@ -47,4 +47,11 @@ class ArtifactRecordCollection {
                 .collect(Collectors.toList());
         return ImmutableList.copyOf(result);
     }
+
+    List<ArtifactRecord> searchTags(String query) {
+        List<ArtifactRecord> result = items.stream()
+                .filter(artifactRecord -> artifactRecord.getSubject_LCSH().contains(query))
+                .collect(Collectors.toList());
+        return ImmutableList.copyOf(result);
+    }
 }

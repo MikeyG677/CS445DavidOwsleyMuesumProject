@@ -74,6 +74,12 @@ public class SearchPane extends VBox {
             records = collection.searchTags("Japan");
             searchField.setText("");
         }
+
+        if (AmericaSearchToggle.isSelected()) {
+            records = collection.searchTags("America");
+            searchField.setText("");
+        }
+
         else {
             records = collection.searchTitles(searchTerm);
         }

@@ -13,43 +13,54 @@
 
 <fx:root prefHeight="500" prefWidth="500" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
 
-    <Label text="Enter Search Below." BorderPane.alignment="CENTER" />
+    <Label text="Search by Title Below: " BorderPane.alignment="CENTER" />
     <HBox fx:id="searchHBox">
         <TextField fx:id="searchField" onAction="#search" />
-        <Button fx:id="searchButton" onAction="#search" text="Search" />
+        <Button fx:id="searchButton" onAction="#search" text="Search">
+         <HBox.margin>
+            <Insets left="5.0" />
+         </HBox.margin></Button>
+      <VBox.margin>
+         <Insets bottom="10.0" top="3.0" />
+      </VBox.margin>
     </HBox>
 
-   <HBox prefHeight="100.0" prefWidth="200.0">
-      <children>
-         <Label text="Filter by Subject:">
-            <padding>
-               <Insets right="20.0" />
-            </padding>
-         </Label>
-
-         <CheckBox fx:id="JapanSearchToggle" mnemonicParsing="false" text="Japan">
-            <HBox.margin>
-               <Insets />
-            </HBox.margin>
-            <padding>
-               <Insets right="20.0" />
-            </padding>
-         </CheckBox>
-
-         <CheckBox fx:id="AmericaSearchToggle" mnemonicParsing="false" text="America">
-            <HBox.margin>
-               <Insets />
-            </HBox.margin>
-            <padding>
-               <Insets right="20.0" />
-            </padding>
-         </CheckBox>
-
-      </children>
+    <Label text="Search by Subject Below: " BorderPane.alignment="CENTER" />
+    <HBox fx:id="searchHBox">
+        <TextField fx:id="searchSubject" onAction="#search" />
+        <Button fx:id="searchSubject" onAction="#search" text="Search">
+         <HBox.margin>
+            <Insets left="5.0" />
+         </HBox.margin></Button>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+   
+            <CheckBox fx:id="JapanSearchToggle" mnemonicParsing="false" text="Japan">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
+            </CheckBox>
+   
+            <CheckBox fx:id="AmericaSearchToggle" mnemonicParsing="false" text="America">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
+            </CheckBox>
+         </children>
+         <HBox.margin>
+            <Insets left="20.0" />
+         </HBox.margin>
+      </HBox>
       <VBox.margin>
-         <Insets bottom="15.0" top="15.0" />
+         <Insets bottom="10.0" top="3.0" />
       </VBox.margin>
-   </HBox>
+    </HBox>
 
     <HBox>
         <Label text="Last search yielded " />

@@ -68,7 +68,11 @@ public class SearchPane extends VBox {
         searchHBox.setDisable(true);
         String searchTerm = searchField.getText();
 
-        List<ArtifactRecord> records;
+        List<ArtifactRecord> records = null;
+
+        if(!AmericaSearchToggle.isSelected() && !JapanSearchToggle.isSelected()){
+            records = collection.searchTitles(searchTerm);
+        }
 
         if (JapanSearchToggle.isSelected()) {
             records = collection.searchTags("Japan");
@@ -78,10 +82,6 @@ public class SearchPane extends VBox {
         if (AmericaSearchToggle.isSelected()) {
             records = collection.searchTags("America");
             searchField.setText("");
-        }
-
-        else {
-            records = collection.searchTitles(searchTerm);
         }
 
         resultBox.getChildren().clear();

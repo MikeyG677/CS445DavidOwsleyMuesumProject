@@ -36,6 +36,15 @@ public class SearchPane extends VBox {
     @SuppressWarnings("unused") // This field is used by FXML, so suppress the warning
     private VBox resultBox;
 
+    @SuppressWarnings("unused") // Used in FXML binding
+    @FXML
+    private CheckBox JapanSearchToggle;
+
+    @SuppressWarnings("unused") // Used in FXML binding
+    @FXML
+    private CheckBox AmericaSearchToggle;
+
+
     private final ArtifactRecordCollection collection;
 
     SearchPane(ArtifactRecordCollection collection) {
@@ -68,9 +77,6 @@ public class SearchPane extends VBox {
         }
         resultCount.setText(String.valueOf(records.size()));
         searchHBox.setDisable(false);
-
-        FilterSearch filterSearch = new FilterSearch();
-        filterSearch.test();
 
     }
 

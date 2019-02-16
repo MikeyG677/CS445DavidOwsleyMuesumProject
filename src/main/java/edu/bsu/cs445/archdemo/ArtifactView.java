@@ -3,7 +3,6 @@ package edu.bsu.cs445.archdemo;
 import com.google.common.base.Preconditions;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.TitledPane;
 import javafx.scene.image.Image;
 import javafx.scene.control.Label;

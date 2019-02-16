@@ -36,15 +36,6 @@
             </padding>
          </CheckBox>
 
-         <CheckBox fx:id="CatSearchToggle" mnemonicParsing="false" text="Cat">
-            <HBox.margin>
-               <Insets />
-            </HBox.margin>
-            <padding>
-               <Insets right="20.0" />
-            </padding>
-         </CheckBox>
-
          <CheckBox fx:id="AmericaSearchToggle" mnemonicParsing="false" text="America">
             <HBox.margin>
                <Insets />
@@ -53,6 +44,7 @@
                <Insets right="20.0" />
             </padding>
          </CheckBox>
+         <CheckBox mnemonicParsing="false" text="CheckBox" />
 
       </children>
       <VBox.margin>

@@ -80,26 +80,6 @@ public class SearchPane extends VBox {
     }
 
     @SuppressWarnings("unused") // This method is used by searchPane.fxml.
-    public void newWindow(){
-        Parent root;
-        try {
-            URL url = getClass().getResource("contentWindow.fxml");
-            Preconditions.checkNotNull(url, "Cannot load fxml resource");
-            root = FXMLLoader.load(url);
-        }
-        catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        System.out.println("Button is Working");
-        Stage stage = new Stage();
-        Scene scene = new Scene(root);
-        stage.setTitle("Slightly Less Naive DOMA Search");
-        stage.setScene(scene);
-        stage.show();
-    }
-
-
-    @SuppressWarnings("unused") // This method is used by searchPane.fxml.
     @FXML
     public void searchSubject() {
         initSearch();
@@ -144,49 +124,4 @@ public class SearchPane extends VBox {
         resultCount.setText(String.valueOf(records.size()));
         searchHBox.setDisable(false);
     }
-
-    @SuppressWarnings("unused") // This method is used by searchPane.fxml.
-    @FXML
-    public void search() { //Old code; remove if confident this is useless
-        Preconditions.checkNotNull(collection, "The collection should already be in memory");
-        searchHBox.setDisable(true);
-        String searchTitle = searchFieldTitle.getText();
-        String searchTag = searchFieldSubject.getText();
-
-        List<ArtifactRecord> records = new ArrayList<>();
-        HashSet<String> queryList = new HashSet<>();
-
-        if(!AmericaSearchToggle.isSelected() && !JapanSearchToggle.isSelected()){
-            records = collection.searchTitles(searchTitle);
-        }
-
-        if(!searchTag.isEmpty()){
-            queryList.add(searchTag);
-        }
-
-        if (JapanSearchToggle.isSelected()) {
-            queryList.add("Japan");
-        }
-
-        if (AmericaSearchToggle.isSelected()) {
-            queryList.add("America");
-        }
-
-        if(!queryList.isEmpty()){
-            records = collection.searchSubject(queryList);
-            searchFieldTitle.setText("");
-        }
-
-        resultBox.getChildren().clear();
-
-        if (records.size() > 0) {
-            for (ArtifactRecord record : records) {
-                resultBox.getChildren().add(new ArtifactView(record));
-            }
-        }
-        resultCount.setText(String.valueOf(records.size()));
-        searchHBox.setDisable(false);
-
-    }
-
 }

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 
@@ -27,6 +26,7 @@
       <padding>
          <Insets bottom="15.0" />
       </padding></Label>
+   <Button fx:id="newWindow" onAction="#newWindow" text="New Window" />
     <ImageView fx:id="imageView" fitWidth="300.0" preserveRatio="true" />
    <Line endX="500.0" startX="-100.0" strokeWidth="3.0" />
 </fx:root>

@@ -68,9 +68,6 @@
         <Label text=" results" />
     </HBox>
 
-    <Button fx:id="newWindow" onAction="#newWindow" text="New Window"></Button>
-
-
     <ScrollPane minViewportWidth="500.0" prefHeight="500.0" prefWidth="200.0">
      <content>
        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />

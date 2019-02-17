@@ -41,7 +41,7 @@ public class Main extends Application {
             throw new RuntimeException(e);
         }
         Scene scene = new Scene(root);
-        stage.setTitle("Naive DOMA Search");
+        stage.setTitle("Slightly Less Naive DOMA Search");
         stage.setScene(scene);
         stage.show();
     }

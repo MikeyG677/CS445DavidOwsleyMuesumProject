@@ -89,7 +89,7 @@ public class SearchPane extends VBox {
         if (JapanSearchToggle.isSelected()) { subjectList.add("Japan"); }
         if (AmericaSearchToggle.isSelected()) { subjectList.add("America"); }
         if(!subjectList.isEmpty()){
-            records = collection.searchTags(subjectList);
+            records = collection.searchSubject(subjectList);
         }
         returnResults(records);
     }
@@ -148,7 +148,7 @@ public class SearchPane extends VBox {
         }
 
         if(!queryList.isEmpty()){
-            records = collection.searchTags(queryList);
+            records = collection.searchSubject(queryList);
             searchFieldTitle.setText("");
         }
 

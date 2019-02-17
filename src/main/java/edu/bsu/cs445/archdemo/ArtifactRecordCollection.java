@@ -8,10 +8,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @XmlRootElement(name="metadata")
@@ -45,12 +42,12 @@ class ArtifactRecordCollection {
 
     List<ArtifactRecord> searchTitles(String query) {
         List<ArtifactRecord> result = items.stream()
-                .filter(artifactRecord -> artifactRecord.getTitle().contains(query))
-                .collect(Collectors.toList());
+                .filter(artifactRecord -> artifactRecord.getTitle()
+                .contains(query)).collect(Collectors.toList());
         return ImmutableList.copyOf(result);
     }
 
-    List<ArtifactRecord> searchTags(HashSet<String> queryList) {
+    List<ArtifactRecord> searchSubject(HashSet<String> queryList) {
         List<ArtifactRecord> resultList = new ArrayList<>();
         for(String query : queryList){
             List<ArtifactRecord> result = items.stream()
@@ -58,6 +55,7 @@ class ArtifactRecordCollection {
                     .contains(query)).collect(Collectors.toList());
             resultList.addAll(result);
         }
-        return ImmutableList.copyOf(resultList);
+        LinkedHashSet<ArtifactRecord> resultListCleaned = new LinkedHashSet<>(resultList); // Strips resultList of duplicate artifact records.
+        return ImmutableList.copyOf(resultListCleaned);
     }
 }

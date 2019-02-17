@@ -15,8 +15,8 @@
 
     <Label text="Search by Title Below: " BorderPane.alignment="CENTER" />
     <HBox fx:id="searchHBox">
-        <TextField fx:id="searchField" onAction="#search" />
-        <Button fx:id="searchButton" onAction="#search" text="Search">
+        <TextField fx:id="searchFieldTitle" onAction="#searchTitle" />
+        <Button fx:id="searchButtonTitle" onAction="#searchTitle" text="Search">
          <HBox.margin>
             <Insets left="5.0" />
          </HBox.margin></Button>
@@ -27,8 +27,8 @@
 
     <Label text="Search by Subject Below: " BorderPane.alignment="CENTER" />
     <HBox fx:id="searchHBox">
-        <TextField fx:id="searchSubject" onAction="#search" />
-        <Button fx:id="searchSubject" onAction="#search" text="Search">
+        <TextField fx:id="searchFieldSubject" onAction="#searchSubject" />
+        <Button fx:id="searchButtonSubject" onAction="#searchSubject" text="Search">
          <HBox.margin>
             <Insets left="5.0" />
          </HBox.margin></Button>

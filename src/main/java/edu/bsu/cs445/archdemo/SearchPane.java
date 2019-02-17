@@ -13,38 +13,46 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public class SearchPane extends VBox {
 
     @FXML
-    @SuppressWarnings("unused") // This field is used by FXML, so suppress the warning
-    private TextField searchField;
+    @SuppressWarnings("unused") // Used in FXML binding
+    private TextField searchFieldTitle;
 
     @FXML
-    @SuppressWarnings("unused") // This field is used by FXML, so suppress the warning
-    private Button searchButton;
+    @SuppressWarnings("unused") // Used in FXML binding
+    private TextField searchFieldSubject;
 
     @FXML
-    @SuppressWarnings("unused") // This field is used by FXML, so suppress the warning
+    @SuppressWarnings("unused") // Used in FXML binding
+    private Button searchButtonTitle;
+
+    @FXML
+    @SuppressWarnings("unused") // Used in FXML binding
+    private Button searchButtonSubject;
+
+    @FXML
+    @SuppressWarnings("unused") // Used in FXML binding
     private Label resultCount;
 
     @FXML
-    @SuppressWarnings("unused") // This field is used by FXML, so suppress the warning
+    @SuppressWarnings("unused") // Used in FXML binding
     private HBox searchHBox;
 
     @FXML
-    @SuppressWarnings("unused") // This field is used by FXML, so suppress the warning
+    @SuppressWarnings("unused") // Used in FXML binding
     private VBox resultBox;
 
-    @SuppressWarnings("unused") // Used in FXML binding
     @FXML
+    @SuppressWarnings("unused") // Used in FXML binding
     private CheckBox JapanSearchToggle;
 
-    @SuppressWarnings("unused") // Used in FXML binding
     @FXML
+    @SuppressWarnings("unused") // Used in FXML binding
     private CheckBox AmericaSearchToggle;
-
 
     private final ArtifactRecordCollection collection;
 
@@ -62,18 +70,73 @@ public class SearchPane extends VBox {
         }
     }
 
-    @SuppressWarnings("unused") // This method is actually used via searchPane.fxml.
+    @SuppressWarnings("unused") // This method is used by searchPane.fxml.
     @FXML
-    public void search() {
+    private void initSearch() { // Preconditions all search methods.
         Preconditions.checkNotNull(collection, "The collection should already be in memory");
         searchHBox.setDisable(true);
-        String searchTerm = searchField.getText();
+    }
+
+    @SuppressWarnings("unused") // This method is used by searchPane.fxml.
+    @FXML
+    public void searchSubject() {
+        initSearch();
+        List<ArtifactRecord> records = new ArrayList<>();
+        HashSet<String> subjectList = new HashSet<>();
+        String searchTerm = searchFieldSubject.getText();
+
+        if (!searchTerm.isEmpty()) { subjectList.add(searchTerm); }
+        if (JapanSearchToggle.isSelected()) { subjectList.add("Japan"); }
+        if (AmericaSearchToggle.isSelected()) { subjectList.add("America"); }
+        if(!subjectList.isEmpty()){
+            records = collection.searchTags(subjectList);
+        }
+        returnResults(records);
+    }
+
+    @SuppressWarnings("unused") // This method is used by searchPane.fxml.
+    @FXML
+    public void searchTitle() {
+        initSearch();
+        List<ArtifactRecord> records = new ArrayList<>();
+        String searchTerm = searchFieldTitle.getText();
+
+        if(!searchTerm.isEmpty()) {
+            records = collection.searchTitles(searchTerm);
+        }
+        returnResults(records);
+    }
+
+    @SuppressWarnings("unused") // This method is used by searchPane.fxml.
+    @FXML
+    private void returnResults(List<ArtifactRecord> records) {
+        resultBox.getChildren().clear();
+        if (records.size() > 0) {
+            for (ArtifactRecord record : records) {
+                resultBox.getChildren().add(new ArtifactView(record));
+            }
+        }
+        resultCount.setText(String.valueOf(records.size()));
+        searchHBox.setDisable(false);
+    }
+
+    @SuppressWarnings("unused") // This method is used by searchPane.fxml.
+    @FXML
+    public void search() { //Old code; remove if confident this is useless
+        Preconditions.checkNotNull(collection, "The collection should already be in memory");
+        searchHBox.setDisable(true);
+        String searchTitle = searchFieldTitle.getText();
+        String searchTag = searchFieldSubject.getText();
 
         List<ArtifactRecord> records = new ArrayList<>();
-        List<String> queryList = new ArrayList<>();
+        HashSet<String> queryList = new HashSet<>();
 
         if(!AmericaSearchToggle.isSelected() && !JapanSearchToggle.isSelected()){
-            records = collection.searchTitles(searchTerm);
+            records = collection.searchTitles(searchTitle);
+        }
+
+        if(!searchTag.isEmpty()){
+            queryList.add(searchTag);
         }
 
         if (JapanSearchToggle.isSelected()) {
@@ -86,7 +149,7 @@ public class SearchPane extends VBox {
 
         if(!queryList.isEmpty()){
             records = collection.searchTags(queryList);
-            searchField.setText("");
+            searchFieldTitle.setText("");
         }
 
         resultBox.getChildren().clear();

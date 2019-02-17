@@ -10,6 +10,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -49,13 +50,12 @@ class ArtifactRecordCollection {
         return ImmutableList.copyOf(result);
     }
 
-    List<ArtifactRecord> searchTags(List<String> query) {
+    List<ArtifactRecord> searchTags(HashSet<String> queryList) {
         List<ArtifactRecord> resultList = new ArrayList<>();
-
-        for(String i : query){
+        for(String query : queryList){
             List<ArtifactRecord> result = items.stream()
                     .filter(artifactRecord -> artifactRecord.getSubject_LCSH()
-                    .contains(i)).collect(Collectors.toList());
+                    .contains(query)).collect(Collectors.toList());
             resultList.addAll(result);
         }
         return ImmutableList.copyOf(resultList);

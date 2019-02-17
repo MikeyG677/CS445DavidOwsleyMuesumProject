@@ -1,7 +1,7 @@
 # Short Group Project for CS445 Spring 2019
 Group members consist of Jaden Drury and Chris Wilson.
 
-Our main implementation goal is to allow a user to select "tags" or "filters" when searching in the DOMA database. This will allow them to search categorically, narrowing search results with something broader instead of specifically name only.
+Our main implementation goal is to allow a user to use "tags" or "subjects" when searching in the DOMA database. This will allow them to search categorically, narrowing search results with something broader instead of specifically title-based searches.
 
 
 

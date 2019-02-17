@@ -3,13 +3,15 @@ package edu.bsu.cs445.archdemo;
 import com.google.common.base.Preconditions;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-
+import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -76,6 +78,26 @@ public class SearchPane extends VBox {
         Preconditions.checkNotNull(collection, "The collection should already be in memory");
         searchHBox.setDisable(true);
     }
+
+    @SuppressWarnings("unused") // This method is used by searchPane.fxml.
+    public void newWindow(){
+        Parent root;
+        try {
+            URL url = getClass().getResource("contentWindow.fxml");
+            Preconditions.checkNotNull(url, "Cannot load fxml resource");
+            root = FXMLLoader.load(url);
+        }
+        catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("Button is Working");
+        Stage stage = new Stage();
+        Scene scene = new Scene(root);
+        stage.setTitle("Slightly Less Naive DOMA Search");
+        stage.setScene(scene);
+        stage.show();
+    }
+
 
     @SuppressWarnings("unused") // This method is used by searchPane.fxml.
     @FXML

@@ -92,6 +92,7 @@ public class SearchPane extends VBox {
             records = collection.searchSubject(subjectList);
         }
         returnResults(records);
+        searchFieldTitle.setText("");
     }
 
     @SuppressWarnings("unused") // This method is used by searchPane.fxml.
@@ -105,6 +106,8 @@ public class SearchPane extends VBox {
             records = collection.searchTitles(searchTerm);
         }
         returnResults(records);
+        searchFieldSubject.setText("");
+        JapanSearchToggle.setSelected(false);
     }
 
     @SuppressWarnings("unused") // This method is used by searchPane.fxml.

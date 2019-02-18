@@ -57,6 +57,14 @@ public class SearchPane extends VBox {
 
     @FXML
     @SuppressWarnings("unused") // Used in FXML binding
+    private CheckBox NatureSearchToggle;
+
+    @FXML
+    @SuppressWarnings("unused") // Used in FXML binding
+    private CheckBox AbstractSearchToggle;
+
+    @FXML
+    @SuppressWarnings("unused") // Used in FXML binding
     private CheckBox isExactWordTitle;
 
     @FXML
@@ -97,6 +105,8 @@ public class SearchPane extends VBox {
         if (!searchTerm.isEmpty()) { subjectList.add(searchTerm); }
         if (JapanSearchToggle.isSelected()) { subjectList.add("Japan"); }
         if (AmericaSearchToggle.isSelected()) { subjectList.add("America"); }
+        if (AbstractSearchToggle.isSelected()) { subjectList.add("Abstract"); }
+        if (NatureSearchToggle.isSelected()) { subjectList.add("Nature"); }
         if(!subjectList.isEmpty()){
             records = collection.searchSubject(subjectList, isExactWordSubject.isSelected());
         }

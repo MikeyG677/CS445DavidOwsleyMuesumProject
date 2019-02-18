@@ -20,43 +20,67 @@
          <HBox.margin>
             <Insets left="5.0" />
          </HBox.margin></Button>
+      <CheckBox fx:id="isExactWordTitle" mnemonicParsing="false" prefHeight="17.0" prefWidth="127.0" text="Match Full Word?">
+         <HBox.margin>
+            <Insets left="20.0" />
+         </HBox.margin></CheckBox>
       <VBox.margin>
          <Insets bottom="10.0" top="3.0" />
       </VBox.margin>
     </HBox>
-
-    <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Search by Subject Below: " BorderPane.alignment="CENTER" />
+   <HBox prefHeight="100.0" prefWidth="200.0">
+      <children>
+         <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Or select some subjects: " />
+      
+          <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Search by Subject Below: " />
+      </children>
+   </HBox>
     <HBox fx:id="searchHBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
         <TextField fx:id="searchFieldSubject" onAction="#searchSubject" />
         <Button fx:id="searchButtonSubject" onAction="#searchSubject" text="Search">
          <HBox.margin>
             <Insets left="5.0" />
          </HBox.margin></Button>
-      <HBox prefHeight="100.0" prefWidth="200.0">
-         <children>
-
-            <CheckBox fx:id="JapanSearchToggle" mnemonicParsing="false" text="Japan">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-               <padding>
-                  <Insets right="20.0" />
-               </padding>
-            </CheckBox>
-
-            <CheckBox fx:id="AmericaSearchToggle" mnemonicParsing="false" text="America">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-               <padding>
-                  <Insets right="20.0" />
-               </padding>
-            </CheckBox>
-         </children>
+      <CheckBox fx:id="isExactWordSubject" mnemonicParsing="false" prefHeight="21.0" prefWidth="165.0" text="Match Full Word?">
          <HBox.margin>
             <Insets left="20.0" />
+         </HBox.margin></CheckBox>
+      <ScrollPane hbarPolicy="NEVER">
+         <HBox.margin>
+            <Insets />
          </HBox.margin>
-      </HBox>
+         <content>
+            <VBox prefHeight="105.0" prefWidth="107.0">
+               <children>
+
+                        <CheckBox fx:id="AmericaSearchToggle" mnemonicParsing="false" text="America">
+                     <padding>
+                        <Insets right="20.0" />
+                     </padding>
+                  </CheckBox>
+
+                        <CheckBox fx:id="JapanSearchToggle" mnemonicParsing="false" text="Japan">
+                     <padding>
+                        <Insets right="20.0" />
+                     </padding>
+                  </CheckBox>
+
+                   <CheckBox fx:id="NatureSearchToggle" mnemonicParsing="false" text="Nature">
+                       <padding>
+                           <Insets right="20.0" />
+                       </padding>
+                   </CheckBox>
+
+                   <CheckBox fx:id="AbstractSearchToggle" mnemonicParsing="false" text="Abstract">
+                       <padding>
+                           <Insets right="20.0" />
+                       </padding>
+                   </CheckBox>
+
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
       <VBox.margin>
          <Insets bottom="10.0" top="3.0" />
       </VBox.margin>

@@ -9,7 +9,7 @@ class ArtifactRecordCollectionTest {
     @Test
     void testCountRecordsByTitleQuery_emptyString_zero() {
         ArtifactRecordCollection collection = ArtifactRecordCollection.createEmpty();
-        int count = collection.countRecordsByTitleQuery("");
+        int count = collection.countRecordsByTitleQuery("", false);
         Assertions.assertEquals(0, count);
     }
 
@@ -17,7 +17,7 @@ class ArtifactRecordCollectionTest {
     void testCountRecordsByTitleQuery_oneItemMatch_one() {
         ArtifactRecord record = ArtifactRecord.withTitle("Foo");
         ArtifactRecordCollection collection = ArtifactRecordCollection.of(record);
-        int count = collection.countRecordsByTitleQuery("Foo");
+        int count = collection.countRecordsByTitleQuery("Foo", false);
         Assertions.assertEquals(1, count);
     }
 
@@ -25,7 +25,7 @@ class ArtifactRecordCollectionTest {
     void testCountRecordsByTitleQuery_noItemsMatchInNonemptyCollection_zero() {
         ArtifactRecord record = ArtifactRecord.withTitle("Foo");
         ArtifactRecordCollection collection = ArtifactRecordCollection.of(record);
-        int count = collection.countRecordsByTitleQuery("Bar");
+        int count = collection.countRecordsByTitleQuery("Bar", false);
         Assertions.assertEquals(0, count);
     }
 
@@ -34,7 +34,7 @@ class ArtifactRecordCollectionTest {
         ArtifactRecordCollection collection = ArtifactRecordCollection.of(
                 ArtifactRecord.withTitle("Foo"),
                 ArtifactRecord.withTitle("Fool"));
-        int count = collection.countRecordsByTitleQuery("Foo");
+        int count = collection.countRecordsByTitleQuery("Foo", false);
         Assertions.assertEquals(2, count);
     }
 
@@ -44,7 +44,7 @@ class ArtifactRecordCollectionTest {
         ArtifactRecordCollection collection = ArtifactRecordCollection.of(
                 ArtifactRecord.withTitle(testTitle)
         );
-        List<ArtifactRecord> result = collection.searchTitles(testTitle);
+        List<ArtifactRecord> result = collection.searchTitles(testTitle, false);
         Assertions.assertEquals(testTitle, result.get(0).getTitle());
     }
 }

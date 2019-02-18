@@ -1,5 +1,4 @@
 package edu.bsu.cs445.archdemo;
-
 import com.google.common.base.Preconditions;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,8 +8,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -22,51 +19,39 @@ public class SearchPane extends VBox {
     @FXML
     @SuppressWarnings("unused") // Used in FXML binding
     private TextField searchFieldTitle;
-
     @FXML
     @SuppressWarnings("unused") // Used in FXML binding
     private TextField searchFieldSubject;
-
     @FXML
     @SuppressWarnings("unused") // Used in FXML binding
     private Button searchButtonTitle;
-
     @FXML
     @SuppressWarnings("unused") // Used in FXML binding
     private Button searchButtonSubject;
-
     @FXML
     @SuppressWarnings("unused") // Used in FXML binding
     private Label resultCount;
-
     @FXML
     @SuppressWarnings("unused") // Used in FXML binding
     private HBox searchHBox;
-
     @FXML
     @SuppressWarnings("unused") // Used in FXML binding
     private VBox resultBox;
-
     @FXML
     @SuppressWarnings("unused") // Used in FXML binding
     private CheckBox JapanSearchToggle;
-
     @FXML
     @SuppressWarnings("unused") // Used in FXML binding
     private CheckBox AmericaSearchToggle;
-
     @FXML
     @SuppressWarnings("unused") // Used in FXML binding
     private CheckBox NatureSearchToggle;
-
     @FXML
     @SuppressWarnings("unused") // Used in FXML binding
     private CheckBox AbstractSearchToggle;
-
     @FXML
     @SuppressWarnings("unused") // Used in FXML binding
     private CheckBox isExactWordTitle;
-
     @FXML
     @SuppressWarnings("unused") // Used in FXML binding
     private CheckBox isExactWordSubject;

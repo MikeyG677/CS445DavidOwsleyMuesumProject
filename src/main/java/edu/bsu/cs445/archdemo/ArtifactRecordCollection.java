@@ -1,5 +1,4 @@
 package edu.bsu.cs445.archdemo;
-
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
@@ -65,16 +64,16 @@ class ArtifactRecordCollection {
                         .matches(".*\\b" + query.toLowerCase() + "\\b.*")).collect(Collectors.toList());
                 resultList.addAll(result);
             }
-            else{
+            else {
                 List<ArtifactRecord> result = items.stream()
                         .filter(artifactRecord -> artifactRecord.getSubject_LCSH().toLowerCase()
                         .contains(query.toLowerCase())).collect(Collectors.toList());
                 resultList.addAll(result);
             }
-            //List<ArtifactRecord> result = items.stream().filter(artifactRecord -> artifactRecord.getSubject_LCSH().toLowerCase().contains(query.toLowerCase())).collect(Collectors.toList());
-            //resultList.addAll(result);
         }
-        LinkedHashSet<ArtifactRecord> resultListCleaned = new LinkedHashSet<>(resultList); // Strips resultList of duplicate artifact records.
-        return ImmutableList.copyOf(resultListCleaned);
+
+        LinkedHashSet<ArtifactRecord> resultListDuplicatesRemoved = new LinkedHashSet<>(resultList);
+        return ImmutableList.copyOf(resultListDuplicatesRemoved);
+
     }
 }

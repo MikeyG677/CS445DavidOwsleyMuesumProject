@@ -8,14 +8,12 @@
 <?import javafx.scene.layout.VBox?>
 
 <fx:root maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="1000.0" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
-   <TitledPane fx:id="titledPane" animated="true" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="untitled" VBox.vgrow="ALWAYS">
+   <TitledPane fx:id="searchResultPane" animated="true" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="untitled" VBox.vgrow="ALWAYS">
      <content>
        <AnchorPane>
             <children>
                <VBox>
                   <children>
-
-
                       <Label fx:id="titleView" text="null" wrapText="true">
                         <padding>
                            <Insets bottom="20.0" top="10.0" />
@@ -36,7 +34,6 @@
                                     <Insets bottom="20.0" top="20.0" />
                         </padding>
                      </Label>
-
                       <ImageView fx:id="imageView" fitWidth="300.0" preserveRatio="true" />
                   </children>
                </VBox>

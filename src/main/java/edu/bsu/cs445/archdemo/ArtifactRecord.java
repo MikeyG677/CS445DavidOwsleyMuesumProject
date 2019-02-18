@@ -1,12 +1,10 @@
 package edu.bsu.cs445.archdemo;
-
 import com.google.common.base.Preconditions;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-
 @XmlRootElement(name="record")
 @XmlAccessorType(XmlAccessType.FIELD)
 class ArtifactRecord {

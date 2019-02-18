@@ -2,9 +2,8 @@ package edu.bsu.cs445.archdemo;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import java.util.List;
 
-public class ArtifactViewTest {
+class ArtifactViewTest {
 
     @Test
     void testTitleSet() {

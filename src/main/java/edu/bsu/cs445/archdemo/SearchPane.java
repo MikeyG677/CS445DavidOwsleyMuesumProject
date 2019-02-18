@@ -9,6 +9,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -53,6 +55,14 @@ public class SearchPane extends VBox {
     @SuppressWarnings("unused") // Used in FXML binding
     private CheckBox AmericaSearchToggle;
 
+    @FXML
+    @SuppressWarnings("unused") // Used in FXML binding
+    private CheckBox isExactWordTitle;
+
+    @FXML
+    @SuppressWarnings("unused") // Used in FXML binding
+    private CheckBox isExactWordSubject;
+
     private final ArtifactRecordCollection collection;
 
     SearchPane(ArtifactRecordCollection collection) {
@@ -88,7 +98,7 @@ public class SearchPane extends VBox {
         if (JapanSearchToggle.isSelected()) { subjectList.add("Japan"); }
         if (AmericaSearchToggle.isSelected()) { subjectList.add("America"); }
         if(!subjectList.isEmpty()){
-            records = collection.searchSubject(subjectList);
+            records = collection.searchSubject(subjectList, isExactWordSubject.isSelected());
         }
         returnResults(records);
         searchFieldTitle.setText("");
@@ -102,7 +112,7 @@ public class SearchPane extends VBox {
         String searchTerm = searchFieldTitle.getText();
 
         if(!searchTerm.isEmpty()) {
-            records = collection.searchTitles(searchTerm);
+            records = collection.searchTitles(searchTerm, isExactWordTitle.isSelected());
         }
         returnResults(records);
         searchFieldSubject.setText("");

@@ -35,25 +35,44 @@ class ArtifactRecordCollection {
         return items.size();
     }
 
-    int countRecordsByTitleQuery(String query) {
-        List<ArtifactRecord> result = searchTitles(query);
+    int countRecordsByTitleQuery(String query, Boolean isExactWord) {
+        List<ArtifactRecord> result = searchTitles(query, false);
         return result.size();
     }
 
-    List<ArtifactRecord> searchTitles(String query) {
-        List<ArtifactRecord> result = items.stream()
-                .filter(artifactRecord -> artifactRecord.getTitle().toLowerCase()
-                .contains(query.toLowerCase())).collect(Collectors.toList());
+    List<ArtifactRecord> searchTitles(String query, Boolean isExactWord) {
+        List<ArtifactRecord> result;
+        if(isExactWord) {
+            result = items.stream()
+                    .filter(artifactRecord -> artifactRecord.getTitle().toLowerCase()
+                    .matches(".*\\b" + query.toLowerCase() + "\\b.*")).collect(Collectors.toList());
+        }
+        else {
+            result = items.stream()
+                    .filter(artifactRecord -> artifactRecord.getTitle().toLowerCase()
+                    .contains(query.toLowerCase())).collect(Collectors.toList());
+        }
         return ImmutableList.copyOf(result);
     }
 
-    List<ArtifactRecord> searchSubject(HashSet<String> queryList) {
+    List<ArtifactRecord> searchSubject(HashSet<String> queryList, Boolean isExactWord) {
         List<ArtifactRecord> resultList = new ArrayList<>();
+
         for(String query : queryList){
-            List<ArtifactRecord> result = items.stream()
-                    .filter(artifactRecord -> artifactRecord.getSubject_LCSH().toLowerCase()
-                    .contains(query.toLowerCase())).collect(Collectors.toList());
-            resultList.addAll(result);
+            if(isExactWord){
+                List<ArtifactRecord> result = items.stream()
+                        .filter(artifactRecord -> artifactRecord.getSubject_LCSH().toLowerCase()
+                        .matches(".*\\b" + query.toLowerCase() + "\\b.*")).collect(Collectors.toList());
+                resultList.addAll(result);
+            }
+            else{
+                List<ArtifactRecord> result = items.stream()
+                        .filter(artifactRecord -> artifactRecord.getSubject_LCSH().toLowerCase()
+                        .contains(query.toLowerCase())).collect(Collectors.toList());
+                resultList.addAll(result);
+            }
+            //List<ArtifactRecord> result = items.stream().filter(artifactRecord -> artifactRecord.getSubject_LCSH().toLowerCase().contains(query.toLowerCase())).collect(Collectors.toList());
+            //resultList.addAll(result);
         }
         LinkedHashSet<ArtifactRecord> resultListCleaned = new LinkedHashSet<>(resultList); // Strips resultList of duplicate artifact records.
         return ImmutableList.copyOf(resultListCleaned);

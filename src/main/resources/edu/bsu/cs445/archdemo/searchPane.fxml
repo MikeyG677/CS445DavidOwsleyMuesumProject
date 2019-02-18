@@ -11,10 +11,10 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<fx:root prefHeight="500" prefWidth="500" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" minWidth="1000.0" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
 
-    <Label text="Search by Title Below: " BorderPane.alignment="CENTER" />
-    <HBox fx:id="searchHBox">
+    <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Search by Title Below: " BorderPane.alignment="CENTER" />
+    <HBox fx:id="searchHBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
         <TextField fx:id="searchFieldTitle" onAction="#searchTitle" />
         <Button fx:id="searchButtonTitle" onAction="#searchTitle" text="Search">
          <HBox.margin>
@@ -25,8 +25,8 @@
       </VBox.margin>
     </HBox>
 
-    <Label text="Search by Subject Below: " BorderPane.alignment="CENTER" />
-    <HBox fx:id="searchHBox">
+    <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Search by Subject Below: " BorderPane.alignment="CENTER" />
+    <HBox fx:id="searchHBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
         <TextField fx:id="searchFieldSubject" onAction="#searchSubject" />
         <Button fx:id="searchButtonSubject" onAction="#searchSubject" text="Search">
          <HBox.margin>
@@ -62,13 +62,13 @@
       </VBox.margin>
     </HBox>
 
-    <HBox>
+    <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
         <Label text="Last search yielded " />
         <Label fx:id="resultCount" text="0" />
         <Label text=" results" />
     </HBox>
 
-    <ScrollPane minViewportWidth="500.0" prefHeight="500.0" prefWidth="200.0">
+    <ScrollPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minViewportWidth="500.0">
      <content>
        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
          <VBox fx:id="resultBox" />

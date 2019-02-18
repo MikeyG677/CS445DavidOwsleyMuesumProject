@@ -44,9 +44,7 @@ class ArtifactView extends VBox {
 
     @SuppressWarnings("unused") // Used in FXML binding
     @FXML
-    private Button contentWindow;
-
-    private ArtifactRecord record;
+    private TitledPane titledPane;
 
     ArtifactView(ArtifactRecord record) {
         Preconditions.checkNotNull(record);
@@ -55,41 +53,17 @@ class ArtifactView extends VBox {
         loader.setController(this);
         try {
             loader.load();
-
-            this.record = record;
             Image image = new Image("http://cspvggp.dhcp.bsu.edu/OMI/" + record.getFileName());
             imageView.setImage(image);
             titleView.setText("Title: " + record.getTitle());
             artistView.setText("Artist: " + record.getArtist());
             subjectView.setText("Subject: " + record.getSubject_LCSH());
             dateView.setText("Date:  " + record.getDate_Made());
-            contentWindow.setText("More Information");
+            titledPane.setText(record.getTitle());
 
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public ArtifactRecord getArtifactRecord(){
-        return this.record;
-    }
-
-    @SuppressWarnings("unused") // This method is used by searchPane.fxml.
-    @FXML
-    private void contentWindow() {
-        Parent root;
-        try {
-            URL url = getClass().getResource("contentWindow.fxml");
-            Preconditions.checkNotNull(url, "Cannot load fxml resource");
-            root = FXMLLoader.load(url);
-        }
-        catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        Stage stage = new Stage();
-        Scene scene = new Scene(root);
-        stage.setTitle("Slightly Less Naive DOMA Search");
-        stage.setScene(scene);
-        stage.show();
-    }
 }

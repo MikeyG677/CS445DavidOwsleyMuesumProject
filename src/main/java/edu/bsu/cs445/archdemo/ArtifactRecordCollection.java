@@ -42,8 +42,8 @@ class ArtifactRecordCollection {
 
     List<ArtifactRecord> searchTitles(String query) {
         List<ArtifactRecord> result = items.stream()
-                .filter(artifactRecord -> artifactRecord.getTitle()
-                .contains(query)).collect(Collectors.toList());
+                .filter(artifactRecord -> artifactRecord.getTitle().toLowerCase()
+                .contains(query.toLowerCase())).collect(Collectors.toList());
         return ImmutableList.copyOf(result);
     }
 
@@ -51,8 +51,8 @@ class ArtifactRecordCollection {
         List<ArtifactRecord> resultList = new ArrayList<>();
         for(String query : queryList){
             List<ArtifactRecord> result = items.stream()
-                    .filter(artifactRecord -> artifactRecord.getSubject_LCSH()
-                    .contains(query)).collect(Collectors.toList());
+                    .filter(artifactRecord -> artifactRecord.getSubject_LCSH().toLowerCase()
+                    .contains(query.toLowerCase())).collect(Collectors.toList());
             resultList.addAll(result);
         }
         LinkedHashSet<ArtifactRecord> resultListCleaned = new LinkedHashSet<>(resultList); // Strips resultList of duplicate artifact records.

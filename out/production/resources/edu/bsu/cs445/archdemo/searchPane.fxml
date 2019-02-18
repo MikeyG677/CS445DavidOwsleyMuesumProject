@@ -34,7 +34,7 @@
          </HBox.margin></Button>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-   
+
             <CheckBox fx:id="JapanSearchToggle" mnemonicParsing="false" text="Japan">
                <HBox.margin>
                   <Insets />
@@ -43,7 +43,7 @@
                   <Insets right="20.0" />
                </padding>
             </CheckBox>
-   
+
             <CheckBox fx:id="AmericaSearchToggle" mnemonicParsing="false" text="America">
                <HBox.margin>
                   <Insets />
@@ -68,7 +68,7 @@
         <Label text=" results" />
     </HBox>
 
-    <ScrollPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minViewportWidth="500.0">
+    <ScrollPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minViewportWidth="500.0" minWidth="100.0">
      <content>
        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
          <VBox fx:id="resultBox" />

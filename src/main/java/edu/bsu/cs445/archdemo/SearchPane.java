@@ -81,7 +81,7 @@ public class SearchPane extends VBox {
 
     @SuppressWarnings("unused") // This method is used by searchPane.fxml.
     @FXML
-    public void searchSubject() {
+    public void searchBySubject() {
         initSearch();
         List<ArtifactRecord> records = new ArrayList<>();
         HashSet<String> subjectList = new HashSet<>();
@@ -93,7 +93,7 @@ public class SearchPane extends VBox {
         if (AbstractSearchToggle.isSelected()) { subjectList.add("Abstract"); }
         if (NatureSearchToggle.isSelected()) { subjectList.add("Nature"); }
         if(!subjectList.isEmpty()){
-            records = collection.searchSubject(subjectList, isExactWordSubject.isSelected());
+            records = collection.searchThroughSubject(subjectList, isExactWordSubject.isSelected());
         }
         returnResults(records);
         searchFieldTitle.setText("");
@@ -101,13 +101,13 @@ public class SearchPane extends VBox {
 
     @SuppressWarnings("unused") // This method is used by searchPane.fxml.
     @FXML
-    public void searchTitle() {
+    public void searchByTitle() {
         initSearch();
         List<ArtifactRecord> records = new ArrayList<>();
         String searchTerm = searchFieldTitle.getText();
 
         if(!searchTerm.isEmpty()) {
-            records = collection.searchTitles(searchTerm, isExactWordTitle.isSelected());
+            records = collection.searchThroughTitles(searchTerm, isExactWordTitle.isSelected());
         }
         returnResults(records);
         searchFieldSubject.setText("");

@@ -35,7 +35,7 @@ class ArtifactRecordCollection {
     }
 
     int countRecordsByTitleQuery(String query, Boolean isExactWord) {
-        List<ArtifactRecord> result = searchTitles(query, false);
+        List<ArtifactRecord> result = searchTitles(query, isExactWord);
         return result.size();
     }
 

@@ -15,6 +15,12 @@ class ArtifactRecord {
         return record;
     }
 
+    static ArtifactRecord withSubject(String subject) {
+        ArtifactRecord record = new ArtifactRecord();
+        record.subject_LCSH = Preconditions.checkNotNull(subject);
+        return record;
+    }
+
     @SuppressWarnings("unused") // Not set in source code, but set through JAXB.
     @XmlElement(name="Title")
     private String title;

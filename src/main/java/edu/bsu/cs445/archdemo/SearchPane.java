@@ -73,6 +73,7 @@ public class SearchPane extends VBox {
     private void initSearch() { // Preconditions all search methods.
         Preconditions.checkNotNull(collection, "The collection should already be in memory");
         searchPanes.setDisable(true);
+        resultBox.getChildren().clear();
     }
 
     @SuppressWarnings("unused") // This method is used by searchPane.fxml.
@@ -92,7 +93,6 @@ public class SearchPane extends VBox {
             records = collection.searchThroughSubjects(subjectList, isExactWordSubject.isSelected());
         }
         returnResults(records);
-        searchFieldTitle.setText("");
     }
 
     @SuppressWarnings("unused") // This method is used by searchPane.fxml.
@@ -106,14 +106,12 @@ public class SearchPane extends VBox {
             records = collection.searchThroughTitles(searchTerm, isExactWordTitle.isSelected());
         }
         returnResults(records);
-        searchFieldSubject.setText("");
-        JapanSearchToggle.setSelected(false);
     }
 
     @SuppressWarnings("unused") // This method is used by searchPane.fxml.
     @FXML
     private void returnResults(List<ArtifactRecord> records) {
-        resultBox.getChildren().clear();
+
         if (records.size() > 0) {
             for (ArtifactRecord record : records) {
                 resultBox.getChildren().add(new ArtifactView(record));

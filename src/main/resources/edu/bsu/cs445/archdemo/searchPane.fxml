@@ -77,7 +77,7 @@
       </children>
    </Pane>
 
-    <ScrollPane minViewportWidth="500.0" minWidth="100.0" prefHeight="483.0" prefWidth="652.0" VBox.vgrow="ALWAYS">
+    <ScrollPane hbarPolicy="NEVER" minViewportWidth="500.0" minWidth="100.0" prefHeight="483.0" prefWidth="652.0" vbarPolicy="AS_NEEDED" VBox.vgrow="ALWAYS">
      <content>
        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
          <VBox fx:id="resultBox" />

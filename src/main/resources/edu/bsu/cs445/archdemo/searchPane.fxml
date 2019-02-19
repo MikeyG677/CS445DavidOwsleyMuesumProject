@@ -15,8 +15,8 @@
 
     <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Search by Title Below: " BorderPane.alignment="CENTER" />
     <HBox fx:id="searchHBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
-        <TextField fx:id="searchFieldTitle" onAction="#searchTitle" />
-        <Button fx:id="searchButtonTitle" onAction="#searchTitle" text="Search">
+        <TextField fx:id="searchFieldTitle" onAction="#searchByTitle" />
+        <Button fx:id="searchButtonTitle" onAction="#searchByTitle" text="Search">
          <HBox.margin>
             <Insets left="5.0" />
          </HBox.margin></Button>
@@ -36,8 +36,8 @@
       </children>
    </HBox>
     <HBox fx:id="searchHBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
-        <TextField fx:id="searchFieldSubject" onAction="#searchSubject" />
-        <Button fx:id="searchButtonSubject" onAction="#searchSubject" text="Search">
+        <TextField fx:id="searchFieldSubject" onAction="#searchBySubject" />
+        <Button fx:id="searchButtonSubject" onAction="#searchBySubject" text="Search">
          <HBox.margin>
             <Insets left="5.0" />
          </HBox.margin></Button>

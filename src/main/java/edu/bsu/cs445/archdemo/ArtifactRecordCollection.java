@@ -54,7 +54,7 @@ class ArtifactRecordCollection {
         return ImmutableList.copyOf(result);
     }
 
-    List<ArtifactRecord> searchSubject(HashSet<String> queryList, Boolean isExactWord) {
+    List<ArtifactRecord> searchBySubject(HashSet<String> queryList, Boolean isExactWord) {
         List<ArtifactRecord> resultList = new ArrayList<>();
 
         for(String query : queryList){

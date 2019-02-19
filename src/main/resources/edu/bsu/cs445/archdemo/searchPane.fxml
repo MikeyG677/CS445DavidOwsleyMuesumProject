@@ -29,9 +29,9 @@
                 <Label layoutX="6.0" layoutY="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Search by Subject Below: " />
                  <TextField fx:id="searchFieldSubject" layoutX="6.0" layoutY="27.0" onAction="#searchBySubject" />
                  <Button fx:id="searchButtonSubject" layoutX="6.0" layoutY="58.0" onAction="#searchBySubject" text="Search" />
-               <ScrollPane hbarPolicy="NEVER" layoutX="164.0" layoutY="55.0" prefHeight="101.0" prefWidth="119.0">
+               <ScrollPane hbarPolicy="NEVER" layoutX="178.0" layoutY="53.0" prefHeight="101.0" prefWidth="119.0">
                   <content>
-                     <VBox prefHeight="105.0" prefWidth="107.0">
+                     <VBox fx:id="subjectPresets" prefHeight="105.0" prefWidth="107.0">
                         <children>
 
                                  <CheckBox fx:id="AmericaSearchToggle" mnemonicParsing="false" text="America">

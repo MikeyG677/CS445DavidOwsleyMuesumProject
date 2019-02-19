@@ -2,6 +2,7 @@ package edu.bsu.cs445.archdemo;
 import com.google.common.base.Preconditions;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import java.io.IOException;
@@ -35,22 +36,13 @@ public class SearchPane extends VBox {
     private VBox resultBox;
     @FXML
     @SuppressWarnings("unused") // Used in FXML binding
-    private CheckBox JapanSearchToggle;
-    @FXML
-    @SuppressWarnings("unused") // Used in FXML binding
-    private CheckBox AmericaSearchToggle;
-    @FXML
-    @SuppressWarnings("unused") // Used in FXML binding
-    private CheckBox NatureSearchToggle;
-    @FXML
-    @SuppressWarnings("unused") // Used in FXML binding
-    private CheckBox AbstractSearchToggle;
-    @FXML
-    @SuppressWarnings("unused") // Used in FXML binding
     private CheckBox isExactWordTitle;
     @FXML
     @SuppressWarnings("unused") // Used in FXML binding
     private CheckBox isExactWordSubject;
+    @FXML
+    @SuppressWarnings("unused") // Used in FXML binding
+    private VBox subjectPresets;
 
     private final ArtifactRecordCollection collection;
 
@@ -70,51 +62,45 @@ public class SearchPane extends VBox {
 
     @SuppressWarnings("unused") // This method is used by searchPane.fxml.
     @FXML
-    private void initSearch() { // Precondition for all search methods.
+    private void initializeSearch() { // Precondition for all search methods.
         Preconditions.checkNotNull(collection, "The collection should already be in memory");
         searchPanes.setDisable(true);
-        resultBox.getChildren().clear();
     }
 
     @SuppressWarnings("unused") // This method is used by searchPane.fxml.
     @FXML
     public void searchBySubject() {
-        initSearch();
+        initializeSearch();
         List<ArtifactRecord> records = new ArrayList<>();
         HashSet<String> subjectList = new HashSet<>();
         String searchTerm = searchFieldSubject.getText();
 
-        if (!searchTerm.isEmpty()) { subjectList.add(searchTerm); }
-        if (JapanSearchToggle.isSelected()) { subjectList.add("Japan"); }
-        if (AmericaSearchToggle.isSelected()) { subjectList.add("America"); }
-        if (AbstractSearchToggle.isSelected()) { subjectList.add("Abstract"); }
-        if (NatureSearchToggle.isSelected()) { subjectList.add("Nature"); }
-        if(!subjectList.isEmpty()){
-            records = collection.searchThroughSubjects(subjectList, isExactWordSubject.isSelected());
+        for (Node child : subjectPresets.getChildren()) {
+            CheckBox subjectPreset = (CheckBox) child;
+            if (subjectPreset.isSelected()) { subjectList.add(subjectPreset.getText()); }
         }
+        if (!searchTerm.isEmpty()) { subjectList.add(searchTerm); }
+        if(!subjectList.isEmpty()){ records = collection.searchThroughSubjects(subjectList, isExactWordSubject.isSelected()); }
         returnResults(records);
     }
 
     @SuppressWarnings("unused") // This method is used by searchPane.fxml.
     @FXML
     public void searchByTitle() {
-        initSearch();
+        initializeSearch();
         List<ArtifactRecord> records = new ArrayList<>();
         String searchTerm = searchFieldTitle.getText();
 
-        if(!searchTerm.isEmpty()) {
-            records = collection.searchThroughTitles(searchTerm, isExactWordTitle.isSelected());
-        }
+        if(!searchTerm.isEmpty()) { records = collection.searchThroughTitles(searchTerm, isExactWordTitle.isSelected()); }
         returnResults(records);
     }
 
     @SuppressWarnings("unused") // This method is used by searchPane.fxml.
     @FXML
     private void returnResults(List<ArtifactRecord> records) {
-
+        resultBox.getChildren().clear();
         if (records.size() > 0) {
-            for (ArtifactRecord record : records) { resultBox.getChildren().add(new ArtifactView(record)); }
-        }
+            for (ArtifactRecord record : records) { resultBox.getChildren().add(new ArtifactView(record)); } }
         resultCount.setText(String.valueOf(records.size()));
         searchPanes.setDisable(false);
     }

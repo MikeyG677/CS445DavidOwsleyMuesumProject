@@ -5,37 +5,19 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.HashMap;
+
 @XmlRootElement(name="record")
 @XmlAccessorType(XmlAccessType.FIELD)
 class ArtifactRecord {
 
-    static ArtifactRecord withTitle(String title) {
+    static ArtifactRecord withSpecificInfo(HashMap<String, String> specificInfo) {
         ArtifactRecord record = new ArtifactRecord();
-        record.title = Preconditions.checkNotNull(title);
-        return record;
-    }
-
-    static ArtifactRecord withSubject(String subject) {
-        ArtifactRecord record = new ArtifactRecord();
-        record.subject_LCSH = Preconditions.checkNotNull(subject);
-        return record;
-    }
-
-    static ArtifactRecord withFileName() {
-        ArtifactRecord record = new ArtifactRecord();
-        record.fileName = "foo";
-        return record;
-    }
-
-    static ArtifactRecord withArtistName() {
-        ArtifactRecord record = new ArtifactRecord();
-        record.artist = "foo";
-        return record;
-    }
-
-    static ArtifactRecord withDate() {
-        ArtifactRecord record = new ArtifactRecord();
-        record.date_Made = "foo";
+        record.title = Preconditions.checkNotNull(specificInfo.get("title"));
+        record.fileName = Preconditions.checkNotNull(specificInfo.get("fileName"));
+        record.artist = Preconditions.checkNotNull(specificInfo.get("artist"));
+        record.subject_LCSH = Preconditions.checkNotNull(specificInfo.get("subject_LCSH"));
+        record.date_Made = Preconditions.checkNotNull(specificInfo.get("date_Made"));
         return record;
     }
 

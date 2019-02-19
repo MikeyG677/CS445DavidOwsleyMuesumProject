@@ -2,6 +2,8 @@ package edu.bsu.cs445.archdemo;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
@@ -18,7 +20,15 @@ class ArtifactRecordCollectionTest {
 
     @Test
     void testCountRecordsByTitleQuery_oneItemMatch_one() {
-        ArtifactRecord record = ArtifactRecord.withTitle("Foo");
+        final HashMap<String, String> testInfo = new HashMap<>();
+        final String testTitle = "Foo";
+        testInfo.put("title", testTitle);
+        testInfo.put("fileName", "Foo");
+        testInfo.put("artist", "Bar");
+        testInfo.put("subject_LCSH", "Fool");
+        testInfo.put("date_Made", "Barl");
+
+        ArtifactRecord record = ArtifactRecord.withSpecificInfo(testInfo);
         ArtifactRecordCollection collection = ArtifactRecordCollection.of(record);
         int countExactFalse = collection.countRecordsByTitleQuery("Foo", false);
         Assertions.assertEquals(1, countExactFalse);
@@ -28,7 +38,15 @@ class ArtifactRecordCollectionTest {
 
     @Test
     void testCountRecordsByTitleQuery_noItemsMatchInNonemptyCollection_zero() {
-        ArtifactRecord record = ArtifactRecord.withTitle("Foo");
+        final HashMap<String, String> testInfo = new HashMap<>();
+        final String testTitle = "Foo";
+        testInfo.put("title", testTitle);
+        testInfo.put("fileName", "Foo");
+        testInfo.put("artist", "Bar");
+        testInfo.put("subject_LCSH", "Fool");
+        testInfo.put("date_Made", "Barl");
+
+        ArtifactRecord record = ArtifactRecord.withSpecificInfo(testInfo);
         ArtifactRecordCollection collection = ArtifactRecordCollection.of(record);
         int countExactFalse = collection.countRecordsByTitleQuery("Bar", false);
         Assertions.assertEquals(0, countExactFalse);
@@ -38,18 +56,41 @@ class ArtifactRecordCollectionTest {
 
     @Test
     void testCountRecordsByTitleQuery_twoItemsMatch_two() {
+        final HashMap<String, String> testInfo1 = new HashMap<>();
+        final String testTitle1 = "Foo";
+        testInfo1.put("title", testTitle1);
+        testInfo1.put("fileName", "Foo");
+        testInfo1.put("artist", "Bar");
+        testInfo1.put("subject_LCSH", "Fool");
+        testInfo1.put("date_Made", "Barl");
+
+        final HashMap<String, String> testInfo2 = new HashMap<>();
+        final String testTitle2 = "Fool";
+        testInfo2.put("title", testTitle2);
+        testInfo2.put("fileName", "Foo");
+        testInfo2.put("artist", "Bar");
+        testInfo2.put("subject_LCSH", "Fool");
+        testInfo2.put("date_Made", "Barl");
+
         ArtifactRecordCollection collection = ArtifactRecordCollection.of(
-                ArtifactRecord.withTitle("Foo"),
-                ArtifactRecord.withTitle("Fool"));
+                ArtifactRecord.withSpecificInfo(testInfo1),
+                ArtifactRecord.withSpecificInfo(testInfo2));
         int countExactFalse = collection.countRecordsByTitleQuery("Foo", false);
         Assertions.assertEquals(2, countExactFalse);
     }
 
     @Test
     void testSearchTitles() {
+        final HashMap<String, String> testInfo = new HashMap<>();
         final String testTitle = "Foo";
+        testInfo.put("title", testTitle);
+        testInfo.put("fileName", "Foo");
+        testInfo.put("artist", "Bar");
+        testInfo.put("subject_LCSH", "Fool");
+        testInfo.put("date_Made", "Barl");
+
         ArtifactRecordCollection collection = ArtifactRecordCollection.of(
-                ArtifactRecord.withTitle(testTitle)
+                ArtifactRecord.withSpecificInfo(testInfo)
         );
         List<ArtifactRecord> resultExactFalse = collection.searchThroughTitles(testTitle, false);
         Assertions.assertEquals(testTitle, resultExactFalse.get(0).getTitle());
@@ -69,31 +110,44 @@ class ArtifactRecordCollectionTest {
 
     @Test
     void testCountRecordsBySubjectQuery_oneItemMatch_one() {
-        final HashSet<String> query = new HashSet<>();
-        query.add("Foo");
-        ArtifactRecord record = ArtifactRecord.withSubject(query.toString());
+        final HashMap<String, String> testInfo = new HashMap<>();
+        final String testSubject = "Foo";
+        final HashSet<String> testQuery = new HashSet<>();
+        testQuery.add(testSubject);
+        testInfo.put("title", "Foo");
+        testInfo.put("fileName", "Bar");
+        testInfo.put("artist", "Fool");
+        testInfo.put("subject_LCSH", testSubject);
+        testInfo.put("date_Made", "Barl");
+
+        ArtifactRecord record = ArtifactRecord.withSpecificInfo(testInfo);
         ArtifactRecordCollection collection = ArtifactRecordCollection.of(record);
-        int countExactFalse = collection.countRecordsBySubjectQuery(query, false);
+        int countExactFalse = collection.countRecordsBySubjectQuery(testQuery, false);
         Assertions.assertEquals(1, countExactFalse);
-        int countExactTrue = collection.countRecordsBySubjectQuery(query, true);
+        int countExactTrue = collection.countRecordsBySubjectQuery(testQuery, true);
         Assertions.assertEquals(1, countExactTrue);
     }
 
     @Test
-    void testSearchSubject(){
-        final String testSubject1 = "Foo";
-        final String testSubject2 = "Bar";
+    void testSearchSubjectEXPERIMENTAL(){
         final HashSet<String> testSubjectList = new HashSet<>();
-        testSubjectList.add(testSubject1);
-        testSubjectList.add(testSubject2);
-        ArtifactRecordCollection collection = ArtifactRecordCollection.of(
-                ArtifactRecord.withSubject(testSubject1 + " ; " + testSubject2)
-        );
-        List<ArtifactRecord> resultExactFalse = collection.searchThroughSubject(testSubjectList, false);
-        Assertions.assertEquals(testSubject1 + " ; " + testSubject2, resultExactFalse.get(0).getSubject_LCSH());
+        testSubjectList.add("Foo");
+        testSubjectList.add("Bar");
+        final HashMap<String, String> testInfo = new HashMap<>();
+        String testSubjects = "Foo ; Bar";
+        testInfo.put("title", "Foo");
+        testInfo.put("fileName", "Bar");
+        testInfo.put("artist", "Fool");
+        testInfo.put("subject_LCSH", testSubjects);
+        testInfo.put("date_Made", "Barl");
 
-        List<ArtifactRecord>resultExactTrue = collection.searchThroughSubject(testSubjectList, true);
-        Assertions.assertEquals(testSubject1 + " ; " + testSubject2, resultExactTrue.get(0).getSubject_LCSH());
+        ArtifactRecordCollection collection = ArtifactRecordCollection.of(
+                ArtifactRecord.withSpecificInfo(testInfo)
+        );
+        List<ArtifactRecord> resultExactFalse = collection.searchThroughSubjects(testSubjectList, false);
+        Assertions.assertEquals(testSubjects, resultExactFalse.get(0).getSubject_LCSH());
+        List<ArtifactRecord>resultExactTrue = collection.searchThroughSubjects(testSubjectList, true);
+        Assertions.assertEquals(testSubjects, resultExactTrue.get(0).getSubject_LCSH());
 
     }
 }

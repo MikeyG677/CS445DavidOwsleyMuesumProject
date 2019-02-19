@@ -3,36 +3,26 @@ package edu.bsu.cs445.archdemo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
+
 class ArtifactRecordTest {
 
     @Test
-    void testGetFileName() {
+    void testGetSpecificInfo(){
+        final HashMap<String, String> testInfo = new HashMap<>();
+        testInfo.put("title", "Foo");
+        testInfo.put("fileName", "Bar");
+        testInfo.put("artist", "Fool");
+        testInfo.put("subject_LCSH", "Barl");
+        testInfo.put("date_Made", "Boo");
 
         new ArtifactRecord();
-        ArtifactRecord record = ArtifactRecord.withFileName();
-        ArtifactRecord.withFileName();
-        Assertions.assertEquals("foo", record.getFileName());
-
-    }
-
-    @Test
-    void testGetArtist() {
-
-        new ArtifactRecord();
-        ArtifactRecord record = ArtifactRecord.withArtistName();
-        ArtifactRecord.withArtistName();
-        Assertions.assertEquals("foo", record.getArtist());
-
-    }
-
-    @Test
-    void testGetDate() {
-
-        new ArtifactRecord();
-        ArtifactRecord record = ArtifactRecord.withDate();
-        ArtifactRecord.withDate();
-        Assertions.assertEquals("foo", record.getDate_Made());
-
+        ArtifactRecord record = ArtifactRecord.withSpecificInfo(testInfo);
+        Assertions.assertEquals("Foo", record.getTitle());
+        Assertions.assertEquals("Bar", record.getFileName());
+        Assertions.assertEquals("Fool", record.getArtist());
+        Assertions.assertEquals("Barl", record.getSubject_LCSH());
+        Assertions.assertEquals("Boo", record.getDate_Made());
     }
 
 }

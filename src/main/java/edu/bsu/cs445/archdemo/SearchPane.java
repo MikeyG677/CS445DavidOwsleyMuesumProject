@@ -93,7 +93,7 @@ public class SearchPane extends VBox {
         if (AbstractSearchToggle.isSelected()) { subjectList.add("Abstract"); }
         if (NatureSearchToggle.isSelected()) { subjectList.add("Nature"); }
         if(!subjectList.isEmpty()){
-            records = collection.searchThroughSubject(subjectList, isExactWordSubject.isSelected());
+            records = collection.searchThroughSubjects(subjectList, isExactWordSubject.isSelected());
         }
         returnResults(records);
         searchFieldTitle.setText("");

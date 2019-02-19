@@ -20,7 +20,7 @@
                 <Label layoutX="6.0" layoutY="6.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Search by Title Below: " />
                  <TextField fx:id="searchFieldTitle" layoutX="6.0" layoutY="28.0" onAction="#searchByTitle" />
                  <Button fx:id="searchButtonTitle" layoutX="6.0" layoutY="59.0" onAction="#searchByTitle" text="Search" />
-               <CheckBox fx:id="isExactWordTitle" layoutX="163.0" layoutY="31.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="127.0" text="Match Full Word?" />
+               <CheckBox fx:id="isExactWordTitle" layoutX="178.0" layoutY="31.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="127.0" text="Match Full Word?" />
             </children>
          </AnchorPane>
        <AnchorPane fx:id="AnchorPaneSubject" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
@@ -62,7 +62,7 @@
                      </VBox>
                   </content>
                </ScrollPane>
-               <CheckBox fx:id="isExactWordSubject" layoutX="164.0" layoutY="29.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="165.0" text="Match Full Word?" />
+               <CheckBox fx:id="isExactWordSubject" layoutX="178.0" layoutY="29.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="165.0" text="Match Full Word?" />
             </children>
          </AnchorPane>
      </items>
@@ -70,14 +70,14 @@
    <Pane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="652.0" scaleShape="false" VBox.vgrow="NEVER">
       <children>
            <Label layoutX="8.0" layoutY="13.0" text="Search Results:" />
-           <Label fx:id="resultCount" layoutX="91.0" layoutY="14.0" text="0">
+           <Label fx:id="resultCount" layoutX="110.0" layoutY="14.0" text="0">
             <padding>
                <Insets left="1.0" right="1.0" />
             </padding></Label>
-      </children>
+      </children>   
    </Pane>
 
-    <ScrollPane minViewportWidth="500.0" minWidth="100.0" prefHeight="483.0" prefWidth="652.0" VBox.vgrow="ALWAYS">
+    <ScrollPane hbarPolicy="NEVER" minViewportWidth="500.0" minWidth="100.0" prefHeight="483.0" prefWidth="652.0" vbarPolicy="AS_NEEDED" VBox.vgrow="ALWAYS">
      <content>
        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
          <VBox fx:id="resultBox" />

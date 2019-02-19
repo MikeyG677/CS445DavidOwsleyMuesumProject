@@ -70,7 +70,7 @@ public class SearchPane extends VBox {
 
     @SuppressWarnings("unused") // This method is used by searchPane.fxml.
     @FXML
-    private void initSearch() { // Preconditions all search methods.
+    private void initSearch() { // Precondition for all search methods.
         Preconditions.checkNotNull(collection, "The collection should already be in memory");
         searchPanes.setDisable(true);
         resultBox.getChildren().clear();
@@ -113,9 +113,7 @@ public class SearchPane extends VBox {
     private void returnResults(List<ArtifactRecord> records) {
 
         if (records.size() > 0) {
-            for (ArtifactRecord record : records) {
-                resultBox.getChildren().add(new ArtifactView(record));
-            }
+            for (ArtifactRecord record : records) { resultBox.getChildren().add(new ArtifactView(record)); }
         }
         resultCount.setText(String.valueOf(records.size()));
         searchPanes.setDisable(false);

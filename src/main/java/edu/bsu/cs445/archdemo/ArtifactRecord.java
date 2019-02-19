@@ -21,6 +21,24 @@ class ArtifactRecord {
         return record;
     }
 
+    static ArtifactRecord withFileName() {
+        ArtifactRecord record = new ArtifactRecord();
+        record.fileName = "foo";
+        return record;
+    }
+
+    static ArtifactRecord withArtistName() {
+        ArtifactRecord record = new ArtifactRecord();
+        record.artist = "foo";
+        return record;
+    }
+
+    static ArtifactRecord withDate() {
+        ArtifactRecord record = new ArtifactRecord();
+        record.date_Made = "foo";
+        return record;
+    }
+
     @SuppressWarnings("unused") // Not set in source code, but set through JAXB.
     @XmlElement(name="Title")
     private String title;

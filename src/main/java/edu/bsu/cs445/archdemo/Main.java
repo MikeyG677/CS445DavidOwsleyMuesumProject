@@ -41,6 +41,8 @@ public class Main extends Application {
         Scene scene = new Scene(root);
         stage.setTitle("Slightly Less Naive DOMA Search");
         stage.setScene(scene);
+        stage.setMinWidth(650);
+        stage.setMinHeight(650);
         stage.show();
     }
 }

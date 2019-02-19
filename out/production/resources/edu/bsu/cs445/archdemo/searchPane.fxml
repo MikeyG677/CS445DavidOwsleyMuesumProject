@@ -5,94 +5,79 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<fx:root maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" minWidth="867.0" prefHeight="700.0" prefWidth="867.0" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="594.0" minWidth="800.0" prefHeight="594.0" prefWidth="652.0" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <SplitPane fx:id="searchPanes" dividerPositions="0.4815384615384615" minHeight="-Infinity" prefHeight="170.0" prefWidth="800.0">
+     <items>
+       <AnchorPane fx:id="AnchorPaneTitle" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+            <children>
+            
+                <Label layoutX="6.0" layoutY="6.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Search by Title Below: " />
+                 <TextField fx:id="searchFieldTitle" layoutX="6.0" layoutY="28.0" onAction="#searchByTitle" />
+                 <Button fx:id="searchButtonTitle" layoutX="6.0" layoutY="59.0" onAction="#searchByTitle" text="Search" />
+               <CheckBox fx:id="isExactWordTitle" layoutX="163.0" layoutY="31.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="127.0" text="Match Full Word?" />
+            </children>
+         </AnchorPane>
+       <AnchorPane fx:id="AnchorPaneSubject" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+            <children>
 
-    <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Search by Title Below: " BorderPane.alignment="CENTER" />
-    <HBox fx:id="searchHBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
-        <TextField fx:id="searchFieldTitle" onAction="#searchByTitle" />
-        <Button fx:id="searchButtonTitle" onAction="#searchByTitle" text="Search">
-         <HBox.margin>
-            <Insets left="5.0" />
-         </HBox.margin></Button>
-      <CheckBox fx:id="isExactWordTitle" mnemonicParsing="false" prefHeight="17.0" prefWidth="127.0" text="Match Full Word?">
-         <HBox.margin>
-            <Insets left="20.0" />
-         </HBox.margin></CheckBox>
-      <VBox.margin>
-         <Insets bottom="10.0" top="3.0" />
-      </VBox.margin>
-    </HBox>
-   <HBox prefHeight="100.0" prefWidth="200.0">
+                <Label layoutX="6.0" layoutY="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Search by Subject Below: " />
+                 <TextField fx:id="searchFieldSubject" layoutX="6.0" layoutY="27.0" onAction="#searchBySubject" />
+                 <Button fx:id="searchButtonSubject" layoutX="6.0" layoutY="58.0" onAction="#searchBySubject" text="Search" />
+               <ScrollPane hbarPolicy="NEVER" layoutX="164.0" layoutY="55.0" prefHeight="101.0" prefWidth="119.0">
+                  <content>
+                     <VBox prefHeight="105.0" prefWidth="107.0">
+                        <children>
+
+                                 <CheckBox fx:id="AmericaSearchToggle" mnemonicParsing="false" text="America">
+                              <padding>
+                                 <Insets right="20.0" />
+                              </padding>
+                           </CheckBox>
+
+                                 <CheckBox fx:id="JapanSearchToggle" mnemonicParsing="false" text="Japan">
+                              <padding>
+                                 <Insets right="20.0" />
+                              </padding>
+                           </CheckBox>
+
+                            <CheckBox fx:id="NatureSearchToggle" mnemonicParsing="false" text="Nature">
+                                <padding>
+                                    <Insets right="20.0" />
+                                </padding>
+                            </CheckBox>
+
+                            <CheckBox fx:id="AbstractSearchToggle" mnemonicParsing="false" text="Abstract">
+                                <padding>
+                                    <Insets right="20.0" />
+                                </padding>
+                            </CheckBox>
+
+                        </children>
+                     </VBox>
+                  </content>
+               </ScrollPane>
+               <CheckBox fx:id="isExactWordSubject" layoutX="164.0" layoutY="29.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="165.0" text="Match Full Word?" />
+            </children>
+         </AnchorPane>
+     </items>
+   </SplitPane>
+   <Pane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="652.0" scaleShape="false" VBox.vgrow="NEVER">
       <children>
-         <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Or select some subjects: " />
-      
-          <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Search by Subject Below: " />
+           <Label layoutX="8.0" layoutY="13.0" text="Search Results:" />
+           <Label fx:id="resultCount" layoutX="91.0" layoutY="14.0" text="0">
+            <padding>
+               <Insets left="1.0" right="1.0" />
+            </padding></Label>
       </children>
-   </HBox>
-    <HBox fx:id="searchHBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
-        <TextField fx:id="searchFieldSubject" onAction="#searchBySubject" />
-        <Button fx:id="searchButtonSubject" onAction="#searchBySubject" text="Search">
-         <HBox.margin>
-            <Insets left="5.0" />
-         </HBox.margin></Button>
-      <CheckBox fx:id="isExactWordSubject" mnemonicParsing="false" prefHeight="21.0" prefWidth="165.0" text="Match Full Word?">
-         <HBox.margin>
-            <Insets left="20.0" />
-         </HBox.margin></CheckBox>
-      <ScrollPane hbarPolicy="NEVER">
-         <HBox.margin>
-            <Insets />
-         </HBox.margin>
-         <content>
-            <VBox prefHeight="105.0" prefWidth="107.0">
-               <children>
+   </Pane>
 
-                        <CheckBox fx:id="AmericaSearchToggle" mnemonicParsing="false" text="America">
-                     <padding>
-                        <Insets right="20.0" />
-                     </padding>
-                  </CheckBox>
-
-                        <CheckBox fx:id="JapanSearchToggle" mnemonicParsing="false" text="Japan">
-                     <padding>
-                        <Insets right="20.0" />
-                     </padding>
-                  </CheckBox>
-
-                   <CheckBox fx:id="NatureSearchToggle" mnemonicParsing="false" text="Nature">
-                       <padding>
-                           <Insets right="20.0" />
-                       </padding>
-                   </CheckBox>
-
-                   <CheckBox fx:id="AbstractSearchToggle" mnemonicParsing="false" text="Abstract">
-                       <padding>
-                           <Insets right="20.0" />
-                       </padding>
-                   </CheckBox>
-
-               </children>
-            </VBox>
-         </content>
-      </ScrollPane>
-      <VBox.margin>
-         <Insets bottom="10.0" top="3.0" />
-      </VBox.margin>
-    </HBox>
-
-    <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
-        <Label text="Last search yielded " />
-        <Label fx:id="resultCount" text="0" />
-        <Label text=" results" />
-    </HBox>
-
-    <ScrollPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minViewportWidth="500.0" minWidth="100.0" prefHeight="498.0" prefWidth="1000.0">
+    <ScrollPane minViewportWidth="500.0" minWidth="100.0" prefHeight="483.0" prefWidth="652.0" VBox.vgrow="ALWAYS">
      <content>
        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
          <VBox fx:id="resultBox" />

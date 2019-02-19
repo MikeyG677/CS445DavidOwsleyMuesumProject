@@ -2,11 +2,7 @@ package edu.bsu.cs445.archdemo;
 import com.google.common.base.Preconditions;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import java.io.IOException;
 import java.net.URL;
@@ -33,7 +29,7 @@ public class SearchPane extends VBox {
     private Label resultCount;
     @FXML
     @SuppressWarnings("unused") // Used in FXML binding
-    private HBox searchHBox;
+    private SplitPane searchPanes;
     @FXML
     @SuppressWarnings("unused") // Used in FXML binding
     private VBox resultBox;
@@ -76,7 +72,7 @@ public class SearchPane extends VBox {
     @FXML
     private void initSearch() { // Preconditions all search methods.
         Preconditions.checkNotNull(collection, "The collection should already be in memory");
-        searchHBox.setDisable(true);
+        searchPanes.setDisable(true);
     }
 
     @SuppressWarnings("unused") // This method is used by searchPane.fxml.
@@ -124,6 +120,6 @@ public class SearchPane extends VBox {
             }
         }
         resultCount.setText(String.valueOf(records.size()));
-        searchHBox.setDisable(false);
+        searchPanes.setDisable(false);
     }
 }

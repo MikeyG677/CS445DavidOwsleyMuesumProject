@@ -20,7 +20,7 @@
                 <Label layoutX="6.0" layoutY="6.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Search by Title Below: " />
                  <TextField fx:id="searchFieldTitle" layoutX="6.0" layoutY="28.0" onAction="#searchByTitle" />
                  <Button fx:id="searchButtonTitle" layoutX="6.0" layoutY="59.0" onAction="#searchByTitle" text="Search" />
-               <CheckBox fx:id="isExactWordTitle" layoutX="178.0" layoutY="31.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="127.0" text="Match Full Word?" />
+               <CheckBox fx:id="isExactWordTitle" layoutX="178.0" layoutY="31.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="160.0" text="Match Full Word?" />
             </children>
          </AnchorPane>
        <AnchorPane fx:id="AnchorPaneSubject" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
@@ -29,9 +29,9 @@
                 <Label layoutX="6.0" layoutY="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Search by Subject Below: " />
                  <TextField fx:id="searchFieldSubject" layoutX="6.0" layoutY="27.0" onAction="#searchBySubject" />
                  <Button fx:id="searchButtonSubject" layoutX="6.0" layoutY="58.0" onAction="#searchBySubject" text="Search" />
-               <ScrollPane hbarPolicy="NEVER" layoutX="164.0" layoutY="55.0" prefHeight="101.0" prefWidth="119.0">
+               <ScrollPane hbarPolicy="NEVER" layoutX="178.0" layoutY="53.0" prefHeight="101.0" prefWidth="119.0">
                   <content>
-                     <VBox prefHeight="105.0" prefWidth="107.0">
+                     <VBox fx:id="subjectPresets" prefHeight="105.0" prefWidth="107.0">
                         <children>
 
                                  <CheckBox fx:id="AmericaSearchToggle" mnemonicParsing="false" text="America">

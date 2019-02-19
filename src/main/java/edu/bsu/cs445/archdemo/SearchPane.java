@@ -79,7 +79,7 @@ public class SearchPane extends VBox {
             CheckBox subjectPreset = (CheckBox) child;
             if (subjectPreset.isSelected()) { subjectList.add(subjectPreset.getText()); }
         }
-        if (!searchTerm.isEmpty()) { subjectList.add(searchTerm); }
+        if(!searchTerm.isEmpty()) { subjectList.add(searchTerm); }
         if(!subjectList.isEmpty()){ records = collection.searchThroughSubjects(subjectList, isExactWordSubject.isSelected()); }
         returnResults(records);
     }

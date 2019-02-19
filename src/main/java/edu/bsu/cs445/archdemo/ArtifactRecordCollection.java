@@ -46,6 +46,7 @@ class ArtifactRecordCollection {
 
     List<ArtifactRecord> searchThroughTitles(String query, Boolean isExactWord) {
         List<ArtifactRecord> result;
+
         if(isExactWord) {
             result = items.stream()
                     .filter(artifactRecord -> artifactRecord.getTitle().toLowerCase()

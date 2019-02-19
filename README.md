@@ -10,9 +10,8 @@ This repository contains code for a running example in
 at [Ball State University](https://www.bsu.edu).
 
 This project uses [Gradle](https://gradle.org/). If you clone it into [IntelliJ IDEA](https://www.jetbrains.com/idea/), 
-you will be able to import it as a gradle project. To run the unit tests, right-click on the `tests` folder and you will be 
-able to execute all the tests, optionally with test coverage by right-clicking on the test folder and selecting the 'Run All Tests with Coverage' option. One can also run the main application by right-clicking 
-on the `Main` class.
+you will be able to import it as a gradle project. 
+You can run the main application by right-clicking on the Main class and selecting 'Run'. To run the unit tests, right-click on the `tests` folder and select 'Run All Tests'. To run the unit tests with test coverage, select 'Run All Tests with Coverage' in the same menu.
 
 
 Report Self Assessment:

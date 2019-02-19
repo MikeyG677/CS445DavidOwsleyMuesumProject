@@ -51,10 +51,32 @@ class ArtifactRecordCollectionTest {
         ArtifactRecordCollection collection = ArtifactRecordCollection.of(
                 ArtifactRecord.withTitle(testTitle)
         );
-        List<ArtifactRecord> resultExactFalse = collection.searchTitles(testTitle, false);
+        List<ArtifactRecord> resultExactFalse = collection.searchThroughTitles(testTitle, false);
         Assertions.assertEquals(testTitle, resultExactFalse.get(0).getTitle());
-        List<ArtifactRecord>resultExactTrue = collection.searchTitles(testTitle, true);
+        List<ArtifactRecord>resultExactTrue = collection.searchThroughTitles(testTitle, true);
         Assertions.assertEquals(testTitle, resultExactTrue.get(0).getTitle());
+    }
+
+    @Test
+    void testCountRecordsBySubjectQuery_emptyString_zero() {
+        final HashSet<String> query = new HashSet<>();
+        ArtifactRecordCollection collection = ArtifactRecordCollection.createEmpty();
+        int countExactFalse = collection.countRecordsBySubjectQuery(query, false);
+        Assertions.assertEquals(0, countExactFalse);
+        int countExactTrue = collection.countRecordsBySubjectQuery(query, true);
+        Assertions.assertEquals(0, countExactTrue);
+    }
+
+    @Test
+    void testCountRecordsBySubjectQuery_oneItemMatch_one() {
+        final HashSet<String> query = new HashSet<>();
+        query.add("Foo");
+        ArtifactRecord record = ArtifactRecord.withSubject(query.toString());
+        ArtifactRecordCollection collection = ArtifactRecordCollection.of(record);
+        int countExactFalse = collection.countRecordsBySubjectQuery(query, false);
+        Assertions.assertEquals(1, countExactFalse);
+        int countExactTrue = collection.countRecordsBySubjectQuery(query, true);
+        Assertions.assertEquals(1, countExactTrue);
     }
 
     @Test
@@ -67,10 +89,10 @@ class ArtifactRecordCollectionTest {
         ArtifactRecordCollection collection = ArtifactRecordCollection.of(
                 ArtifactRecord.withSubject(testSubject1 + " ; " + testSubject2)
         );
-        List<ArtifactRecord> resultExactFalse = collection.searchSubject(testSubjectList, false);
+        List<ArtifactRecord> resultExactFalse = collection.searchThroughSubject(testSubjectList, false);
         Assertions.assertEquals(testSubject1 + " ; " + testSubject2, resultExactFalse.get(0).getSubject_LCSH());
 
-        List<ArtifactRecord>resultExactTrue = collection.searchSubject(testSubjectList, true);
+        List<ArtifactRecord>resultExactTrue = collection.searchThroughSubject(testSubjectList, true);
         Assertions.assertEquals(testSubject1 + " ; " + testSubject2, resultExactTrue.get(0).getSubject_LCSH());
 
     }

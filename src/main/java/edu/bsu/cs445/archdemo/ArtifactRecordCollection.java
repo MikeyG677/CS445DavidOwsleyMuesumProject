@@ -35,11 +35,16 @@ class ArtifactRecordCollection {
     }
 
     int countRecordsByTitleQuery(String query, Boolean isExactWord) {
-        List<ArtifactRecord> result = searchTitles(query, isExactWord);
+        List<ArtifactRecord> result = searchThroughTitles(query, isExactWord);
         return result.size();
     }
 
-    List<ArtifactRecord> searchTitles(String query, Boolean isExactWord) {
+    int countRecordsBySubjectQuery(HashSet<String> query, Boolean isExactWord) {
+        List<ArtifactRecord> result = searchThroughSubject(query, isExactWord);
+        return result.size();
+    }
+
+    List<ArtifactRecord> searchThroughTitles(String query, Boolean isExactWord) {
         List<ArtifactRecord> result;
         if(isExactWord) {
             result = items.stream()
@@ -54,9 +59,8 @@ class ArtifactRecordCollection {
         return ImmutableList.copyOf(result);
     }
 
-    List<ArtifactRecord> searchBySubject(HashSet<String> queryList, Boolean isExactWord) {
+    List<ArtifactRecord> searchThroughSubject(HashSet<String> queryList, Boolean isExactWord) {
         List<ArtifactRecord> resultList = new ArrayList<>();
-
         for(String query : queryList){
             if(isExactWord){
                 List<ArtifactRecord> result = items.stream()

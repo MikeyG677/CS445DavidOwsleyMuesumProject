@@ -34,6 +34,7 @@ class ArtifactRecordCollection {
         return items.size();
     }
 
+    //Methods below utilize 2 parameters to avoid DRY violation.
     int countRecordsByTitleQuery(String query, Boolean isExactWord) {
         List<ArtifactRecord> result = searchThroughTitles(query, isExactWord);
         return result.size();

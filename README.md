@@ -27,8 +27,8 @@ Report Self Assessment:
     [X] B.3.R. The document explains how the following fundamental principles of interaction are manifest, or fail to manifest, in your solution: affordances, signifiers, cmappings, feedback, and conceptual models.
     [X] B.4.R. A common use case for the solution is documented through a series of annotated screenshots.
     [X] B.5.R. The document describes the methods by which the solution was evaluated.
-    [X] A.1.R. The documented solution evaluation includes both quantitative and qualitative elements that explicitly align with this semester's readings.
-    [X] A.2.R. Each of the aforementioned fundamental principles of interaction are explained with clearly annotated and described screenshots or figures.
+    [ ] A.1.R. The documented solution evaluation includes both quantitative and qualitative elements that explicitly align with this semester's readings.
+    [ ] A.2.R. Each of the aforementioned fundamental principles of interaction are explained with clearly annotated and described screenshots or figures.
 
 
 Source Self Assessment:
@@ -50,8 +50,8 @@ Source Self Assessment:
     [X] B.7.S. All signifiers within the user-interface point to implemented features. That is, a user cannot access an incomplete feature.
     [X] B.8.S. Unit tests document the correctness of the model layer, as evidenced in part by having at least 90% coverage.
     [X] B.9.S. Instructions for running the unit tests and measuring coverage are provided in the README file.
-    [X] A.1.S. The separation between the persistence layer and the model layer is clearly identified through one or more interfaces.
-    [X] A.2.S. The separation between the UI layer and the model layer is clearly identified through one or more interfaces.
-    [X] A.3.S. Instructions on how to build and execute the application are provided in the README file.
+    [ ] A.1.S. The separation between the persistence layer and the model layer is clearly identified through one or more interfaces.
+    [ ] A.2.S. The separation between the UI layer and the model layer is clearly identified through one or more interfaces.
+    [ ] A.3.S. Instructions on how to build and execute the application are provided in the README file.
 
-With the given criteria, our project would recieve an "A" based on our assessment.
+With the given criteria, our project would recieve an "B" based on our assessment.

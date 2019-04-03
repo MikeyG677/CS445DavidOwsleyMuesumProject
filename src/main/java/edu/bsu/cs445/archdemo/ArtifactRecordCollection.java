@@ -82,4 +82,27 @@ class ArtifactRecordCollection {
         return ImmutableList.copyOf(resultListDuplicatesRemoved);
 
     }
+
+    List<ArtifactRecord> searchByCulture(HashSet<String> queryList, Boolean isExactWord) {
+        List<ArtifactRecord> resultList = new ArrayList<>();
+        for(String query : queryList){
+            if(isExactWord){
+                List<ArtifactRecord> result = items.stream()
+                        .filter(artifactRecord -> artifactRecord.getCulture().toLowerCase()
+                                .matches(".*\\b" + query.toLowerCase() + "\\b.*")).collect(Collectors.toList());
+                resultList.addAll(result);
+            }
+            else {
+                List<ArtifactRecord> result = items.stream()
+                        .filter(artifactRecord -> artifactRecord.getCulture().toLowerCase()
+                                .contains(query.toLowerCase())).collect(Collectors.toList());
+                resultList.addAll(result);
+            }
+        }
+
+        LinkedHashSet<ArtifactRecord> resultListDuplicatesRemoved = new LinkedHashSet<>(resultList);
+        return ImmutableList.copyOf(resultListDuplicatesRemoved);
+
+    }
+
 }

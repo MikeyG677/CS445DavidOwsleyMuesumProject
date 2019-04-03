@@ -41,6 +41,10 @@ class ArtifactRecord {
     @XmlElement(name="Date_Made")
     private String date_Made;
 
+    @SuppressWarnings("unused") // Not set in source code, but set through JAXB.
+    @XmlElement(name="Culture")
+    private String culture;
+
     String getTitle() {
         return title;
     }
@@ -50,6 +54,8 @@ class ArtifactRecord {
     String getArtist(){return artist;}
 
     String getSubject_LCSH(){return subject_LCSH;}
+
+    String getCulture(){return culture;}
 
     String getDate_Made(){return date_Made;}
 

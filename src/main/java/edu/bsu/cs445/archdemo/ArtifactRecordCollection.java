@@ -28,7 +28,7 @@ class ArtifactRecordCollection {
     // This item is used by the JAXB parsing but not used in custom code.
     @SuppressWarnings({"unused","MismatchedQueryAndUpdateOfCollection"})
     @XmlElement(name="record")
-    private List<ArtifactRecord> items = Lists.newArrayList();
+    List<ArtifactRecord> items = Lists.newArrayList();
 
     int size() {
         return items.size();

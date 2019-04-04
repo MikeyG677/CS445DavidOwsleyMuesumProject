@@ -97,6 +97,42 @@ public class SearchPane extends VBox {
 
     @SuppressWarnings("unused") // This method is used by searchPane.fxml.
     @FXML
+    public void searchByCulture() {
+        initializeSearch();
+        List<ArtifactRecord> records = new ArrayList<>();
+        String searchTerm = searchFieldTitle.getText();
+
+        if(!searchTerm.isEmpty()) { records = collection.searchThroughTitles(searchTerm, isExactWordTitle.isSelected()); }
+        returnResults(records);
+    }
+
+
+    @SuppressWarnings("unused") // This method is used by searchPane.fxml.
+    @FXML
+    public void searchByPeriodStyle() {
+        initializeSearch();
+        List<ArtifactRecord> records = new ArrayList<>();
+        String searchTerm = searchFieldTitle.getText();
+
+        if(!searchTerm.isEmpty()) { records = collection.searchThroughTitles(searchTerm, isExactWordTitle.isSelected()); }
+        returnResults(records);
+    }
+
+
+    @SuppressWarnings("unused") // This method is used by searchPane.fxml.
+    @FXML
+    public void searchByCentury() {
+        initializeSearch();
+        List<ArtifactRecord> records = new ArrayList<>();
+        String searchTerm = searchFieldTitle.getText();
+
+        if(!searchTerm.isEmpty()) { records = collection.searchThroughTitles(searchTerm, isExactWordTitle.isSelected()); }
+        returnResults(records);
+    }
+
+
+    @SuppressWarnings("unused") // This method is used by searchPane.fxml.
+    @FXML
     private void returnResults(List<ArtifactRecord> records) {
         resultBox.getChildren().clear();
         if (records.size() > 0) {

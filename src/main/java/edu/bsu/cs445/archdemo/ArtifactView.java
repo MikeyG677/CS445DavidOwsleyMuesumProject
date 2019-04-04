@@ -33,6 +33,11 @@ class ArtifactView extends VBox {
     @FXML
     private TitledPane searchResultPane;
 
+    @SuppressWarnings("unused") // Used in FXML binding
+    @FXML
+    private Label cultureView;
+
+
     ArtifactView(ArtifactRecord record) {
         Preconditions.checkNotNull(record);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("artifactView.fxml"));
@@ -47,6 +52,7 @@ class ArtifactView extends VBox {
             subjectView.setText("Subject: " + record.getSubject_LCSH());
             dateView.setText("Date:  " + record.getDate_Made());
             searchResultPane.setText(record.getTitle());
+            cultureView.setText("Culture: " + record.getCulture());
 
         } catch (IOException e) {
             throw new RuntimeException(e);

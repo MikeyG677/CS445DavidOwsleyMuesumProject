@@ -105,4 +105,48 @@ class ArtifactRecordCollection {
 
     }
 
+    List<ArtifactRecord> searchByPeriod_Style(HashSet<String> queryList, Boolean isExactWord) {
+        List<ArtifactRecord> resultList = new ArrayList<>();
+        for(String query : queryList){
+            if(isExactWord){
+                List<ArtifactRecord> result = items.stream()
+                        .filter(artifactRecord -> artifactRecord.getCulture().toLowerCase()
+                                .matches(".*\\b" + query.toLowerCase() + "\\b.*")).collect(Collectors.toList());
+                resultList.addAll(result);
+            }
+            else {
+                List<ArtifactRecord> result = items.stream()
+                        .filter(artifactRecord -> artifactRecord.getCulture().toLowerCase()
+                                .contains(query.toLowerCase())).collect(Collectors.toList());
+                resultList.addAll(result);
+            }
+        }
+
+        LinkedHashSet<ArtifactRecord> resultListDuplicatesRemoved = new LinkedHashSet<>(resultList);
+        return ImmutableList.copyOf(resultListDuplicatesRemoved);
+
+    }
+
+    List<ArtifactRecord> searchByCentury(HashSet<String> queryList, Boolean isExactWord) {
+        List<ArtifactRecord> resultList = new ArrayList<>();
+        for(String query : queryList){
+            if(isExactWord){
+                List<ArtifactRecord> result = items.stream()
+                        .filter(artifactRecord -> artifactRecord.getCulture().toLowerCase()
+                                .matches(".*\\b" + query.toLowerCase() + "\\b.*")).collect(Collectors.toList());
+                resultList.addAll(result);
+            }
+            else {
+                List<ArtifactRecord> result = items.stream()
+                        .filter(artifactRecord -> artifactRecord.getCulture().toLowerCase()
+                                .contains(query.toLowerCase())).collect(Collectors.toList());
+                resultList.addAll(result);
+            }
+        }
+
+        LinkedHashSet<ArtifactRecord> resultListDuplicatesRemoved = new LinkedHashSet<>(resultList);
+        return ImmutableList.copyOf(resultListDuplicatesRemoved);
+
+    }
+
 }

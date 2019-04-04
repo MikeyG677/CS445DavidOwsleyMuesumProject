@@ -39,10 +39,10 @@ public class Main extends Application {
             throw new RuntimeException(e);
         }
         Scene scene = new Scene(root);
-        stage.setTitle("Slightly Less Naive DOMA Search");
+        stage.setTitle("DOMA: Historic Machine");
         stage.setScene(scene);
-        stage.setMinWidth(650);
-        stage.setMinHeight(650);
+        stage.setMinWidth(300);
+        stage.setMinHeight(400);
         stage.show();
     }
 }

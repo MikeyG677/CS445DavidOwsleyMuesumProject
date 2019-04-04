@@ -44,9 +44,9 @@ public class SearchPane extends VBox {
     @SuppressWarnings("unused") // Used in FXML binding
     private VBox subjectPresets;
 
-    private final ArtifactRecordCollection collection;
+    private final JaxbArtifactRecordCollection collection;
 
-    SearchPane(ArtifactRecordCollection collection) {
+    SearchPane(JaxbArtifactRecordCollection collection) {
         this.collection = Preconditions.checkNotNull(collection);
         URL fxmlUrl = getClass().getResource("searchPane.fxml");
         Preconditions.checkNotNull(fxmlUrl, "Fxml asset location is not specified correctly.");

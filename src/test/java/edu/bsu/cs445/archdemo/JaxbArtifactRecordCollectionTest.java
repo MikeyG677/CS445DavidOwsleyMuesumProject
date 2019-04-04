@@ -7,11 +7,11 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
-class ArtifactRecordCollectionTest {
+class JaxbArtifactRecordCollectionTest {
 
     @Test
     void testCountRecordsByTitleQuery_emptyString_zero() {
-        ArtifactRecordCollection collection = ArtifactRecordCollection.createEmpty();
+        JaxbArtifactRecordCollection collection = JaxbArtifactRecordCollection.createEmpty();
         int countExactFalse = collection.countRecordsByTitleQuery("", false);
         Assertions.assertEquals(0, countExactFalse);
         int countExactTrue = collection.countRecordsByTitleQuery("", true);
@@ -29,7 +29,7 @@ class ArtifactRecordCollectionTest {
         testInfo.put("date_Made", "Barl");
 
         ArtifactRecord record = ArtifactRecord.withSpecificInfo(testInfo);
-        ArtifactRecordCollection collection = ArtifactRecordCollection.of(record);
+        JaxbArtifactRecordCollection collection = JaxbArtifactRecordCollection.of(record);
         int countExactFalse = collection.countRecordsByTitleQuery("Foo", false);
         Assertions.assertEquals(1, countExactFalse);
         int countExactTrue = collection.countRecordsByTitleQuery("Foo", true);
@@ -47,7 +47,7 @@ class ArtifactRecordCollectionTest {
         testInfo.put("date_Made", "Barl");
 
         ArtifactRecord record = ArtifactRecord.withSpecificInfo(testInfo);
-        ArtifactRecordCollection collection = ArtifactRecordCollection.of(record);
+        JaxbArtifactRecordCollection collection = JaxbArtifactRecordCollection.of(record);
         int countExactFalse = collection.countRecordsByTitleQuery("Bar", false);
         Assertions.assertEquals(0, countExactFalse);
         int countExactTrue = collection.countRecordsByTitleQuery("Bar", true);
@@ -72,7 +72,7 @@ class ArtifactRecordCollectionTest {
         testInfo2.put("subject_LCSH", "Fool");
         testInfo2.put("date_Made", "Barl");
 
-        ArtifactRecordCollection collection = ArtifactRecordCollection.of(
+        JaxbArtifactRecordCollection collection = JaxbArtifactRecordCollection.of(
                 ArtifactRecord.withSpecificInfo(testInfo1),
                 ArtifactRecord.withSpecificInfo(testInfo2));
         int countExactFalse = collection.countRecordsByTitleQuery("Foo", false);
@@ -89,7 +89,7 @@ class ArtifactRecordCollectionTest {
         testInfo.put("subject_LCSH", "Fool");
         testInfo.put("date_Made", "Barl");
 
-        ArtifactRecordCollection collection = ArtifactRecordCollection.of(
+        JaxbArtifactRecordCollection collection = JaxbArtifactRecordCollection.of(
                 ArtifactRecord.withSpecificInfo(testInfo)
         );
         List<ArtifactRecord> resultExactFalse = collection.searchThroughTitles(testTitle, false);
@@ -101,7 +101,7 @@ class ArtifactRecordCollectionTest {
     @Test
     void testCountRecordsBySubjectQuery_emptyString_zero() {
         final HashSet<String> query = new HashSet<>();
-        ArtifactRecordCollection collection = ArtifactRecordCollection.createEmpty();
+        JaxbArtifactRecordCollection collection = JaxbArtifactRecordCollection.createEmpty();
         int countExactFalse = collection.countRecordsBySubjectQuery(query, false);
         Assertions.assertEquals(0, countExactFalse);
         int countExactTrue = collection.countRecordsBySubjectQuery(query, true);
@@ -121,7 +121,7 @@ class ArtifactRecordCollectionTest {
         testInfo.put("date_Made", "Barl");
 
         ArtifactRecord record = ArtifactRecord.withSpecificInfo(testInfo);
-        ArtifactRecordCollection collection = ArtifactRecordCollection.of(record);
+        JaxbArtifactRecordCollection collection = JaxbArtifactRecordCollection.of(record);
         int countExactFalse = collection.countRecordsBySubjectQuery(testQuery, false);
         Assertions.assertEquals(1, countExactFalse);
         int countExactTrue = collection.countRecordsBySubjectQuery(testQuery, true);
@@ -141,7 +141,7 @@ class ArtifactRecordCollectionTest {
         testInfo.put("subject_LCSH", testSubjects);
         testInfo.put("date_Made", "Barl");
 
-        ArtifactRecordCollection collection = ArtifactRecordCollection.of(
+        JaxbArtifactRecordCollection collection = JaxbArtifactRecordCollection.of(
                 ArtifactRecord.withSpecificInfo(testInfo)
         );
         List<ArtifactRecord> resultExactFalse = collection.searchThroughSubjects(testSubjectList, false);

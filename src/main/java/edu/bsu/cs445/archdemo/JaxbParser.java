@@ -10,11 +10,11 @@ class JaxbParser {
         return new JaxbParser();
     }
 
-    ArtifactRecordCollection parse(InputStream input) {
+    JaxbArtifactRecordCollection parse(InputStream input) {
         try {
-            JAXBContext context = JAXBContext.newInstance(ArtifactRecordCollection.class);
+            JAXBContext context = JAXBContext.newInstance(JaxbArtifactRecordCollection.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();
-            return (ArtifactRecordCollection)unmarshaller.unmarshal(input);
+            return (JaxbArtifactRecordCollection)unmarshaller.unmarshal(input);
         } catch (JAXBException e) {
             throw new RuntimeException(e);
         }

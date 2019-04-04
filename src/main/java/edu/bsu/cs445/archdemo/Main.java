@@ -13,7 +13,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class Main extends Application {
 
-    private ArtifactRecordCollection collection;
+    private JaxbArtifactRecordCollection collection;
 
     @Override
     public void start(Stage primaryStage) {

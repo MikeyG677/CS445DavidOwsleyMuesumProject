@@ -12,17 +12,17 @@ import java.util.stream.Collectors;
 
 @XmlRootElement(name="metadata")
 @XmlAccessorType(XmlAccessType.FIELD)
-class ArtifactRecordCollection {
+class JaxbArtifactRecordCollection {
 
-    static ArtifactRecordCollection of(ArtifactRecord... records) {
+    static JaxbArtifactRecordCollection of(ArtifactRecord... records) {
         Preconditions.checkNotNull(records, "Parameter may not be null");
-        ArtifactRecordCollection collection = new ArtifactRecordCollection();
+        JaxbArtifactRecordCollection collection = new JaxbArtifactRecordCollection();
         collection.items.addAll(Arrays.asList(records));
         return collection;
     }
 
-    static ArtifactRecordCollection createEmpty() {
-        return new ArtifactRecordCollection();
+    static JaxbArtifactRecordCollection createEmpty() {
+        return new JaxbArtifactRecordCollection();
     }
 
     // This item is used by the JAXB parsing but not used in custom code.

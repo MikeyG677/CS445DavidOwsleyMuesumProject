@@ -9,7 +9,7 @@ class SearchEngine {
     private List<ArtifactRecord> artifacts;
     private List<ArtifactRecord> result;
 
-    SearchEngine(ArtifactRecordCollection collection) {
+    SearchEngine(JaxbArtifactRecordCollection collection) {
         this.artifacts = collection.items;
     }
 

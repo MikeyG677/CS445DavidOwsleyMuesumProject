@@ -16,7 +16,7 @@ class JaxbParserTest {
     void testParse_numberOfRecords(String inputSource, int expectedLength) {
         JaxbParser parser = JaxbParser.create();
         InputStream input =  Thread.currentThread().getContextClassLoader().getResourceAsStream(inputSource);
-        ArtifactRecordCollection collection = parser.parse(input);
+        JaxbArtifactRecordCollection collection = parser.parse(input);
         assertEquals(expectedLength, collection.size());
     }
 }

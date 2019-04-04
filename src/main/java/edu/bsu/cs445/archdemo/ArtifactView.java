@@ -37,6 +37,14 @@ class ArtifactView extends VBox {
     @FXML
     private Label cultureView;
 
+    @SuppressWarnings("unused") // Used in FXML binding
+    @FXML
+    private Label centuryView;
+
+    @SuppressWarnings("unused") // Used in FXML binding
+    @FXML
+    private Label periodStyleView;
+
 
     ArtifactView(ArtifactRecord record) {
         Preconditions.checkNotNull(record);
@@ -53,6 +61,9 @@ class ArtifactView extends VBox {
             dateView.setText("Date:  " + record.getDate_Made());
             searchResultPane.setText(record.getTitle());
             cultureView.setText("Culture: " + record.getCulture());
+            centuryView.setText("Century: " + record.getCentury());
+            periodStyleView.setText("Period Style: " + record.getPeriodStyle());
+
 
         } catch (IOException e) {
             throw new RuntimeException(e);

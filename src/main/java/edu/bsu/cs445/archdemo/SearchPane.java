@@ -45,9 +45,12 @@ public class SearchPane extends VBox {
     private VBox subjectPresets;
 
     private final JaxbArtifactRecordCollection collection;
+    private final SearchEngine search;
 
     SearchPane(JaxbArtifactRecordCollection collection) {
         this.collection = Preconditions.checkNotNull(collection);
+        this.search = new SearchEngine(collection);
+
         URL fxmlUrl = getClass().getResource("searchPane.fxml");
         Preconditions.checkNotNull(fxmlUrl, "Fxml asset location is not specified correctly.");
         FXMLLoader loader = new FXMLLoader(fxmlUrl);
@@ -69,6 +72,25 @@ public class SearchPane extends VBox {
 
     @SuppressWarnings("unused") // This method is used by searchPane.fxml.
     @FXML
+    public void searchByTitle() {
+        initializeSearch();
+        List<ArtifactRecord> records = new ArrayList<>();
+        String searchTerm = searchFieldTitle.getText();
+
+        if(!searchTerm.isEmpty()) {
+            if(isExactWordTitle.isSelected()){
+                records = search.searchTitle_WholeWord(searchTerm);
+            }
+            else{
+                records = search.searchTitle_Contains(searchTerm);
+            }
+        }
+        returnResults(records);
+    }
+
+    /* Slowly reintroduce functionality as UI accommodates said function.
+    @SuppressWarnings("unused") // This method is used by searchPane.fxml.
+    @FXML
     public void searchBySubject() {
         initializeSearch();
         List<ArtifactRecord> records = new ArrayList<>();
@@ -86,17 +108,6 @@ public class SearchPane extends VBox {
 
     @SuppressWarnings("unused") // This method is used by searchPane.fxml.
     @FXML
-    public void searchByTitle() {
-        initializeSearch();
-        List<ArtifactRecord> records = new ArrayList<>();
-        String searchTerm = searchFieldTitle.getText();
-
-        if(!searchTerm.isEmpty()) { records = collection.searchThroughTitles(searchTerm, isExactWordTitle.isSelected()); }
-        returnResults(records);
-    }
-
-    @SuppressWarnings("unused") // This method is used by searchPane.fxml.
-    @FXML
     public void searchByCulture() {
         initializeSearch();
         List<ArtifactRecord> records = new ArrayList<>();
@@ -105,7 +116,6 @@ public class SearchPane extends VBox {
         if(!searchTerm.isEmpty()) { records = collection.searchThroughTitles(searchTerm, isExactWordTitle.isSelected()); }
         returnResults(records);
     }
-
 
     @SuppressWarnings("unused") // This method is used by searchPane.fxml.
     @FXML
@@ -118,7 +128,6 @@ public class SearchPane extends VBox {
         returnResults(records);
     }
 
-
     @SuppressWarnings("unused") // This method is used by searchPane.fxml.
     @FXML
     public void searchByCentury() {
@@ -129,7 +138,7 @@ public class SearchPane extends VBox {
         if(!searchTerm.isEmpty()) { records = collection.searchThroughTitles(searchTerm, isExactWordTitle.isSelected()); }
         returnResults(records);
     }
-
+    */
 
     @SuppressWarnings("unused") // This method is used by searchPane.fxml.
     @FXML

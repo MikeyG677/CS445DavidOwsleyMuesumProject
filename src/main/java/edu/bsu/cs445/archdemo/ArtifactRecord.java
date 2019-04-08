@@ -71,4 +71,6 @@ class ArtifactRecord {
 
     String getDate_Made(){return date_Made;}
 
+    void setFileName(String file){this.fileName = file;}
+
 }

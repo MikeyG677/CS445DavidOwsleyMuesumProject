@@ -9,8 +9,8 @@ class SearchEngine {
     private List<ArtifactRecord> artifacts;
     private List<ArtifactRecord> results;
 
-    SearchEngine(JaxbArtifactRecordCollection collection) {
-        this.artifacts = collection.items;
+    SearchEngine(DomaArtifactRecordCollection collection) {
+        this.artifacts = collection.records;
     }
 
     List<ArtifactRecord> searchTitle_WholeWord(String query) {

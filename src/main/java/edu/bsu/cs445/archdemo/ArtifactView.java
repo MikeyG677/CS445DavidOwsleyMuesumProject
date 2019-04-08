@@ -55,8 +55,8 @@ class ArtifactView extends VBox {
         loader.setController(this);
         try {
             loader.load();
-//            Image image = new Image("http://cspvggp.dhcp.bsu.edu/OMI/" + record.getFileName());
-//            imageView.setImage(image);
+            Image image = new Image("http://cspvggp.dhcp.bsu.edu/OMI/" + record.getFileName());
+            imageView.setImage(image);
             titleView.setText("Title: " + record.getTitle());
             artistView.setText("Artist: " + record.getArtist());
             subjectView.setText("Subject: " + record.getSubject_LCSH());

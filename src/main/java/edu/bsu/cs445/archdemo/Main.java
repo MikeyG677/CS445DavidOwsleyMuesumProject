@@ -13,17 +13,22 @@ import java.util.concurrent.CompletableFuture;
 
 public class Main extends Application {
 
-    private JaxbArtifactRecordCollection collection;
+    private JaxbArtifactRecordCollection jaxbCollection;
+    private DomaArtifactRecordCollection domaCollection;
 
     @Override
     public void start(Stage primaryStage) {
+        DomaArtifactRecordCollection domaCollection = new DomaArtifactRecordCollection();
         CreateInitialScene createScene = new CreateInitialScene();
         createScene.createInitialScene(primaryStage);
         JaxbParser parser = JaxbParser.create();
         InputStream owsleyStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("owsley.xml");
-        CompletableFuture.runAsync(() -> collection = parser.parse(owsleyStream))
+        CompletableFuture.runAsync(() -> jaxbCollection = parser.parse(owsleyStream))
                 .thenRun(() -> Platform.runLater(() -> {
-                            SearchPane searchPane = new SearchPane(collection);
+                            System.out.println(jaxbCollection.size());
+                    DomaArtifactRecordCollection convertedCollection = domaCollection.convertJaxbToDoma(jaxbCollection);
+                            System.out.println(convertedCollection.records.toString());
+                            SearchPane searchPane = new SearchPane(convertedCollection);
                             Scene searchPaneScene = new Scene(searchPane);
                             primaryStage.setScene(searchPaneScene);
                         }

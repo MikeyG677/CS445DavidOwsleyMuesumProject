@@ -48,14 +48,13 @@ public class SearchPane extends VBox {
     @SuppressWarnings("unused") // Used in FXML binding
     private VBox subjectPresets;
 
-    private final JaxbArtifactRecordCollection collection;
-    private final DomaArtifactRecordCollection domaCollection;
+    //private final JaxbArtifactRecordCollection collection;
+    private final DomaArtifactRecordCollection collection;
     private final SearchEngine search;
 
-    SearchPane(JaxbArtifactRecordCollection collection) {
+    SearchPane(DomaArtifactRecordCollection collection) {
         this.collection = Preconditions.checkNotNull(collection);
         this.search = new SearchEngine(collection);
-        this.domaCollection = new DomaArtifactRecordCollection();
 
 
         URL fxmlUrl = getClass().getResource("searchPane.fxml");

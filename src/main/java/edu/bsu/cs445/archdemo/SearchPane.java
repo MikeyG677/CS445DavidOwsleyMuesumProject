@@ -3,8 +3,12 @@ import com.google.common.base.Preconditions;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -66,6 +70,7 @@ public class SearchPane extends VBox {
         }
     }
 
+
     @SuppressWarnings("unused") // This method is used by searchPane.fxml.
     @FXML
     private void initializeSearch() { // Precondition for all search methods.
@@ -80,7 +85,16 @@ public class SearchPane extends VBox {
         List<ArtifactRecord> records = new ArrayList<>();
         String searchTerm = searchFieldTitle.getText();
 
-        if(!searchTerm.isEmpty()) {
+        if(searchTerm.length()<=1){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Search Error");
+            alert.setHeaderText("Invalid Search Length");
+            alert.setContentText("Please enter a search query longer than one character!");
+
+            alert.showAndWait();
+        }
+
+        if(!searchTerm.isEmpty() && searchTerm.length()>1) {
             if(isExactWordTitle.isSelected()){
                 records = search.searchTitle_WholeWord(searchTerm);
             }
@@ -146,10 +160,12 @@ public class SearchPane extends VBox {
     @SuppressWarnings("unused") // This method is used by searchPane.fxml.
     @FXML
     private void returnResults(List<ArtifactRecord> records) {
+
         resultBox.getChildren().clear();
         if (records.size() > 0) {
             for (ArtifactRecord record : records) { resultBox.getChildren().add(new ArtifactView(record)); } }
         resultCount.setText(String.valueOf(records.size()));
         searchPanes.setDisable(false);
+
     }
 }

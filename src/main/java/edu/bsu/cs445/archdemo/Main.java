@@ -17,7 +17,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        createInitialScene(primaryStage);
+        CreateInitialScene createScene = new CreateInitialScene();
+        createScene.createInitialScene(primaryStage);
         JaxbParser parser = JaxbParser.create();
         InputStream owsleyStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("owsley.xml");
         CompletableFuture.runAsync(() -> collection = parser.parse(owsleyStream))
@@ -29,20 +30,4 @@ public class Main extends Application {
                 ));
     }
 
-    private void createInitialScene(Stage stage) {
-        Parent root;
-        try {
-            URL url = getClass().getResource("loading.fxml");
-            Preconditions.checkNotNull(url, "Cannot load fxml resource");
-            root = FXMLLoader.load(url);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        Scene scene = new Scene(root);
-        stage.setTitle("DOMA: Historic Machine");
-        stage.setScene(scene);
-        stage.setMinWidth(300);
-        stage.setMinHeight(400);
-        stage.show();
-    }
 }

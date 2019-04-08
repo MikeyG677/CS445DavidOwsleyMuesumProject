@@ -19,7 +19,7 @@
                      <ImageView fx:id="imageView" fitHeight="300.0" fitWidth="300.0" layoutX="20.0" layoutY="34.0" preserveRatio="true" AnchorPane.bottomAnchor="34.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="34.0" />
                  </AnchorPane>
              </ScrollPane>
-             <AnchorPane minWidth="300.0">
+             <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="300.0" SplitPane.resizableWithParent="false">
 
                  <Label fx:id="titleView" layoutX="13.0" layoutY="1.0" maxWidth="275.0" text="Title:" wrapText="true">
                <padding>

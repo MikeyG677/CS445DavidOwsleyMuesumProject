@@ -1,9 +1,6 @@
 package edu.bsu.cs445.archdemo;
 
 import com.google.common.collect.ImmutableList;
-
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,65 +9,59 @@ class SearchEngine {
     private List<ArtifactRecord> artifacts;
     private List<ArtifactRecord> results;
 
-    SearchEngine(JaxbArtifactRecordCollection collection) {
-        this.artifacts = collection.items;
+    SearchEngine(DomaArtifactRecordCollection collection) {
+        this.artifacts = collection.records;
     }
 
     List<ArtifactRecord> searchTitle_WholeWord(String query) {
         results = artifacts.stream()
                 .filter(artifactRecord -> artifactRecord.getTitle().toLowerCase()
-                        .matches(".*\\b" + query.toLowerCase() + "\\b.*")).collect(Collectors.toList());
+                .matches(".*\\b" + query.toLowerCase() + "\\b.*")).collect(Collectors.toList());
         return ImmutableList.copyOf(results);
     }
 
     List<ArtifactRecord> searchTitle_Contains(String query) {
         results = artifacts.stream()
                 .filter(artifactRecord -> artifactRecord.getTitle().toLowerCase()
-                        .contains(query.toLowerCase())).collect(Collectors.toList());
+                .contains(query.toLowerCase())).collect(Collectors.toList());
         return ImmutableList.copyOf(results);
     }
 
     List<ArtifactRecord> searchSubject_WholeWord(String query) {
         results = artifacts.stream()
                 .filter(artifactRecord -> artifactRecord.getSubject_LCSH().toLowerCase()
-                        .matches(".*\\b" + query.toLowerCase() + "\\b.*")).collect(Collectors.toList());
+                .matches(".*\\b" + query.toLowerCase() + "\\b.*")).collect(Collectors.toList());
         return ImmutableList.copyOf(results);
     }
 
     List<ArtifactRecord> searchSubject_Contains(String query) {
         results = artifacts.stream()
                 .filter(artifactRecord -> artifactRecord.getSubject_LCSH().toLowerCase()
-                        .contains(query.toLowerCase())).collect(Collectors.toList());
+                .contains(query.toLowerCase())).collect(Collectors.toList());
         return ImmutableList.copyOf(results);
     }
 
-    List<ArtifactRecord> searchRelatedWorks(ArtifactRecord record){
-        LinkedHashSet<ArtifactRecord> resultsList = new LinkedHashSet<>();
-
-        String[] culturesSeparated = record.getCulture().split(" ; ", -1);
-        for (String cultureSingular : culturesSeparated){
-            results = artifacts.stream()
-                    .filter(artifactRecord -> artifactRecord.getCulture().toLowerCase()
-                            .contains(".*\\b" + cultureSingular.toLowerCase() + "\\b.*")).collect(Collectors.toList());
-            resultsList.addAll(results);
+    /* Old search function: KEEP FOR NOW, WILL REUSE/REDESIGN
+    List<ArtifactRecord> searchThroughSubjects(HashSet<String> queryList, Boolean isExactWord) {
+        List<ArtifactRecord> resultList = new ArrayList<>();
+        for(String query : queryList){
+            if(isExactWord){
+                List<ArtifactRecord> result = items.stream()
+                        .filter(artifactRecord -> artifactRecord.getSubject_LCSH().toLowerCase()
+                                .matches(".*\\b" + query.toLowerCase() + "\\b.*")).collect(Collectors.toList());
+                resultList.addAll(result);
+            }
+            else {
+                List<ArtifactRecord> result = items.stream()
+                        .filter(artifactRecord -> artifactRecord.getSubject_LCSH().toLowerCase()
+                                .contains(query.toLowerCase())).collect(Collectors.toList());
+                resultList.addAll(result);
+            }
         }
 
-        String[] centuriesSeparated = record.getCentury().split(" ; ", -1);
-        for (String centurySingular : centuriesSeparated){
-            results = artifacts.stream()
-                    .filter(artifactRecord -> artifactRecord.getCentury().toLowerCase()
-                            .contains(".*\\b" + centurySingular.toLowerCase() + "\\b.*")).collect(Collectors.toList());
-            resultsList.addAll(results);
-        }
-
-        String[] periodStylesSeparated = record.getPeriodStyle().split(" ; ", -1);
-        for (String periodStyleSingular : periodStylesSeparated){
-            results = artifacts.stream()
-                    .filter(artifactRecord -> artifactRecord.getPeriodStyle().toLowerCase()
-                            .contains(".*\\b" + periodStyleSingular.toLowerCase() + "\\b.*")).collect(Collectors.toList());
-            resultsList.addAll(results);
-        }
-
-        return ImmutableList.copyOf(resultsList);
+        LinkedHashSet<ArtifactRecord> resultListDuplicatesRemoved = new LinkedHashSet<>(resultList);
+        return ImmutableList.copyOf(resultListDuplicatesRemoved);
     }
+    */
+
 }

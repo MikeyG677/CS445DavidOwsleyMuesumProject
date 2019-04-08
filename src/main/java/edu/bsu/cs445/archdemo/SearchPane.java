@@ -85,11 +85,15 @@ public class SearchPane extends VBox {
         List<ArtifactRecord> records = new ArrayList<>();
         String searchTerm = searchFieldTitle.getText();
 
-        if(searchTerm.length()<=1){
+        if(searchTerm.length()<=1 || records.size()<1){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Search Error");
-            alert.setHeaderText("Invalid Search Length");
-            alert.setContentText("Please enter a search query longer than one character!");
+            alert.setHeaderText("Invalid Search Query");
+            if(searchTerm.length()<=1) {
+                alert.setContentText("Please enter a search query longer than one character!");
+            }else{
+                alert.setContentText("No Results Available for " + "'" + searchTerm + "'" + " please enter a different query");
+            }
 
             alert.showAndWait();
         }

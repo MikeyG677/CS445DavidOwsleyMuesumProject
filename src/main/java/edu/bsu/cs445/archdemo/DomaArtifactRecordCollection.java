@@ -1,13 +1,10 @@
 package edu.bsu.cs445.archdemo;
-
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.util.Arrays;
 import java.util.List;
 
 @XmlRootElement(name="metadata")
@@ -27,8 +24,7 @@ class DomaArtifactRecordCollection {
                     if(!recordAbove.getTitle().isEmpty()){
                         break;
                     }
-                    //Grab image and add it to .cpds images. Do NOT add the record.
-                    if(recordAbove.getArtist().contentEquals("FRONT")){
+                    else if(recordAbove.getArtist().contentEquals("FRONT")){
                         record.setFileName(recordAbove.getFileName());
                         break;
                     }
@@ -37,15 +33,11 @@ class DomaArtifactRecordCollection {
                     }
                     j += 1;
                 }
-                //System.out.println("This is a .cpd!");
             }
             else if(!record.getTitle().isEmpty()){
-                //System.out.println("Record.");
-                //.add(record);
                 collection.records.add(record);
             }
         }
-        System.out.println(collection.records.toString());
         return collection;
     }
 

@@ -26,11 +26,12 @@ public class Main extends Application {
         CompletableFuture.runAsync(() -> jaxbCollection = parser.parse(owsleyStream))
                 .thenRun(() -> Platform.runLater(() -> {
                             System.out.println(jaxbCollection.size());
-                    DomaArtifactRecordCollection convertedCollection = domaCollection.convertJaxbToDoma(jaxbCollection);
+                            DomaArtifactRecordCollection convertedCollection = domaCollection.convertJaxbToDoma(jaxbCollection);
                             System.out.println(convertedCollection.records.toString());
                             SearchPane searchPane = new SearchPane(convertedCollection);
                             Scene searchPaneScene = new Scene(searchPane);
                             primaryStage.setScene(searchPaneScene);
+
                         }
                 ));
     }

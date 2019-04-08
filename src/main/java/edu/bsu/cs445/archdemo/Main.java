@@ -1,4 +1,5 @@
 package edu.bsu.cs445.archdemo;
+
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;

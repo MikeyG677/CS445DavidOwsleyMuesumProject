@@ -1,8 +1,6 @@
 package edu.bsu.cs445.archdemo;
 
 import com.google.common.collect.ImmutableList;
-
-import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.stream.Collectors;

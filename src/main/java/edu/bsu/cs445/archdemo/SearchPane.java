@@ -85,18 +85,6 @@ public class SearchPane extends VBox {
         List<ArtifactRecord> records = new ArrayList<>();
         String searchTerm = searchFieldTitle.getText();
 
-        if(searchTerm.length()<=1 || records.size()<1){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Search Error");
-            alert.setHeaderText("Invalid Search Query");
-            if(searchTerm.length()<=1) {
-                alert.setContentText("Please enter a search query longer than one character!");
-            }else{
-                alert.setContentText("No Results Available for " + "'" + searchTerm + "'" + " please enter a different query");
-            }
-
-            alert.showAndWait();
-        }
 
         if(!searchTerm.isEmpty() && searchTerm.length()>1) {
             if(isExactWordTitle.isSelected()){
@@ -105,6 +93,17 @@ public class SearchPane extends VBox {
             else{
                 records = search.searchTitle_Contains(searchTerm);
             }
+        }
+        if(searchTerm.length()<=1 || records.size()==0){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Search Error");
+            alert.setHeaderText("Invalid Search Query");
+            if(searchTerm.length()<=1) {
+                alert.setContentText("Please enter a search query longer than one character!");
+            }if(records.size()<1){
+                alert.setContentText("No Results Available for " + "'" + searchTerm + "'" + " please enter a different query");
+            }
+            alert.showAndWait();
         }
         returnResults(records);
     }

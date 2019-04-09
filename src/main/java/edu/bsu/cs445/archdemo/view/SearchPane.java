@@ -107,13 +107,23 @@ public class SearchPane extends VBox {
         returnResults(records);
     }
 
+    @SuppressWarnings("unused") // This method is used by artifactView.fxml.
+    @FXML
+    void searchRelatedWorks(ArtifactRecord record){
+        initializeSearch();
+        returnResults(search.searchRelatedWorks(record));
+    }
+
     @SuppressWarnings("unused") // This method is used by searchPane.fxml.
     @FXML
     private void returnResults(List<ArtifactRecord> records) {
-
         resultBox.getChildren().clear();
         if (records.size() > 0) {
-            for (ArtifactRecord record : records) { resultBox.getChildren().add(new ArtifactView(record)); } }
+            for (ArtifactRecord record : records) {
+                ArtifactView newArtifactView = new ArtifactView(record);
+                newArtifactView.parent = this;
+                resultBox.getChildren().add(newArtifactView); }
+        }
         resultCount.setText(String.valueOf(records.size()));
         searchPanes.setDisable(false);
 

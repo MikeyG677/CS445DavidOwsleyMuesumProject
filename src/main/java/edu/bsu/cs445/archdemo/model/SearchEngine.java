@@ -1,6 +1,8 @@
 package edu.bsu.cs445.archdemo.model;
 
 import com.google.common.collect.ImmutableList;
+
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,5 +27,29 @@ public class SearchEngine {
                 .filter(artifactRecord -> artifactRecord.getTitle().toLowerCase()
                         .contains(query.toLowerCase())).collect(Collectors.toList());
         return ImmutableList.copyOf(results);
+    }
+
+    public List<ArtifactRecord> searchRelatedWorks(ArtifactRecord record){
+        LinkedHashSet<ArtifactRecord> resultsList = new LinkedHashSet<>();
+
+        String[] centuriesSeparated = record.getCentury().split(" ; ", -1);
+        for (String centurySingular : centuriesSeparated){
+            System.out.println(centurySingular);
+            results = artifacts.stream()
+                    .filter(artifactRecord -> artifactRecord.getCentury().toLowerCase()
+                            .contains(centurySingular.toLowerCase())).collect(Collectors.toList());
+            resultsList.addAll(results);
+        }
+
+        String[] periodStylesSeparated = record.getPeriodStyle().split(" ; ", -1);
+        for (String periodStyleSingular : periodStylesSeparated){
+            System.out.println(periodStyleSingular);
+            results = artifacts.stream()
+                    .filter(artifactRecord -> artifactRecord.getPeriodStyle().toLowerCase()
+                            .contains(periodStyleSingular.toLowerCase())).collect(Collectors.toList());
+            resultsList.addAll(results);
+        }
+
+        return ImmutableList.copyOf(resultsList);
     }
 }

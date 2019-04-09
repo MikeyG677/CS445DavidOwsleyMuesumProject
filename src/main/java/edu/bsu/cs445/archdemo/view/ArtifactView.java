@@ -4,6 +4,7 @@ import com.google.common.base.Preconditions;
 import edu.bsu.cs445.archdemo.model.ArtifactRecord;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.TitledPane;
 import javafx.scene.image.Image;
 import javafx.scene.control.Label;
@@ -12,6 +13,8 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 
 class ArtifactView extends VBox {
+
+    private final ArtifactRecord record;
 
     @SuppressWarnings("unused") // Used in FXML binding
     @FXML
@@ -34,19 +37,20 @@ class ArtifactView extends VBox {
     @SuppressWarnings("unused") // Used in FXML binding
     @FXML
     private TitledPane searchResultPane;
-
     @SuppressWarnings("unused") // Used in FXML binding
     @FXML
     private Label cultureView;
-
     @SuppressWarnings("unused") // Used in FXML binding
     @FXML
     private Label centuryView;
-
     @SuppressWarnings("unused") // Used in FXML binding
     @FXML
     private Label periodStyleView;
+    @SuppressWarnings("unused") // Used in FXML binding
+    @FXML
+    private Button relatedWorks;
 
+    SearchPane parent;
 
     ArtifactView(ArtifactRecord record) {
         Preconditions.checkNotNull(record);
@@ -55,6 +59,8 @@ class ArtifactView extends VBox {
         loader.setController(this);
         try {
             loader.load();
+
+            this.record = record;
             Image image = new Image("http://cspvggp.dhcp.bsu.edu/OMI/" + record.getFileName());
             imageView.setImage(image);
             titleView.setText("Title: " + record.getTitle());
@@ -69,4 +75,9 @@ class ArtifactView extends VBox {
         }
     }
 
+    @SuppressWarnings("unused") // This method is used by artifactView.fxml.
+    @FXML
+    void searchRelatedWorks(){
+        parent.searchRelatedWorks(this.record);
+    }
 }

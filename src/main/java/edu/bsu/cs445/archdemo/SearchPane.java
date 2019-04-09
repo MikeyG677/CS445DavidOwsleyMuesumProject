@@ -88,6 +88,7 @@ public class SearchPane extends VBox {
                 records = search.searchTitle_Contains(searchTerm);
             }
         }
+
         if(searchTerm.length()<=1 || records.size()==0){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Search Error");
@@ -102,58 +103,6 @@ public class SearchPane extends VBox {
         }
         returnResults(records);
     }
-
-    /* Slowly reintroduce functionality as UI accommodates said function.
-    @SuppressWarnings("unused") // This method is used by searchPane.fxml.
-    @FXML
-    public void searchBySubject() {
-        initializeSearch();
-        List<ArtifactRecord> records = new ArrayList<>();
-        HashSet<String> subjectList = new HashSet<>();
-        String searchTerm = searchFieldSubject.getText();
-
-        for (Node child : subjectPresets.getChildren()) {
-            CheckBox subjectPreset = (CheckBox) child;
-            if (subjectPreset.isSelected()) { subjectList.add(subjectPreset.getText()); }
-        }
-        if(!searchTerm.isEmpty()) { subjectList.add(searchTerm); }
-        if(!subjectList.isEmpty()){ records = collection.searchThroughSubjects(subjectList, isExactWordSubject.isSelected()); }
-        returnResults(records);
-    }
-
-    @SuppressWarnings("unused") // This method is used by searchPane.fxml.
-    @FXML
-    public void searchByCulture() {
-        initializeSearch();
-        List<ArtifactRecord> records = new ArrayList<>();
-        String searchTerm = searchFieldTitle.getText();
-
-        if(!searchTerm.isEmpty()) { records = collection.searchThroughTitles(searchTerm, isExactWordTitle.isSelected()); }
-        returnResults(records);
-    }
-
-    @SuppressWarnings("unused") // This method is used by searchPane.fxml.
-    @FXML
-    public void searchByPeriodStyle() {
-        initializeSearch();
-        List<ArtifactRecord> records = new ArrayList<>();
-        String searchTerm = searchFieldTitle.getText();
-
-        if(!searchTerm.isEmpty()) { records = collection.searchThroughTitles(searchTerm, isExactWordTitle.isSelected()); }
-        returnResults(records);
-    }
-
-    @SuppressWarnings("unused") // This method is used by searchPane.fxml.
-    @FXML
-    public void searchByCentury() {
-        initializeSearch();
-        List<ArtifactRecord> records = new ArrayList<>();
-        String searchTerm = searchFieldTitle.getText();
-
-        if(!searchTerm.isEmpty()) { records = collection.searchThroughTitles(searchTerm, isExactWordTitle.isSelected()); }
-        returnResults(records);
-    }
-    */
 
     @SuppressWarnings("unused") // This method is used by searchPane.fxml.
     @FXML

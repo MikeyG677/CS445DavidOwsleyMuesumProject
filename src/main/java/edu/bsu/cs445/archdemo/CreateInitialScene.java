@@ -8,9 +8,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 
-public class CreateInitialScene {
+class CreateInitialScene {
 
-    public void createInitialScene(Stage stage) {
+    void createInitialScene(Stage stage) {
         Parent root;
         try {
             URL url = getClass().getResource("loading.fxml");

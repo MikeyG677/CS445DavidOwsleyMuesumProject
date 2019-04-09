@@ -5,18 +5,7 @@ import org.junit.jupiter.api.Test;
 
 class JaxbArtifactRecordCollectionTest {
     ArtifactRecord buildTestRecord() {
-        ArtifactRecord testRecord = new ArtifactRecord();
-
-        testRecord.title = "Foo";
-        testRecord.fileName = "Bar";
-        testRecord.artist = "Fool";
-        testRecord.subject_LCSH = "Foo ; Bar";
-        testRecord.date_Made = "1969";
-        testRecord.culture = "American";
-        testRecord.century = "21st";
-        testRecord.periodStyle = "Cubism";
-
-        return testRecord;
+        return new ArtifactRecord();
     }
 
     @Test
@@ -26,7 +15,7 @@ class JaxbArtifactRecordCollectionTest {
     }
 
     @Test
-    void testCollection_one() {
+    void testSize_one() {
         JaxbArtifactRecordCollection collection = JaxbArtifactRecordCollection.of(buildTestRecord());
         Assertions.assertEquals(1, collection.size());
     }

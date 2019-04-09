@@ -1,6 +1,5 @@
 package edu.bsu.cs445.archdemo;
 
-import com.google.common.base.Preconditions;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -12,35 +11,35 @@ class ArtifactRecord {
 
     @SuppressWarnings("unused") // Not set in source code, but set through JAXB.
     @XmlElement(name="Title")
-    String title;
+    private String title;
 
     @SuppressWarnings("unused") // Not set in source code, but set through JAXB.
     @XmlElement(name="CONTENTdm_File_Name")
-    String fileName;
+    private String fileName;
 
     @SuppressWarnings("unused") // Not set in source code, but set through JAXB.
     @XmlElement(name="Artist")
-    String artist;
+    private String artist;
 
     @SuppressWarnings("unused") // Not set in source code, but set through JAXB.
     @XmlElement(name="Subject_LCSH")
-    String subject_LCSH;
+    private String subject_LCSH;
 
     @SuppressWarnings("unused") // Not set in source code, but set through JAXB.
     @XmlElement(name="Date_Made")
-    String date_Made;
+    private String date_Made;
 
     @SuppressWarnings("unused") // Not set in source code, but set through JAXB.
     @XmlElement(name="Culture")
-    String culture;
+    private String culture;
 
     @SuppressWarnings("unused") // Not set in source code, but set through JAXB.
     @XmlElement(name="Century")
-    String century;
+    private String century;
 
     @SuppressWarnings("unused") // Not set in source code, but set through JAXB.
     @XmlElement(name="Period_Style")
-    String periodStyle;
+    private String periodStyle;
 
     String getTitle() { return title; }
 
@@ -58,7 +57,21 @@ class ArtifactRecord {
 
     String getDate_Made(){return date_Made;}
 
-    void setFileName(String file){this.fileName = file;}
+    void setTitle(String title){ this.title = title;}
+
+    void setFileName(String file){ this.fileName = file; }
+
+    void setArtist(String artist){ this.artist = artist; }
+
+    void setSubject_LCSH(String subject_LCSH){ this.subject_LCSH = subject_LCSH; }
+
+    void setCulture(String culture){ this.culture = culture; }
+
+    void setCentury(String century){ this.century = century; }
+
+    void setPeriodStyle(String periodStyle){ this.periodStyle = periodStyle; }
+
+    void setDate_Made(String date_Made){ this.date_Made = date_Made; }
 
 }
 

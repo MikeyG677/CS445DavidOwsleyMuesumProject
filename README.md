@@ -1,14 +1,14 @@
 # Final Project for CS445 Spring 2019
 Group members consist of Jaden Drury, Chris Wilson, Mike Gallegos, and Robert Klueber.
 
-Our main implementation goal is to allow users to search the DOMA database by title, and with that, then find artifacts related to a selected artifact. Artifacts resulting from a search will display relevant information, such as title, artist, date made, culture, period style, and other metadata that will help users gather the historical context
+Our main implementation goal is to allow users to search the DOMA database by title, and with that, then find artifacts related to a selected artifact. Artifacts resulting from a search will display pertinent information, such as title, artist, date made, culture, period style, and other metadata that will allow users to gather relevant, historic data surrounding any given artifact. 
 
 This repository contains code for a running example in 
 [the Spring 2019 section of CS445 Human-Computer Interaction](http://www.cs.bsu.edu/~pvgestwicki/courses/cs445Sp19/)
 at [Ball State University](https://www.bsu.edu)
 and code used in
 [a short group project for the Srping 2019 section of CS445 Human-Computer Interation](https://github.com/bsu-cs-hci/Drury-Wilson-shortproject)
-at [Ball State University](https://www.bsu.edu)
+at [Ball State University](https://www.bsu.edu).
 
 This project uses [Gradle](https://gradle.org/). If you clone it into [IntelliJ IDEA](https://www.jetbrains.com/idea/), 
 you will be able to import it as a gradle project. 

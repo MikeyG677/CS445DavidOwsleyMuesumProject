@@ -6,6 +6,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.Arrays;
 import java.util.List;
 
 @XmlRootElement(name="metadata")
@@ -42,10 +43,16 @@ class DomaArtifactRecordCollection {
         return collection;
     }
 
-    static DomaArtifactRecordCollection createEmpty(){ return new DomaArtifactRecordCollection(); }
+    static DomaArtifactRecordCollection of(ArtifactRecord... record){
+        Preconditions.checkNotNull(record, "Parameter may not be null");
+        DomaArtifactRecordCollection collection = new DomaArtifactRecordCollection();
+        collection.records.addAll(Arrays.asList(record));
+        System.out.println(collection);
+        return collection;
+    }
 
     @SuppressWarnings({"unused","MismatchedQueryAndUpdateOfCollection"})
-    @XmlElement(name="record")
+    @XmlElement(name="DomaRecords")
     List<ArtifactRecord> records = Lists.newArrayList();
 
     int size() { return records.size(); }

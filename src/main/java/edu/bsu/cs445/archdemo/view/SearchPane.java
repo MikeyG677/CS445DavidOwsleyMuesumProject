@@ -1,6 +1,9 @@
-package edu.bsu.cs445.archdemo;
+package edu.bsu.cs445.archdemo.view;
 
 import com.google.common.base.Preconditions;
+import edu.bsu.cs445.archdemo.model.ArtifactRecord;
+import edu.bsu.cs445.archdemo.model.DomaArtifactRecordCollection;
+import edu.bsu.cs445.archdemo.model.SearchEngine;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
@@ -47,12 +50,12 @@ public class SearchPane extends VBox {
     private final DomaArtifactRecordCollection collection;
     private final SearchEngine search;
 
-    SearchPane(DomaArtifactRecordCollection collection) {
+    public SearchPane(DomaArtifactRecordCollection collection) {
         this.collection = Preconditions.checkNotNull(collection);
         this.search = new SearchEngine(collection);
 
 
-        URL fxmlUrl = getClass().getResource("searchPane.fxml");
+        URL fxmlUrl = getClass().getClassLoader().getResource("edu/bsu/cs445/archdemo/searchPane.fxml");
         Preconditions.checkNotNull(fxmlUrl, "Fxml asset location is not specified correctly.");
         FXMLLoader loader = new FXMLLoader(fxmlUrl);
         loader.setRoot(this);

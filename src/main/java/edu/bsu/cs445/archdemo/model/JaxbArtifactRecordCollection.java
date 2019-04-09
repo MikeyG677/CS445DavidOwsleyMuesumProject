@@ -1,4 +1,4 @@
-package edu.bsu.cs445.archdemo;
+package edu.bsu.cs445.archdemo.model;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
@@ -11,9 +11,9 @@ import java.util.List;
 
 @XmlRootElement(name="metadata")
 @XmlAccessorType(XmlAccessType.FIELD)
-class JaxbArtifactRecordCollection {
+public class JaxbArtifactRecordCollection {
 
-    static JaxbArtifactRecordCollection of(ArtifactRecord... records) {
+    public static JaxbArtifactRecordCollection of(ArtifactRecord... records) {
         Preconditions.checkNotNull(records, "Parameter may not be null");
         JaxbArtifactRecordCollection collection = new JaxbArtifactRecordCollection();
         collection.items.addAll(Arrays.asList(records));
@@ -21,7 +21,7 @@ class JaxbArtifactRecordCollection {
         return collection;
     }
 
-    static JaxbArtifactRecordCollection createEmpty() {
+    public static JaxbArtifactRecordCollection createEmpty() {
         return new JaxbArtifactRecordCollection();
     }
 
@@ -30,7 +30,7 @@ class JaxbArtifactRecordCollection {
     @XmlElement(name="record")
     List<ArtifactRecord> items = Lists.newArrayList();
 
-    int size() {
+    public int size() {
         return items.size();
     }
 }

@@ -1,6 +1,7 @@
-package edu.bsu.cs445.archdemo;
+package edu.bsu.cs445.archdemo.view;
 
 import com.google.common.base.Preconditions;
+import edu.bsu.cs445.archdemo.model.ArtifactRecord;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TitledPane;
@@ -8,7 +9,6 @@ import javafx.scene.image.Image;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
-
 import java.io.IOException;
 
 class ArtifactView extends VBox {
@@ -50,7 +50,7 @@ class ArtifactView extends VBox {
 
     ArtifactView(ArtifactRecord record) {
         Preconditions.checkNotNull(record);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("artifactView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("edu/bsu/cs445/archdemo/artifactView.fxml"));
         loader.setRoot(this);
         loader.setController(this);
         try {
@@ -64,8 +64,6 @@ class ArtifactView extends VBox {
             cultureView.setText("Culture: " + record.getCulture());
             centuryView.setText("Century: " + record.getCentury());
             periodStyleView.setText("Period Style: " + record.getPeriodStyle());
-
-
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

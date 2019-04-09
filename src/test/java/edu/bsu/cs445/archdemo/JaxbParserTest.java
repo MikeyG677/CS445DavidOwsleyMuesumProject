@@ -1,11 +1,11 @@
 package edu.bsu.cs445.archdemo;
 
+import edu.bsu.cs445.archdemo.model.JaxbArtifactRecordCollection;
+import edu.bsu.cs445.archdemo.model.JaxbParser;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-
 import java.io.InputStream;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class JaxbParserTest {

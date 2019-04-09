@@ -20,81 +20,84 @@
                  </AnchorPane>
              </ScrollPane>
              <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="300.0" SplitPane.resizableWithParent="false">
-            <ScrollPane prefHeight="368.0" prefWidth="300.0">
-              <content>
-                <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="0.0" prefWidth="283.0">
-                     <children>
-                        <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefWidth="300.0">
-                           <children>
-                  
-                                   <Label fx:id="titleView" maxHeight="-Infinity" maxWidth="290.0" minHeight="-Infinity" text="Title:" wrapText="true">
-                                 <padding>
-                                    <Insets bottom="15.0" top="15.0" />
-                                 </padding>
-                                 <VBox.margin>
-                                    <Insets left="5.0" />
-                                 </VBox.margin>
-                              </Label>
-                  
-                                   <Label fx:id="artistView" maxHeight="-Infinity" maxWidth="290.0" minHeight="-Infinity" text="Artist:" wrapText="true">
-                                 <padding>
-                                    <Insets bottom="15.0" top="15.0" />
-                                 </padding>
-                                 <VBox.margin>
-                                    <Insets left="5.0" />
-                                 </VBox.margin>
-                              </Label>
+                 <ScrollPane prefHeight="368.0" prefWidth="300.0">
+                     <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                                 minHeight="-Infinity" minWidth="0.0" prefWidth="283.0">
+                         <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                               minHeight="-Infinity" prefWidth="300.0">
 
-                                   <Label fx:id="dateView" maxHeight="-Infinity" maxWidth="290.0" minHeight="-Infinity" text="Date:" wrapText="true">
-                                 <padding>
-                                    <Insets bottom="15.0" top="15.0" />
-                                 </padding>
-                                 <VBox.margin>
-                                    <Insets left="5.0" />
-                                 </VBox.margin>
-                              </Label>
-                  
-                                    <Label fx:id="subjectView" maxHeight="-Infinity" maxWidth="290.0" minHeight="-Infinity" text="Subject:" wrapText="true">
-                                 <padding>
-                                    <Insets bottom="15.0" top="15.0" />
-                                 </padding>
-                                 <VBox.margin>
-                                    <Insets left="5.0" />
-                                 </VBox.margin>
-                              </Label>
+                                 <Label fx:id="titleView" maxHeight="-Infinity" maxWidth="290.0"
+                                        minHeight="-Infinity" text="Title:" wrapText="true">
+                                     <padding>
+                                         <Insets bottom="15.0" top="15.0"/>
+                                     </padding>
+                                     <VBox.margin>
+                                         <Insets left="5.0"/>
+                                     </VBox.margin>
+                                 </Label>
 
-                                   <Label fx:id="cultureView" maxHeight="-Infinity" maxWidth="290.0" minHeight="-Infinity" text="Culture: " wrapText="true">
-                                 <padding>
-                                    <Insets bottom="15.0" top="15.0" />
-                                 </padding>
-                                 <VBox.margin>
-                                    <Insets left="5.0" />
-                                 </VBox.margin>
-                              </Label>
+                                 <Label fx:id="artistView" maxHeight="-Infinity" maxWidth="290.0"
+                                        minHeight="-Infinity" text="Artist:" wrapText="true">
+                                     <padding>
+                                         <Insets bottom="15.0" top="15.0"/>
+                                     </padding>
+                                     <VBox.margin>
+                                         <Insets left="5.0"/>
+                                     </VBox.margin>
+                                 </Label>
 
-                                   <Label fx:id="periodStyleView" maxHeight="-Infinity" maxWidth="290.0" minHeight="-Infinity" text="Period style: " wrapText="true">
-                                 <padding>
-                                    <Insets bottom="15.0" top="15.0" />
-                                 </padding>
-                                 <VBox.margin>
-                                    <Insets left="5.0" />
-                                 </VBox.margin>
-                              </Label>
+                                     <Label fx:id="dateView" maxHeight="-Infinity" maxWidth="290.0"
+                                            minHeight="-Infinity" text="Date:" wrapText="true">
+                                         <padding>
+                                             <Insets bottom="15.0" top="15.0"/>
+                                         </padding>
+                                         <VBox.margin>
+                                             <Insets left="5.0"/>
+                                                 </VBox.margin>
+                                                 </Label>
 
-                                   <Label fx:id="centuryView" maxHeight="-Infinity" maxWidth="290.0" minHeight="-Infinity" text="Century: " wrapText="true">
-                                 <padding>
-                                    <Insets bottom="15.0" top="15.0" />
-                                 </padding>
-                                 <VBox.margin>
-                                    <Insets left="5.0" />
-                                 </VBox.margin>
-                              </Label>
-                           </children>
-                        </VBox>
-                     </children>
-                  </AnchorPane>
-              </content>
-            </ScrollPane>
+                                                 <Label fx:id="subjectView" maxHeight="-Infinity" maxWidth="290.0"
+                                                        minHeight="-Infinity" text="Subject:" wrapText="true">
+                                                     <padding>
+                                                         <Insets bottom="15.0" top="15.0"/>
+                                                     </padding>
+                                                     <VBox.margin>
+                                                         <Insets left="5.0"/>
+                                                             </VBox.margin>
+                                                         </Label>
+
+                                                         <Label fx:id="cultureView" maxHeight="-Infinity" maxWidth="290.0"
+                                                                minHeight="-Infinity" text="Culture: " wrapText="true">
+                                                             <padding>
+                                                                 <Insets bottom="15.0" top="15.0"/>
+                                                             </padding>
+                                                             <VBox.margin>
+                                                                     <Insets left="5.0"/>
+                                                                         </VBox.margin>
+                                                                     </Label>
+
+                                                                     <Label fx:id="periodStyleView" maxHeight="-Infinity" maxWidth="290.0"
+                                                                            minHeight="-Infinity" text="Period style: " wrapText="true">
+                                                                         <padding>
+                                                                             <Insets bottom="15.0" top="15.0"/>
+                                                                         </padding>
+                                                                             <VBox.margin>
+                                                                                     <Insets left="5.0"/>
+                                                                                 </VBox.margin>
+                                                                             </Label>
+
+                                                                             <Label fx:id="centuryView" maxHeight="-Infinity" maxWidth="290.0"
+                                                                                    minHeight="-Infinity" text="Century: " wrapText="true">
+                                                                                 <padding>
+                                                                                     <Insets bottom="15.0" top="15.0"/>
+                                                                                 </padding>
+                                     <VBox.margin>
+                                         <Insets left="5.0"/>
+                                     </VBox.margin>
+                                 </Label>
+                             </VBox>
+                     </AnchorPane>
+                 </ScrollPane>
 
 
              </AnchorPane>

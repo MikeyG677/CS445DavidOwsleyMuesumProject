@@ -1,4 +1,4 @@
-package edu.bsu.cs445.archdemo;
+package edu.bsu.cs445.archdemo.model;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name="record")
 @XmlAccessorType(XmlAccessType.FIELD)
-class ArtifactRecord {
+public class ArtifactRecord {
 
     @SuppressWarnings("unused") // Not set in source code, but set through JAXB.
     @XmlElement(name="Title")
@@ -41,37 +41,37 @@ class ArtifactRecord {
     @XmlElement(name="Period_Style")
     private String periodStyle;
 
-    String getTitle() { return title; }
+    public String getTitle() { return title; }
 
-    String getFileName() { return fileName; }
+    public String getFileName() { return fileName; }
 
-    String getArtist(){return artist;}
+    public String getArtist(){return artist;}
 
-    String getSubject_LCSH(){return subject_LCSH;}
+    public String getSubject_LCSH(){return subject_LCSH;}
 
-    String getCulture(){return culture;}
+    public String getCulture(){return culture;}
 
-    String getCentury(){return century;}
+    public String getCentury(){return century;}
 
-    String getPeriodStyle(){return periodStyle;}
+    public String getPeriodStyle(){return periodStyle;}
 
-    String getDate_Made(){return date_Made;}
+    public String getDate_Made(){return date_Made;}
 
-    void setTitle(String title){ this.title = title;}
+    public void setTitle(String title){ this.title = title;}
 
-    void setFileName(String file){ this.fileName = file; }
+    public void setFileName(String file){ this.fileName = file; }
 
-    void setArtist(String artist){ this.artist = artist; }
+    public void setArtist(String artist){ this.artist = artist; }
 
-    void setSubject_LCSH(String subject_LCSH){ this.subject_LCSH = subject_LCSH; }
+    public void setSubject_LCSH(String subject_LCSH){ this.subject_LCSH = subject_LCSH; }
 
-    void setCulture(String culture){ this.culture = culture; }
+    public void setCulture(String culture){ this.culture = culture; }
 
-    void setCentury(String century){ this.century = century; }
+    public void setCentury(String century){ this.century = century; }
 
-    void setPeriodStyle(String periodStyle){ this.periodStyle = periodStyle; }
+    public void setPeriodStyle(String periodStyle){ this.periodStyle = periodStyle; }
 
-    void setDate_Made(String date_Made){ this.date_Made = date_Made; }
+    public void setDate_Made(String date_Made){ this.date_Made = date_Made; }
 
 }
 

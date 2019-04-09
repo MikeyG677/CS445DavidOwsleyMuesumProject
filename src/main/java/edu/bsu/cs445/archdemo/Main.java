@@ -1,5 +1,10 @@
 package edu.bsu.cs445.archdemo;
 
+import edu.bsu.cs445.archdemo.model.DomaArtifactRecordCollection;
+import edu.bsu.cs445.archdemo.model.JaxbArtifactRecordCollection;
+import edu.bsu.cs445.archdemo.model.JaxbParser;
+import edu.bsu.cs445.archdemo.view.CreateInitialScene;
+import edu.bsu.cs445.archdemo.view.SearchPane;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;

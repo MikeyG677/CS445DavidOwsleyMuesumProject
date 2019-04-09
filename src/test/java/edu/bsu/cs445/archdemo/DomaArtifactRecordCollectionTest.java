@@ -1,5 +1,8 @@
 package edu.bsu.cs445.archdemo;
 
+import edu.bsu.cs445.archdemo.model.ArtifactRecord;
+import edu.bsu.cs445.archdemo.model.DomaArtifactRecordCollection;
+import edu.bsu.cs445.archdemo.model.JaxbArtifactRecordCollection;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.util.Arrays;
@@ -38,16 +41,6 @@ class DomaArtifactRecordCollectionTest {
         DomaArtifactRecordCollection collection = DomaArtifactRecordCollection.of(record1, record2);
         Assertions.assertEquals(2, collection.size());
     }
-
-    /*
-    @Test
-    void testCountRecords_collection_three(){
-        ArtifactRecord record1 = buildTestRecordJpg();
-        ArtifactRecord record2 = buildTestRecordJpg();
-        DomaArtifactRecordCollection collection = DomaArtifactRecordCollection.of(record1, record2);
-        Assertions.assertEquals(2, collection.size());
-    }
-    */
 
     @Test
     void testConvertJaxbToDoma_noCpd(){

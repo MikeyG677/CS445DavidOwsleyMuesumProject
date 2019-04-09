@@ -1,5 +1,7 @@
 package edu.bsu.cs445.archdemo;
 
+import edu.bsu.cs445.archdemo.model.ArtifactRecord;
+import edu.bsu.cs445.archdemo.model.JaxbArtifactRecordCollection;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

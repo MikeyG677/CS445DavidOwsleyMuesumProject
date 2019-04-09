@@ -1,8 +1,8 @@
 package edu.bsu.cs445.archdemo;
 
+import edu.bsu.cs445.archdemo.model.ArtifactRecord;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 import java.util.Arrays;
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package edu.bsu.cs445.archdemo;
+package edu.bsu.cs445.archdemo.model;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
@@ -11,9 +11,9 @@ import java.util.List;
 
 @XmlRootElement(name="metadata")
 @XmlAccessorType(XmlAccessType.FIELD)
-class DomaArtifactRecordCollection {
+public class DomaArtifactRecordCollection {
 
-    DomaArtifactRecordCollection convertJaxbToDoma(JaxbArtifactRecordCollection jaxbCollection) {
+    public DomaArtifactRecordCollection convertJaxbToDoma(JaxbArtifactRecordCollection jaxbCollection) {
         Preconditions.checkNotNull(jaxbCollection, "Collection may not be null");
         DomaArtifactRecordCollection collection = new DomaArtifactRecordCollection();
         for(int i=0; i<jaxbCollection.size(); i++){
@@ -43,7 +43,7 @@ class DomaArtifactRecordCollection {
         return collection;
     }
 
-    static DomaArtifactRecordCollection of(ArtifactRecord... record){
+    public static DomaArtifactRecordCollection of(ArtifactRecord... record){
         Preconditions.checkNotNull(record, "Parameter may not be null");
         DomaArtifactRecordCollection collection = new DomaArtifactRecordCollection();
         collection.records.addAll(Arrays.asList(record));
@@ -53,7 +53,8 @@ class DomaArtifactRecordCollection {
 
     @SuppressWarnings({"unused","MismatchedQueryAndUpdateOfCollection"})
     @XmlElement(name="DomaRecords")
+    public
     List<ArtifactRecord> records = Lists.newArrayList();
 
-    int size() { return records.size(); }
+    public int size() { return records.size(); }
 }

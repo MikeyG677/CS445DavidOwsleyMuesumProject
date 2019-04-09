@@ -1,4 +1,4 @@
-package edu.bsu.cs445.archdemo;
+package edu.bsu.cs445.archdemo.view;
 
 import com.google.common.base.Preconditions;
 import javafx.fxml.FXMLLoader;
@@ -8,12 +8,12 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 
-class CreateInitialScene {
+public class CreateInitialScene {
 
-    void createInitialScene(Stage stage) {
+    public void createInitialScene(Stage stage) {
         Parent root;
         try {
-            URL url = getClass().getResource("loading.fxml");
+            URL url = getClass().getClassLoader().getResource("edu/bsu/cs445/archdemo/loading.fxml");
             Preconditions.checkNotNull(url, "Cannot load fxml resource");
             root = FXMLLoader.load(url);
         } catch (IOException e) {

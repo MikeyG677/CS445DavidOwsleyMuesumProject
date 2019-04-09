@@ -55,4 +55,4 @@ Source Self Assessment:
     [ ] A.2.S. The separation between the UI layer and the model layer is clearly identified through one or more interfaces.
     [ ] A.3.S. Instructions on how to build and execute the application are provided in the README file.
 
-With the given criteria, our project would recieve an [B] based on our assessment.
+With the given criteria, our project would recieve an B based on our assessment.

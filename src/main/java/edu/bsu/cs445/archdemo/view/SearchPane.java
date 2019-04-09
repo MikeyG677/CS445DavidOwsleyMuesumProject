@@ -119,7 +119,7 @@ public class SearchPane extends VBox {
     private void returnResults(List<ArtifactRecord> records) {
         resultBox.getChildren().clear();
         if (records.size() > 0) {
-             for(int i=0; i<records.size() && i<40; i++){
+             for(int i=0; i<records.size() && i<10; i++){
                  ArtifactRecord record = records.get(i);
                  ArtifactView newArtifactView = new ArtifactView(record);
                  newArtifactView.parent = this;

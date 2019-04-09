@@ -32,11 +32,11 @@ public class SearchEngine {
     public List<ArtifactRecord> searchRelatedWorks(ArtifactRecord record){
         LinkedHashSet<ArtifactRecord> resultsList = new LinkedHashSet<>();
 
-        String[] centuriesSeparated = record.getCentury().split(" ; ", -1);
-        for (String centurySingular : centuriesSeparated){
+        String[] culturesSeparated = record.getCulture().split(" ; ", -1);
+        for (String cultureSingular : culturesSeparated){
             results = artifacts.stream()
                     .filter(artifactRecord -> artifactRecord.getCentury().toLowerCase()
-                            .contains(centurySingular.toLowerCase())).collect(Collectors.toList());
+                            .contains(cultureSingular.toLowerCase())).collect(Collectors.toList());
             resultsList.addAll(results);
         }
 

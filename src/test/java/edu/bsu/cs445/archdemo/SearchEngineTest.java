@@ -6,28 +6,11 @@ import edu.bsu.cs445.archdemo.model.SearchEngine;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-
 class SearchEngineTest {
 
     private DomaArtifactRecordCollection testCollection_empty = new DomaArtifactRecordCollection();
     private DomaArtifactRecordCollection testCollection_oneRecord = new DomaArtifactRecordCollection();
     private ArtifactRecord testRecord = new ArtifactRecord();
-
-    ArtifactRecord buildTestRecord(List<String> paramaters){
-        ArtifactRecord testRecord = new ArtifactRecord();
-
-        testRecord.setTitle(paramaters.get(0));
-        testRecord.setFileName(paramaters.get(1));
-        testRecord.setArtist(paramaters.get(2));
-        testRecord.setSubject_LCSH(paramaters.get(3));
-        testRecord.setDate_Made(paramaters.get(4));
-        testRecord.setCulture(paramaters.get(5));
-        testRecord.setCentury(paramaters.get(6));
-        testRecord.setPeriodStyle(paramaters.get(7));
-
-        return testRecord;
-    }
 
     @Test
     void testSearchTitle_WholeWord_zeroResults_emptyCollection(){

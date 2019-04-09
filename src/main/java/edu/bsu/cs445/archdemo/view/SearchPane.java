@@ -122,7 +122,8 @@ public class SearchPane extends VBox {
             for (ArtifactRecord record : records) {
                 ArtifactView newArtifactView = new ArtifactView(record);
                 newArtifactView.parent = this;
-                resultBox.getChildren().add(newArtifactView); }
+                resultBox.getChildren().add(newArtifactView);
+            }
         }
         resultCount.setText(String.valueOf(records.size()));
         searchPanes.setDisable(false);

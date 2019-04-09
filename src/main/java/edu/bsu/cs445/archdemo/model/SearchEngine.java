@@ -34,7 +34,6 @@ public class SearchEngine {
 
         String[] centuriesSeparated = record.getCentury().split(" ; ", -1);
         for (String centurySingular : centuriesSeparated){
-            System.out.println(centurySingular);
             results = artifacts.stream()
                     .filter(artifactRecord -> artifactRecord.getCentury().toLowerCase()
                             .contains(centurySingular.toLowerCase())).collect(Collectors.toList());
@@ -43,7 +42,6 @@ public class SearchEngine {
 
         String[] periodStylesSeparated = record.getPeriodStyle().split(" ; ", -1);
         for (String periodStyleSingular : periodStylesSeparated){
-            System.out.println(periodStyleSingular);
             results = artifacts.stream()
                     .filter(artifactRecord -> artifactRecord.getPeriodStyle().toLowerCase()
                             .contains(periodStyleSingular.toLowerCase())).collect(Collectors.toList());

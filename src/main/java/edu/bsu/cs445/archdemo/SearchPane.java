@@ -93,8 +93,9 @@ public class SearchPane extends VBox {
             alert.setTitle("Search Error");
             alert.setHeaderText("Invalid Search Query");
             if(searchTerm.length()<=1) {
-                alert.setContentText("Please enter a search query longer than one character!");
-            }if(records.size()<1){
+                alert.setContentText("Please enter a search query longer than one character.");
+            }
+            else if(records.size()<1){
                 alert.setContentText("No results available for " + "'" + searchTerm + "'" + ". Please enter a different query.");
             }
             alert.showAndWait();

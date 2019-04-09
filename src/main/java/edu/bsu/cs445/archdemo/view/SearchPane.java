@@ -119,10 +119,11 @@ public class SearchPane extends VBox {
     private void returnResults(List<ArtifactRecord> records) {
         resultBox.getChildren().clear();
         if (records.size() > 0) {
-            for (ArtifactRecord record : records) {
-                ArtifactView newArtifactView = new ArtifactView(record);
-                newArtifactView.parent = this;
-                resultBox.getChildren().add(newArtifactView);
+             for(int i=0; i<records.size() && i<40; i++){
+                 ArtifactRecord record = records.get(i);
+                 ArtifactView newArtifactView = new ArtifactView(record);
+                 newArtifactView.parent = this;
+                 resultBox.getChildren().add(newArtifactView);
             }
         }
         resultCount.setText(String.valueOf(records.size()));

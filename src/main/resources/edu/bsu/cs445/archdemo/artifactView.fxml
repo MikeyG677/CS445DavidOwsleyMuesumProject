@@ -33,7 +33,7 @@
                </padding>
             </Label>
 
-                  <Label fx:id="subjectView" layoutX="11.0" layoutY="100.0" maxWidth="275.0" text="Subject:" wrapText="false">
+                  <Label fx:id="subjectView" layoutX="11.0" layoutY="100.0" maxWidth="275.0" text="Subject:">
                <padding>
                   <Insets bottom="20.0" top="20.0" />
                </padding>

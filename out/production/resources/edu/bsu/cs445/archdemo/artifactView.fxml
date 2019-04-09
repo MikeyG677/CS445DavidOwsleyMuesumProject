@@ -20,48 +20,81 @@
                  </AnchorPane>
              </ScrollPane>
              <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="300.0" SplitPane.resizableWithParent="false">
+            <ScrollPane prefHeight="368.0" prefWidth="300.0">
+              <content>
+                <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="0.0" prefWidth="283.0">
+                     <children>
+                        <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefWidth="300.0">
+                           <children>
+                  
+                                   <Label fx:id="titleView" maxHeight="-Infinity" maxWidth="290.0" minHeight="-Infinity" text="Title:" wrapText="true">
+                                 <padding>
+                                    <Insets bottom="15.0" top="15.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets left="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                  
+                                   <Label fx:id="artistView" maxHeight="-Infinity" maxWidth="290.0" minHeight="-Infinity" text="Artist:" wrapText="true">
+                                 <padding>
+                                    <Insets bottom="15.0" top="15.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets left="5.0" />
+                                 </VBox.margin>
+                              </Label>
 
-                 <Label fx:id="titleView" layoutX="13.0" layoutY="1.0" maxWidth="275.0" text="Title:" wrapText="true">
-               <padding>
-                  <Insets bottom="20.0" top="10.0" />
-               </padding>
-            </Label>
+                                   <Label fx:id="dateView" maxHeight="-Infinity" maxWidth="290.0" minHeight="-Infinity" text="Date:" wrapText="true">
+                                 <padding>
+                                    <Insets bottom="15.0" top="15.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets left="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                  
+                                    <Label fx:id="subjectView" maxHeight="-Infinity" maxWidth="290.0" minHeight="-Infinity" text="Subject:" wrapText="true">
+                                 <padding>
+                                    <Insets bottom="15.0" top="15.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets left="5.0" />
+                                 </VBox.margin>
+                              </Label>
 
-                 <Label fx:id="artistView" layoutX="13.0" layoutY="50.0" maxWidth="275.0" text="Artist:" wrapText="true">
-               <padding>
-                  <Insets bottom="20.0" top="20.0" />
-               </padding>
-            </Label>
+                                   <Label fx:id="cultureView" maxHeight="-Infinity" maxWidth="290.0" minHeight="-Infinity" text="Culture: " wrapText="true">
+                                 <padding>
+                                    <Insets bottom="15.0" top="15.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets left="5.0" />
+                                 </VBox.margin>
+                              </Label>
 
-                  <Label fx:id="subjectView" layoutX="11.0" layoutY="100.0" maxWidth="275.0" text="Subject:">
-               <padding>
-                  <Insets bottom="20.0" top="20.0" />
-               </padding>
-            </Label>
+                                   <Label fx:id="periodStyleView" maxHeight="-Infinity" maxWidth="290.0" minHeight="-Infinity" text="Period style: " wrapText="true">
+                                 <padding>
+                                    <Insets bottom="15.0" top="15.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets left="5.0" />
+                                 </VBox.margin>
+                              </Label>
 
-                 <Label fx:id="dateView" layoutX="12.0" layoutY="150.0" maxWidth="275.0" text="Date:" wrapText="true">
-               <padding>
-                  <Insets bottom="20.0" top="20.0" />
-               </padding>
-            </Label>
-
-                 <Label fx:id="cultureView" layoutX="12.0" layoutY="200.0" maxWidth="275.0" text="Culture: " wrapText="true">
-               <padding>
-                  <Insets bottom="20.0" top="20.0" />
-               </padding>
-            </Label>
-
-                 <Label fx:id="periodStyleView" layoutX="12.0" layoutY="250.0" maxWidth="275.0" text="Period style: " wrapText="true">
-               <padding>
-                  <Insets bottom="20.0" top="20.0" />
-               </padding>
-            </Label>
-
-                 <Label fx:id="centuryView" layoutX="12.0" layoutY="300.0" maxWidth="275.0" text="Century: " wrapText="true">
-               <padding>
-                  <Insets bottom="20.0" top="20.0" />
-               </padding>
-            </Label>
+                                   <Label fx:id="centuryView" maxHeight="-Infinity" maxWidth="290.0" minHeight="-Infinity" text="Century: " wrapText="true">
+                                 <padding>
+                                    <Insets bottom="15.0" top="15.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets left="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
 
 
              </AnchorPane>

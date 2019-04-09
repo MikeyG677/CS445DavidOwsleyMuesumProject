@@ -17,24 +17,24 @@ You can run the main application by right-clicking on the Main class and selecti
 
 Report Self Assessment:
 
-    [] D.1.R. The report is a Google Docs document within the class' Google Drive folder.
-    [] D.2.R. The title of the project and its contributors are clearly identified at the top of the document.
-    [] C.1.R. The document begins with an executive summary that provides an overview of the report's content.
-    [] C.2.R. The document describes the problem that is being solved.
-    [] C.3.R. The document describes the solution to the problem as conceived by the authors.
-    [] C.4.R. The required self-assessment is an appendix to your project report unless it is instead included in the README.
-    [] B.1.R. The document describes the process by which the problem was identified.
-    [] B.2.R. The document describes the process by which the solution was designed, including relevant design artifacts such as personas and journey maps.
-    [] B.3.R. The document explains how the following fundamental principles of interaction are manifest, or fail to manifest, in your solution: affordances, signifiers, cmappings, feedback, and conceptual models.
-    [] B.4.R. A common use case for the solution is documented through a series of annotated screenshots.
-    [] B.5.R. The document describes the methods by which the solution was evaluated.
+    [X] D.1.R. The report is a Google Docs document within the class' Google Drive folder.
+    [X] D.2.R. The title of the project and its contributors are clearly identified at the top of the document.
+    [X] C.1.R. The document begins with an executive summary that provides an overview of the report's content.
+    [X] C.2.R. The document describes the problem that is being solved.
+    [X] C.3.R. The document describes the solution to the problem as conceived by the authors.
+    [X] C.4.R. The required self-assessment is an appendix to your project report unless it is instead included in the README.
+    [X] B.1.R. The document describes the process by which the problem was identified.
+    [X] B.2.R. The document describes the process by which the solution was designed, including relevant design artifacts such as personas and journey maps.
+    [X] B.3.R. The document explains how the following fundamental principles of interaction are manifest, or fail to manifest, in your solution: affordances, signifiers, cmappings, feedback, and conceptual models.
+    [X] B.4.R. A common use case for the solution is documented through a series of annotated screenshots.
+    [X] B.5.R. The document describes the methods by which the solution was evaluated.
     [] A.1.R. The documented solution evaluation includes both quantitative and qualitative elements that explicitly align with this semester's readings.
     [] A.2.R. Each of the aforementioned fundamental principles of interaction are explained with clearly annotated and described screenshots or figures.
 
 
 Source Self Assessment:
 
-    [] D.1.S. The project contains a README file in plain text, HTML, or Markdown in the root directory. This file lists the names of all project contributors and gives appropriate attribution for any third-party assets used in the project.
+    [X] D.1.S. The project contains a README file in plain text, HTML, or Markdown in the root directory. This file lists the names of all project contributors and gives appropriate attribution for any third-party assets used in the project.
     [] D.2.S. The project compiles without errors.
     [] C.1.S. The project compiles without warnings. Any warning suppressions are clearly documented and justifiable, never excuses for bad design.
     [] C.2.S. The project executes without warnings or errors during expected usage.

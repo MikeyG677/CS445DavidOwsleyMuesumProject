@@ -22,10 +22,10 @@ class ArtifactRecordTest {
         return testRecord;
     }
 
-    private List<String> testParamaters_1 = Arrays.asList("Foo","Bar","Fool","Foo ; Bar","1969","American","21st","Cubism");
-    private List<String> testParamaters_2 = Arrays.asList("The Monolith","hal_marktwo_the_monolith","Hal Marktwo","Industrial ; Modernism ; Futuristic ; Sci-fi","2001","Alien","20th","Impressionism");
-    private ArtifactRecord testRecord_1 = buildTestRecord(testParamaters_1);
-    private ArtifactRecord testRecord_2 = buildTestRecord(testParamaters_2);
+    private List<String> testParameters_1 = Arrays.asList("Foo","Bar","Fool","Foo ; Bar","1969","American","21st","Cubism");
+    private List<String> testParameters_2 = Arrays.asList("The Monolith","hal_marktwo_the_monolith","Hal Marktwo","Industrial ; Modernism ; Futuristic ; Sci-fi","2001","Alien","20th","Impressionism");
+    private ArtifactRecord testRecord_1 = buildTestRecord(testParameters_1);
+    private ArtifactRecord testRecord_2 = buildTestRecord(testParameters_2);
 
     @Test
     void testSpecificTitle_1(){

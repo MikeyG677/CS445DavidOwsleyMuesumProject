@@ -6,6 +6,7 @@ import javax.xml.bind.Unmarshaller;
 import java.io.InputStream;
 
 class JaxbParser {
+
     static JaxbParser create() {
         return new JaxbParser();
     }

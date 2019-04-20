@@ -10,7 +10,7 @@ import java.util.List;
 
 class DomaArtifactRecordCollectionTest {
 
-    ArtifactRecord buildTestRecord(List<String> paramaters){
+    private ArtifactRecord buildTestRecord(List<String> paramaters){
         ArtifactRecord testRecord = new ArtifactRecord();
 
         testRecord.setTitle(paramaters.get(0));
@@ -48,7 +48,7 @@ class DomaArtifactRecordCollectionTest {
         ArtifactRecord record2 = buildTestRecord(testParamaters_Jpg);
         JaxbArtifactRecordCollection jaxbCollection = JaxbArtifactRecordCollection.of(record1, record2);
         DomaArtifactRecordCollection collection = new DomaArtifactRecordCollection();
-        DomaArtifactRecordCollection convertedCollection = collection.convertJaxbToDoma(jaxbCollection);
+        DomaArtifactRecordCollection convertedCollection = collection.convertCollectionToDoma(jaxbCollection);
         Assertions.assertEquals(2, convertedCollection.size());
     }
 
@@ -59,7 +59,7 @@ class DomaArtifactRecordCollectionTest {
         ArtifactRecord recordNoTitle = buildTestRecord(testParamaters_NoTitle);
         JaxbArtifactRecordCollection jaxbCollection = JaxbArtifactRecordCollection.of(recordJpg, recordNoTitle, recordCpd);
         DomaArtifactRecordCollection collection = new DomaArtifactRecordCollection();
-        DomaArtifactRecordCollection convertedCollection = collection.convertJaxbToDoma(jaxbCollection);
+        DomaArtifactRecordCollection convertedCollection = collection.convertCollectionToDoma(jaxbCollection);
         Assertions.assertEquals(2, convertedCollection.size());
     }
 }

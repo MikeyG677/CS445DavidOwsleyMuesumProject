@@ -25,7 +25,7 @@ public class Main extends Application {
         InputStream owsleyStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("owsley.xml");
         CompletableFuture.runAsync(() -> jaxbCollection = parser.parse(owsleyStream))
                 .thenRun(() -> Platform.runLater(() -> {
-                            DomaArtifactRecordCollection convertedCollection = domaCollection.convertJaxbToDoma(jaxbCollection);
+                            DomaArtifactRecordCollection convertedCollection = domaCollection.convertCollectionToDoma(jaxbCollection);
                             SearchPane searchPane = new SearchPane(convertedCollection);
                             Scene searchPaneScene = new Scene(searchPane);
                             primaryStage.setScene(searchPaneScene);

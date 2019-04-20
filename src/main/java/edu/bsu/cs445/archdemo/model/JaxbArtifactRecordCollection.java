@@ -11,7 +11,7 @@ import java.util.List;
 
 @XmlRootElement(name="metadata")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class JaxbArtifactRecordCollection {
+public class JaxbArtifactRecordCollection implements ArtifactRecordCollection{
 
     public static JaxbArtifactRecordCollection of(ArtifactRecord... records) {
         Preconditions.checkNotNull(records, "Parameter may not be null");
@@ -28,9 +28,14 @@ public class JaxbArtifactRecordCollection {
     // This item is used by the JAXB parsing but not used in custom code.
     @SuppressWarnings({"unused","MismatchedQueryAndUpdateOfCollection"})
     @XmlElement(name="record")
-    List<ArtifactRecord> items = Lists.newArrayList();
+    private List<ArtifactRecord> items = Lists.newArrayList();
 
     public int size() {
         return items.size();
+    }
+
+    @Override
+    public ArtifactRecord getItem(int i){
+        return items.get(i);
     }
 }

@@ -13,16 +13,16 @@ import java.util.List;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class DomaArtifactRecordCollection {
 
-    public DomaArtifactRecordCollection convertJaxbToDoma(JaxbArtifactRecordCollection jaxbCollection) {
-        Preconditions.checkNotNull(jaxbCollection, "Collection may not be null");
+    public DomaArtifactRecordCollection convertCollectionToDoma(ArtifactRecordCollection artifactCollection) {
+        Preconditions.checkNotNull(artifactCollection, "Collection may not be null");
         DomaArtifactRecordCollection collection = new DomaArtifactRecordCollection();
-        for(int i=0; i<jaxbCollection.size(); i++){
-            ArtifactRecord record = jaxbCollection.items.get(i);
+        for(int i=0; i<artifactCollection.size(); i++){
+            ArtifactRecord record = artifactCollection.getItem(i);
             if(record.getFileName().contains(".cpd")) {
                 int j = 1;
                 collection.records.add(record);
                 while(true){
-                    ArtifactRecord recordAbove = jaxbCollection.items.get(i-j);
+                    ArtifactRecord recordAbove = artifactCollection.getItem(i-j);
                     if(!recordAbove.getTitle().isEmpty()){
                         break;
                     }
@@ -53,8 +53,7 @@ public class DomaArtifactRecordCollection {
 
     @SuppressWarnings({"unused","MismatchedQueryAndUpdateOfCollection"})
     @XmlElement(name="DomaRecords")
-    public
-    List<ArtifactRecord> records = Lists.newArrayList();
+    public List<ArtifactRecord> records = Lists.newArrayList();
 
     public int size() { return records.size(); }
 }

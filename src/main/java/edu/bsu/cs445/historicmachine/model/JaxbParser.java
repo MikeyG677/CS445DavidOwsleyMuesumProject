@@ -1,4 +1,4 @@
-package edu.bsu.cs445.archdemo.model;
+package edu.bsu.cs445.historicmachine.model;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;

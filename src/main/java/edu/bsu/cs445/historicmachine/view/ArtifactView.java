@@ -1,7 +1,7 @@
-package edu.bsu.cs445.archdemo.view;
+package edu.bsu.cs445.historicmachine.view;
 
 import com.google.common.base.Preconditions;
-import edu.bsu.cs445.archdemo.model.ArtifactRecord;
+import edu.bsu.cs445.historicmachine.model.ArtifactRecord;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -54,7 +54,7 @@ class ArtifactView extends VBox {
 
     ArtifactView(ArtifactRecord record) {
         Preconditions.checkNotNull(record);
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("edu/bsu/cs445/archdemo/artifactView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("edu/bsu/cs445/historicmachine/artifactView.fxml"));
         loader.setRoot(this);
         loader.setController(this);
         try {

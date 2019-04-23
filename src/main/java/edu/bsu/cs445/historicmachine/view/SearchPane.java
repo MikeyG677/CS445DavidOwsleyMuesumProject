@@ -1,10 +1,9 @@
-package edu.bsu.cs445.archdemo.view;
+package edu.bsu.cs445.historicmachine.view;
 
 import com.google.common.base.Preconditions;
-import com.sun.tools.hat.internal.model.Root;
-import edu.bsu.cs445.archdemo.model.ArtifactRecord;
-import edu.bsu.cs445.archdemo.model.DomaArtifactRecordCollection;
-import edu.bsu.cs445.archdemo.model.SearchEngine;
+import edu.bsu.cs445.historicmachine.model.ArtifactRecord;
+import edu.bsu.cs445.historicmachine.model.DomaArtifactRecordCollection;
+import edu.bsu.cs445.historicmachine.model.SearchEngine;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -68,7 +67,7 @@ public class SearchPane extends VBox {
         this.stage = stage;
 
 
-        URL fxmlUrl = getClass().getClassLoader().getResource("edu/bsu/cs445/archdemo/searchPane.fxml");
+        URL fxmlUrl = getClass().getClassLoader().getResource("edu/bsu/cs445/historicmachine/searchPane.fxml");
         Preconditions.checkNotNull(fxmlUrl, "Fxml asset location is not specified correctly.");
         FXMLLoader loader = new FXMLLoader(fxmlUrl);
         loader.setRoot(this);
@@ -146,7 +145,7 @@ public class SearchPane extends VBox {
         Platform.runLater(() -> {
             Parent root;
                 try {
-                    URL url = getClass().getClassLoader().getResource("edu/bsu/cs445/archdemo/artifactView.fxml");
+                    URL url = getClass().getClassLoader().getResource("edu/bsu/cs445/historicmachine/artifactView.fxml");
                     FXMLLoader loader = new FXMLLoader(url);
                     loader.setRoot(this);
                     loader.setController(this);

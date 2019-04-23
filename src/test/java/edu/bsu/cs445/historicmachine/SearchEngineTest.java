@@ -1,8 +1,8 @@
-package edu.bsu.cs445.archdemo;
+package edu.bsu.cs445.historicmachine;
 
-import edu.bsu.cs445.archdemo.model.ArtifactRecord;
-import edu.bsu.cs445.archdemo.model.DomaArtifactRecordCollection;
-import edu.bsu.cs445.archdemo.model.SearchEngine;
+import edu.bsu.cs445.historicmachine.model.ArtifactRecord;
+import edu.bsu.cs445.historicmachine.model.DomaArtifactRecordCollection;
+import edu.bsu.cs445.historicmachine.model.SearchEngine;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

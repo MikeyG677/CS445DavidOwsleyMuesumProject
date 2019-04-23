@@ -1,11 +1,10 @@
-package edu.bsu.cs445.archdemo;
+package edu.bsu.cs445.historicmachine;
 
 import com.google.common.base.Preconditions;
-import edu.bsu.cs445.archdemo.model.DomaArtifactRecordCollection;
-import edu.bsu.cs445.archdemo.model.JaxbArtifactRecordCollection;
-import edu.bsu.cs445.archdemo.model.JaxbParser;
-import edu.bsu.cs445.archdemo.view.SceneController;
-import edu.bsu.cs445.archdemo.view.SearchPane;
+import edu.bsu.cs445.historicmachine.model.DomaArtifactRecordCollection;
+import edu.bsu.cs445.historicmachine.model.JaxbArtifactRecordCollection;
+import edu.bsu.cs445.historicmachine.model.JaxbParser;
+import edu.bsu.cs445.historicmachine.view.SearchPane;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -45,7 +44,7 @@ public class Main extends Application {
     private void createInitialScene(Stage stage) {
         Parent root;
         try {
-            URL url = getClass().getClassLoader().getResource("edu/bsu/cs445/archdemo/loading.fxml");
+            URL url = getClass().getClassLoader().getResource("edu/bsu/cs445/historicmachine/loading.fxml");
             Preconditions.checkNotNull(url, "Cannot load fxml resource");
             root = FXMLLoader.load(url);
         } catch (IOException e) {

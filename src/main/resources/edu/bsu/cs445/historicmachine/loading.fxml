@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="300.0" prefWidth="275.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.bsu.cs445.archdemo.Main">
+<BorderPane prefHeight="300.0" prefWidth="275.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.bsu.cs445.historicmachine.Main">
    <center>
         <Label alignment="CENTER" text="Loading, please wait" textAlignment="CENTER" BorderPane.alignment="CENTER">
          <font>

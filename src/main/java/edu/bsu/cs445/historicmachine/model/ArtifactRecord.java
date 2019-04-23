@@ -1,4 +1,4 @@
-package edu.bsu.cs445.archdemo.model;
+package edu.bsu.cs445.historicmachine.model;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

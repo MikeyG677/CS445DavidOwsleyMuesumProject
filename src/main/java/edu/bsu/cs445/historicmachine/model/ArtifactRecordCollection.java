@@ -1,4 +1,4 @@
-package edu.bsu.cs445.archdemo.model;
+package edu.bsu.cs445.historicmachine.model;
 
 public interface ArtifactRecordCollection {
 

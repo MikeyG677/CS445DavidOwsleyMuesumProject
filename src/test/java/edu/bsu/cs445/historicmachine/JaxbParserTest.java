@@ -1,7 +1,7 @@
-package edu.bsu.cs445.archdemo;
+package edu.bsu.cs445.historicmachine;
 
-import edu.bsu.cs445.archdemo.model.JaxbArtifactRecordCollection;
-import edu.bsu.cs445.archdemo.model.JaxbParser;
+import edu.bsu.cs445.historicmachine.model.JaxbArtifactRecordCollection;
+import edu.bsu.cs445.historicmachine.model.JaxbParser;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;

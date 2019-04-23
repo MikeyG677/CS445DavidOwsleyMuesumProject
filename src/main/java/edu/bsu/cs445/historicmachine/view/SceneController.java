@@ -1,4 +1,4 @@
-package edu.bsu.cs445.archdemo.view;
+package edu.bsu.cs445.historicmachine.view;
 
 import com.google.common.base.Preconditions;
 import javafx.fxml.FXMLLoader;
@@ -13,7 +13,7 @@ public class SceneController {
     public void changeScene(Stage stage){
         Parent root;
         try {
-            URL url = getClass().getClassLoader().getResource("edu/bsu/cs445/archdemo/artifactView.fxml");
+            URL url = getClass().getClassLoader().getResource("edu/bsu/cs445/historicmachine/artifactView.fxml");
             Preconditions.checkNotNull(url, "Cannot load fxml resource");
             root = FXMLLoader.load(url);
         } catch (IOException e) {

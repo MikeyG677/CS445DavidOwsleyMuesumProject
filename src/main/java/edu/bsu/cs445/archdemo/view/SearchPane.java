@@ -7,6 +7,7 @@ import edu.bsu.cs445.archdemo.model.SearchEngine;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import java.io.IOException;
 import java.net.URL;
@@ -37,6 +38,8 @@ public class SearchPane extends VBox {
     @SuppressWarnings("unused") // Used in FXML binding
     private VBox resultBox;
     @FXML
+    private GridPane resultGrid;
+    @FXML
     @SuppressWarnings("unused") // Used in FXML binding
     private CheckBox isExactWordTitle;
     @FXML
@@ -46,9 +49,15 @@ public class SearchPane extends VBox {
     @SuppressWarnings("unused") // Used in FXML binding
     private VBox subjectPresets;
 
+    @FXML
+    @SuppressWarnings("unused") // Used in FXML binding
+    private Label relatedWorks;
+
     //private final JaxbArtifactRecordCollection collection;
     private final DomaArtifactRecordCollection collection;
     private final SearchEngine search;
+
+
 
     public SearchPane(DomaArtifactRecordCollection collection) {
         this.collection = Preconditions.checkNotNull(collection);
@@ -81,8 +90,6 @@ public class SearchPane extends VBox {
         initializeSearch();
         List<ArtifactRecord> records = new ArrayList<>();
         String searchTerm = searchFieldTitle.getText();
-
-
         if(!searchTerm.isEmpty() && searchTerm.length()>1) {
             if(isExactWordTitle.isSelected()){
                 records = search.searchTitle_WholeWord(searchTerm);
@@ -91,20 +98,22 @@ public class SearchPane extends VBox {
                 records = search.searchTitle_Contains(searchTerm);
             }
         }
+        titleNotFound(searchTerm,records);
+        returnResults(records);
+    }
 
-        if(searchTerm.length()<=1 || records.size()==0){
+    void titleNotFound(String searchTerm, List records){
+        if(searchTerm.length()<=1 || records.size()==0) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Search Error");
-            alert.setHeaderText("Invalid Search Query");
-            if(searchTerm.length()<=1) {
+            alert.setHeaderText("Invalid Title Entry");
+            if (searchTerm.length() <= 1) {
                 alert.setContentText("Please enter a search query longer than one character.");
-            }
-            else if(records.size()<1){
+            } else if (records.size() < 1) {
                 alert.setContentText("No results available for " + "'" + searchTerm + "'" + ". Please enter a different query.");
             }
             alert.showAndWait();
         }
-        returnResults(records);
     }
 
     @SuppressWarnings("unused") // This method is used by artifactView.fxml.
@@ -128,6 +137,5 @@ public class SearchPane extends VBox {
         }
         resultCount.setText(String.valueOf(records.size()));
         searchPanes.setDisable(false);
-
     }
 }

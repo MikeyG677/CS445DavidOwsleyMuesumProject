@@ -1,14 +1,20 @@
 package edu.bsu.cs445.archdemo.view;
 
 import com.google.common.base.Preconditions;
+import com.sun.tools.hat.internal.model.Root;
 import edu.bsu.cs445.archdemo.model.ArtifactRecord;
 import edu.bsu.cs445.archdemo.model.DomaArtifactRecordCollection;
 import edu.bsu.cs445.archdemo.model.SearchEngine;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -49,19 +55,17 @@ public class SearchPane extends VBox {
     @SuppressWarnings("unused") // Used in FXML binding
     private VBox subjectPresets;
 
-    @FXML
-    @SuppressWarnings("unused") // Used in FXML binding
-    private Label relatedWorks;
-
     //private final JaxbArtifactRecordCollection collection;
     private final DomaArtifactRecordCollection collection;
     private final SearchEngine search;
+    private final Stage stage;
 
 
 
-    public SearchPane(DomaArtifactRecordCollection collection) {
+    public SearchPane(DomaArtifactRecordCollection collection, Stage stage) {
         this.collection = Preconditions.checkNotNull(collection);
         this.search = new SearchEngine(collection);
+        this.stage = stage;
 
 
         URL fxmlUrl = getClass().getClassLoader().getResource("edu/bsu/cs445/archdemo/searchPane.fxml");
@@ -99,7 +103,7 @@ public class SearchPane extends VBox {
             }
         }
         titleNotFound(searchTerm,records);
-        returnResults(records);
+        propagateResults(records);
     }
 
     void titleNotFound(String searchTerm, List records){
@@ -120,12 +124,13 @@ public class SearchPane extends VBox {
     @FXML
     void searchRelatedWorks(ArtifactRecord record){
         initializeSearch();
-        returnResults(search.searchRelatedWorks(record));
+        propagateResults(search.searchRelatedWorks(record));
     }
 
     @SuppressWarnings("unused") // This method is used by searchPane.fxml.
     @FXML
-    private void returnResults(List<ArtifactRecord> records) {
+    private void propagateResults(List<ArtifactRecord> records) {
+
         resultBox.getChildren().clear();
         if (records.size() > 0) {
              for(int i=0; i<records.size() && i<10; i++){
@@ -137,5 +142,23 @@ public class SearchPane extends VBox {
         }
         resultCount.setText(String.valueOf(records.size()));
         searchPanes.setDisable(false);
+
+        Platform.runLater(() -> {
+            Parent root;
+                try {
+                    URL url = getClass().getClassLoader().getResource("edu/bsu/cs445/archdemo/artifactView.fxml");
+                    FXMLLoader loader = new FXMLLoader(url);
+                    loader.setRoot(this);
+                    loader.setController(this);
+                    root = loader.load();
+                    Preconditions.checkNotNull(url, "Cannot load fxml resource");
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                Scene ArtifactViewScene = new Scene(root);
+                stage.setScene(ArtifactViewScene);
+
+        });
+
     }
 }

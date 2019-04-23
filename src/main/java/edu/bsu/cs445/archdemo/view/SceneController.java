@@ -8,22 +8,20 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 
-public class CreateInitialScene {
+public class SceneController {
 
-    public void createInitialScene(Stage stage) {
+    public void changeScene(Stage stage){
         Parent root;
         try {
-            URL url = getClass().getClassLoader().getResource("edu/bsu/cs445/archdemo/loading.fxml");
+            URL url = getClass().getClassLoader().getResource("edu/bsu/cs445/archdemo/artifactView.fxml");
             Preconditions.checkNotNull(url, "Cannot load fxml resource");
             root = FXMLLoader.load(url);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        Scene scene = new Scene(root);
-        stage.setTitle("DOMA: Historic Machine");
-        stage.setScene(scene);
-        stage.setMinWidth(300);
-        stage.setMinHeight(400);
-        stage.show();
+        Scene ArtifactViewScene = new Scene(root);
+        stage.setScene(ArtifactViewScene);
+
     }
+
 }

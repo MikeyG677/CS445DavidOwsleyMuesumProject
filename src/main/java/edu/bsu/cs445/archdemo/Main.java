@@ -52,7 +52,7 @@ public class Main extends Application {
             throw new RuntimeException(e);
         }
         Scene scene = new Scene(root);
-        stage.setTitle("DOMA: Historic Machine");
+        stage.setTitle("David Owsley Museum of Art Historic Machine");
         stage.setScene(scene);
         stage.setMinWidth(300);
         stage.setMinHeight(400);

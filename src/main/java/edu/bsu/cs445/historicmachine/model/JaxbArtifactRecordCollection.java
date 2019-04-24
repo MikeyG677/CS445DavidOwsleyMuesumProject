@@ -17,7 +17,6 @@ public class JaxbArtifactRecordCollection implements ArtifactRecordCollection{
         Preconditions.checkNotNull(records, "Parameter may not be null");
         JaxbArtifactRecordCollection collection = new JaxbArtifactRecordCollection();
         collection.items.addAll(Arrays.asList(records));
-        System.out.println(collection);
         return collection;
     }
 

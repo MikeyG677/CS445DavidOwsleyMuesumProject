@@ -4,56 +4,45 @@ import com.google.common.base.Preconditions;
 
 public class ContentConverter {
 
-    private JaxbArtifactRecordCollection jaxbCollection;
+    private ArtifactRecordCollection collection;
 
-    public ContentConverter(JaxbArtifactRecordCollection jaxbCollection) {
-        this.jaxbCollection = jaxbCollection;
+    public ContentConverter(ArtifactRecordCollection artifactCollection) {
+        this.collection = artifactCollection;
     }
 
-    public DomaArtifactRecordCollection convertCollectionToDoma(){
-        JaxbArtifactRecordCollection artifactCollection = this.jaxbCollection;
-
+    public DomaArtifactRecordCollection createDomaCollection(){
+        ArtifactRecordCollection artifactCollection = this.collection;
         Preconditions.checkNotNull(artifactCollection, "Collection may not be null");
         DomaArtifactRecordCollection collection = new DomaArtifactRecordCollection();
         for(int i=0; i<artifactCollection.size(); i++){
-            JaxbArtifactRecord jaxbRecord = artifactCollection.getItem(i);
-            DomaArtifactRecord record = convertJaxbRecordToDomaRecord(jaxbRecord);
-            if(record.getFileName().contains(".cpd")) {
-                int j = 1;
-                collection.records.add(record);
-                while(true){
-                    ArtifactRecord recordAbove = artifactCollection.getItem(i-j);
-                    if(!recordAbove.getTitle().isEmpty()){
-                        break;
-                    }
-                    else if(recordAbove.getArtist().contentEquals("FRONT")){
-                        record.setFileName(recordAbove.getFileName());
-                        break;
-                    }
-                    else{
-                        record.setFileName(recordAbove.getFileName());
-                    }
-                    j += 1;
-                }
-            }
-            else if(!record.getTitle().isEmpty()){
+            ArtifactRecord jaxbRecord = artifactCollection.getItem(i);
+            DomaArtifactRecord record = createDomaRecord(jaxbRecord);
+            if(!record.getTitle().isEmpty()){
                 collection.records.add(record);
             }
         }
         return collection;
     }
 
-    private DomaArtifactRecord convertJaxbRecordToDomaRecord(JaxbArtifactRecord jaxbRecord){
+    private DomaArtifactRecord createDomaRecord(ArtifactRecord record){
+        //if jaxbRecord.filename(.cpd)
+        // then -1 on number in filename
+        String file = record.getFileName();
+        if(record.getFileName().contains(".cpd")){
+            int endIndex = record.getFileName().indexOf(".");
+            file = record.getFileName().substring(0, endIndex);
+            int fileNumber = Integer.parseInt(file);
+            file = Integer.toString(fileNumber-1) + ".jpg";
+        }
         return new DomaArtifactRecord.ArtifactRecordBuilder()
-                .withTitle(jaxbRecord.getTitle())
-                .withFileName(jaxbRecord.getFileName())
-                .withArtist(jaxbRecord.getArtist())
-                .withSubject_LCSH(jaxbRecord.getSubject_LCSH())
-                .withDate_Made(jaxbRecord.getDate_Made())
-                .withCulture(jaxbRecord.getCulture())
-                .withCentury(jaxbRecord.getCentury())
-                .withPeriodStyle(jaxbRecord.getPeriodStyle())
+                .withTitle(record.getTitle())
+                .withFileName(file)
+                .withArtist(record.getArtist())
+                .withSubject_LCSH(record.getSubject_LCSH())
+                .withDate_Made(record.getDate_Made())
+                .withCulture(record.getCulture())
+                .withCentury(record.getCentury())
+                .withPeriodStyle(record.getPeriodStyle())
                 .buildRecord();
     }
-    //convertJaxBtoDoma stuff - putting into a collection... convert the Jaxb Record to a DOMA record
 }

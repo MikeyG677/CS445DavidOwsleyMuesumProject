@@ -63,7 +63,7 @@ class DomaArtifactRecordCollectionTest {
     void testConvertJaxbToDoma_noCpd(){
         JaxbArtifactRecordCollection jaxbCollection = JaxbArtifactRecordCollection.of(testRecordJpg, testRecordJpg);
         DomaArtifactRecordCollection collection = new DomaArtifactRecordCollection();
-        DomaArtifactRecordCollection convertedCollection = collection.convertCollectionToDoma(jaxbCollection);
+        DomaArtifactRecordCollection convertedCollection = collection.createDomaCollection(jaxbCollection);
         Assertions.assertEquals(2, convertedCollection.size());
     }*/
 
@@ -75,7 +75,7 @@ class DomaArtifactRecordCollectionTest {
         JaxbArtifactRecord recordNoTitle = buildTestRecord(testParamaters_NoTitle);
         JaxbArtifactRecordCollection jaxbCollection = JaxbArtifactRecordCollection.of(recordJpg, recordNoTitle, recordCpd);
         DomaArtifactRecordCollection collection = new DomaArtifactRecordCollection();
-        DomaArtifactRecordCollection convertedCollection = collection.convertCollectionToDoma(jaxbCollection);
+        DomaArtifactRecordCollection convertedCollection = collection.createDomaCollection(jaxbCollection);
         Assertions.assertEquals(2, convertedCollection.size());
     }
     */

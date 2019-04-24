@@ -30,12 +30,10 @@ public class Main extends Application {
         CompletableFuture.runAsync(() -> jaxbCollection = parser.parse(owsleyStream))
                 .thenRun(() -> Platform.runLater(() -> {
                             ContentConverter artifactRecordConverter = new ContentConverter(jaxbCollection);
-                            DomaArtifactRecordCollection convertedCollection = artifactRecordConverter.convertCollectionToDoma();
+                            DomaArtifactRecordCollection convertedCollection = artifactRecordConverter.createDomaCollection();
                             SearchPane searchPane = new SearchPane(convertedCollection, primaryStage);
                             Scene searchPaneScene = new Scene(searchPane);
-
                             primaryStage.setScene(searchPaneScene);
-
                         }
                 ));
     }

@@ -1,6 +1,6 @@
 package edu.bsu.cs445.historicmachine;
 
-import edu.bsu.cs445.historicmachine.model.ArtifactRecord;
+import edu.bsu.cs445.historicmachine.model.JaxbArtifactRecord;
 import edu.bsu.cs445.historicmachine.model.DomaArtifactRecordCollection;
 import edu.bsu.cs445.historicmachine.model.SearchEngine;
 import org.junit.jupiter.api.Assertions;
@@ -10,7 +10,7 @@ class SearchEngineTest {
 
     private DomaArtifactRecordCollection testCollection_empty = new DomaArtifactRecordCollection();
     private DomaArtifactRecordCollection testCollection_oneRecord = new DomaArtifactRecordCollection();
-    private ArtifactRecord testRecord = new ArtifactRecord();
+    private JaxbArtifactRecord testRecord = new JaxbArtifactRecord();
 
     @Test
     void testSearchTitle_WholeWord_zeroResults_emptyCollection(){

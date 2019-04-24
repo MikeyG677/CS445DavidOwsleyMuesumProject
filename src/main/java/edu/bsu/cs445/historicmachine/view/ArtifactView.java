@@ -1,7 +1,7 @@
 package edu.bsu.cs445.historicmachine.view;
 
 import com.google.common.base.Preconditions;
-import edu.bsu.cs445.historicmachine.model.ArtifactRecord;
+import edu.bsu.cs445.historicmachine.model.JaxbArtifactRecord;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -14,7 +14,7 @@ import java.io.IOException;
 
 class ArtifactView extends VBox {
 
-    private final ArtifactRecord record;
+    private final JaxbArtifactRecord record;
 
     @SuppressWarnings("unused") // Used in FXML binding
     @FXML
@@ -52,7 +52,7 @@ class ArtifactView extends VBox {
 
     SearchPane parent;
 
-    ArtifactView(ArtifactRecord record) {
+    ArtifactView(JaxbArtifactRecord record) {
         Preconditions.checkNotNull(record);
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("edu/bsu/cs445/historicmachine/artifactView.fxml"));
         loader.setRoot(this);

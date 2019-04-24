@@ -2,7 +2,7 @@ package edu.bsu.cs445.historicmachine.model;
 
 public interface ArtifactRecordCollection {
 
-    ArtifactRecord getItem(int i);
+    JaxbArtifactRecord getItem(int i);
 
     int size();
 }

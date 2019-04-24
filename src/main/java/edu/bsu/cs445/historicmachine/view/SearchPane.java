@@ -1,7 +1,7 @@
 package edu.bsu.cs445.historicmachine.view;
 
 import com.google.common.base.Preconditions;
-import edu.bsu.cs445.historicmachine.model.ArtifactRecord;
+import edu.bsu.cs445.historicmachine.model.JaxbArtifactRecord;
 import edu.bsu.cs445.historicmachine.model.DomaArtifactRecordCollection;
 import edu.bsu.cs445.historicmachine.model.SearchEngine;
 import javafx.application.Platform;
@@ -91,7 +91,7 @@ public class SearchPane extends VBox {
     @FXML
     public void searchByTitle() {
         initializeSearch();
-        List<ArtifactRecord> records = new ArrayList<>();
+        List<JaxbArtifactRecord> records = new ArrayList<>();
         String searchTerm = searchFieldTitle.getText();
         if(!searchTerm.isEmpty() && searchTerm.length()>1) {
             if(isExactWordTitle.isSelected()){
@@ -105,7 +105,7 @@ public class SearchPane extends VBox {
         propagateResults(records);
     }
 
-    void titleNotFound(String searchTerm, List records){
+    private void titleNotFound(String searchTerm, List records){
         if(searchTerm.length()<=1 || records.size()==0) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Search Error");
@@ -121,19 +121,19 @@ public class SearchPane extends VBox {
 
     @SuppressWarnings("unused") // This method is used by artifactView.fxml.
     @FXML
-    void searchRelatedWorks(ArtifactRecord record){
+    void searchRelatedWorks(JaxbArtifactRecord record){
         initializeSearch();
         propagateResults(search.searchRelatedWorks(record));
     }
 
     @SuppressWarnings("unused") // This method is used by searchPane.fxml.
     @FXML
-    private void propagateResults(List<ArtifactRecord> records) {
+    private void propagateResults(List<JaxbArtifactRecord> records) {
 
         resultBox.getChildren().clear();
         if (records.size() > 0) {
              for(int i=0; i<records.size() && i<10; i++){
-                 ArtifactRecord record = records.get(i);
+                 JaxbArtifactRecord record = records.get(i);
                  ArtifactView newArtifactView = new ArtifactView(record);
                  newArtifactView.parent = this;
                  resultBox.getChildren().add(newArtifactView);

@@ -13,7 +13,7 @@ import java.util.List;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class JaxbArtifactRecordCollection implements ArtifactRecordCollection{
 
-    public static JaxbArtifactRecordCollection of(ArtifactRecord... records) {
+    public static JaxbArtifactRecordCollection of(JaxbArtifactRecord... records) {
         Preconditions.checkNotNull(records, "Parameter may not be null");
         JaxbArtifactRecordCollection collection = new JaxbArtifactRecordCollection();
         collection.items.addAll(Arrays.asList(records));
@@ -28,14 +28,14 @@ public class JaxbArtifactRecordCollection implements ArtifactRecordCollection{
     // This item is used by the JAXB parsing but not used in custom code.
     @SuppressWarnings({"unused","MismatchedQueryAndUpdateOfCollection"})
     @XmlElement(name="record")
-    private List<ArtifactRecord> items = Lists.newArrayList();
+    private List<JaxbArtifactRecord> items = Lists.newArrayList();
 
     public int size() {
         return items.size();
     }
 
     @Override
-    public ArtifactRecord getItem(int i){
+    public JaxbArtifactRecord getItem(int i){
         return items.get(i);
     }
 }

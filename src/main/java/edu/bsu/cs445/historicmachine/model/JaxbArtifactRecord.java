@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name="record")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class ArtifactRecord {
+public class JaxbArtifactRecord {
 
     @SuppressWarnings("unused") // Not set in source code, but set through JAXB.
     @XmlElement(name="Title")

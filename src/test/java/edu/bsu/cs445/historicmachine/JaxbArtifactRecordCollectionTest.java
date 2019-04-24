@@ -1,13 +1,13 @@
 package edu.bsu.cs445.historicmachine;
 
-import edu.bsu.cs445.historicmachine.model.ArtifactRecord;
+import edu.bsu.cs445.historicmachine.model.JaxbArtifactRecord;
 import edu.bsu.cs445.historicmachine.model.JaxbArtifactRecordCollection;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class JaxbArtifactRecordCollectionTest {
-    ArtifactRecord buildTestRecord() {
-        return new ArtifactRecord();
+    private JaxbArtifactRecord buildTestRecord() {
+        return new JaxbArtifactRecord();
     }
 
     @Test

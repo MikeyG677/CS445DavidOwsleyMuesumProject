@@ -17,12 +17,12 @@ public class DomaArtifactRecordCollection {
         Preconditions.checkNotNull(artifactCollection, "Collection may not be null");
         DomaArtifactRecordCollection collection = new DomaArtifactRecordCollection();
         for(int i=0; i<artifactCollection.size(); i++){
-            ArtifactRecord record = artifactCollection.getItem(i);
+            JaxbArtifactRecord record = artifactCollection.getItem(i);
             if(record.getFileName().contains(".cpd")) {
                 int j = 1;
                 collection.records.add(record);
                 while(true){
-                    ArtifactRecord recordAbove = artifactCollection.getItem(i-j);
+                    JaxbArtifactRecord recordAbove = artifactCollection.getItem(i-j);
                     if(!recordAbove.getTitle().isEmpty()){
                         break;
                     }
@@ -43,7 +43,7 @@ public class DomaArtifactRecordCollection {
         return collection;
     }
 
-    public static DomaArtifactRecordCollection of(ArtifactRecord... record){
+    public static DomaArtifactRecordCollection of(JaxbArtifactRecord... record){
         Preconditions.checkNotNull(record, "Parameter may not be null");
         DomaArtifactRecordCollection collection = new DomaArtifactRecordCollection();
         collection.records.addAll(Arrays.asList(record));
@@ -53,7 +53,7 @@ public class DomaArtifactRecordCollection {
 
     @SuppressWarnings({"unused","MismatchedQueryAndUpdateOfCollection"})
     @XmlElement(name="DomaRecords")
-    public List<ArtifactRecord> records = Lists.newArrayList();
+    public List<JaxbArtifactRecord> records = Lists.newArrayList();
 
     public int size() { return records.size(); }
 }

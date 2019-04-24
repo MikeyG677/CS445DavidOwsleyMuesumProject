@@ -1,14 +1,14 @@
 package edu.bsu.cs445.historicmachine;
 
-import edu.bsu.cs445.historicmachine.model.ArtifactRecord;
+import edu.bsu.cs445.historicmachine.model.JaxbArtifactRecord;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 
-class ArtifactRecordTest {
-    ArtifactRecord buildTestRecord(List<String> paramaters){
-        ArtifactRecord testRecord = new ArtifactRecord();
+class JaxbArtifactRecordTest {
+    private JaxbArtifactRecord buildTestRecord(List<String> paramaters){
+        JaxbArtifactRecord testRecord = new JaxbArtifactRecord();
 
         testRecord.setTitle(paramaters.get(0));
         testRecord.setFileName(paramaters.get(1));
@@ -24,8 +24,8 @@ class ArtifactRecordTest {
 
     private List<String> testParameters_1 = Arrays.asList("Foo","Bar","Fool","Foo ; Bar","1969","American","21st","Cubism");
     private List<String> testParameters_2 = Arrays.asList("The Monolith","hal_marktwo_the_monolith","Hal Marktwo","Industrial ; Modernism ; Futuristic ; Sci-fi","2001","Alien","20th","Impressionism");
-    private ArtifactRecord testRecord_1 = buildTestRecord(testParameters_1);
-    private ArtifactRecord testRecord_2 = buildTestRecord(testParameters_2);
+    private JaxbArtifactRecord testRecord_1 = buildTestRecord(testParameters_1);
+    private JaxbArtifactRecord testRecord_2 = buildTestRecord(testParameters_2);
 
     @Test
     void testSpecificTitle_1(){

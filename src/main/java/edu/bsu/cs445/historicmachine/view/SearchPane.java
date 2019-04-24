@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -42,8 +43,6 @@ public class SearchPane extends VBox {
     @FXML
     @SuppressWarnings("unused") // Used in FXML binding
     private VBox resultBox;
-    @FXML
-    private GridPane resultGrid;
     @FXML
     @SuppressWarnings("unused") // Used in FXML binding
     private CheckBox isExactWordTitle;
@@ -123,7 +122,25 @@ public class SearchPane extends VBox {
     @FXML
     void searchRelatedWorks(JaxbArtifactRecord record){
         initializeSearch();
+
         propagateResults(search.searchRelatedWorks(record));
+
+        Platform.runLater(() -> {
+            Parent root;
+            try {
+                URL url = getClass().getClassLoader().getResource("edu/bsu/cs445/historicmachine/loading.fxml");
+                FXMLLoader loader = new FXMLLoader(url);
+//                loader.setRoot(this);
+//                loader.setController(this);
+                root = loader.load();
+                Preconditions.checkNotNull(url, "Cannot load fxml resource");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+
+        });
     }
 
     @SuppressWarnings("unused") // This method is used by searchPane.fxml.
@@ -142,22 +159,22 @@ public class SearchPane extends VBox {
         resultCount.setText(String.valueOf(records.size()));
         searchPanes.setDisable(false);
 
-        Platform.runLater(() -> {
-            Parent root;
-                try {
-                    URL url = getClass().getClassLoader().getResource("edu/bsu/cs445/historicmachine/artifactView.fxml");
-                    FXMLLoader loader = new FXMLLoader(url);
-                    loader.setRoot(this);
-                    loader.setController(this);
-                    root = loader.load();
-                    Preconditions.checkNotNull(url, "Cannot load fxml resource");
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-                Scene ArtifactViewScene = new Scene(root);
-                stage.setScene(ArtifactViewScene);
-
-        });
+//        Platform.runLater(() -> {
+//            Parent root;
+//            try {
+//                URL url = getClass().getClassLoader().getResource("edu/bsu/cs445/historicmachine/artifactView.fxml");
+//                FXMLLoader loader = new FXMLLoader(url);
+////                loader.setRoot(this);
+////                loader.setController(this);
+//                root = loader.load();
+//                Preconditions.checkNotNull(url, "Cannot load fxml resource");
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
+//            Scene scene = new Scene(root);
+//            stage.setScene(scene);
+//
+//        });
 
     }
 }

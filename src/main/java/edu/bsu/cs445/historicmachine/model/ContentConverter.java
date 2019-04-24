@@ -25,8 +25,6 @@ public class ContentConverter {
     }
 
     private DomaArtifactRecord createDomaRecord(ArtifactRecord record){
-        //if jaxbRecord.filename(.cpd)
-        // then -1 on number in filename
         String file = record.getFileName();
         if(record.getFileName().contains(".cpd")){
             int endIndex = record.getFileName().indexOf(".");

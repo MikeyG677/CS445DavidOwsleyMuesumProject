@@ -13,37 +13,7 @@ import java.util.List;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class DomaArtifactRecordCollection {
 
-    public DomaArtifactRecordCollection convertCollectionToDoma(ArtifactRecordCollection artifactCollection) {
-        Preconditions.checkNotNull(artifactCollection, "Collection may not be null");
-        DomaArtifactRecordCollection collection = new DomaArtifactRecordCollection();
-        for(int i=0; i<artifactCollection.size(); i++){
-            JaxbArtifactRecord record = artifactCollection.getItem(i);
-            if(record.getFileName().contains(".cpd")) {
-                int j = 1;
-                collection.records.add(record);
-                while(true){
-                    JaxbArtifactRecord recordAbove = artifactCollection.getItem(i-j);
-                    if(!recordAbove.getTitle().isEmpty()){
-                        break;
-                    }
-                    else if(recordAbove.getArtist().contentEquals("FRONT")){
-                        record.setFileName(recordAbove.getFileName());
-                        break;
-                    }
-                    else{
-                        record.setFileName(recordAbove.getFileName());
-                    }
-                    j += 1;
-                }
-            }
-            else if(!record.getTitle().isEmpty()){
-                collection.records.add(record);
-            }
-        }
-        return collection;
-    }
-
-    public static DomaArtifactRecordCollection of(JaxbArtifactRecord... record){
+    public static DomaArtifactRecordCollection of(DomaArtifactRecord... record){
         Preconditions.checkNotNull(record, "Parameter may not be null");
         DomaArtifactRecordCollection collection = new DomaArtifactRecordCollection();
         collection.records.addAll(Arrays.asList(record));
@@ -53,7 +23,7 @@ public class DomaArtifactRecordCollection {
 
     @SuppressWarnings({"unused","MismatchedQueryAndUpdateOfCollection"})
     @XmlElement(name="DomaRecords")
-    public List<JaxbArtifactRecord> records = Lists.newArrayList();
+    public List<DomaArtifactRecord> records = Lists.newArrayList();
 
     public int size() { return records.size(); }
 }

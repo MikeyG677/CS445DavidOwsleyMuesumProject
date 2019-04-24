@@ -1,7 +1,7 @@
 package edu.bsu.cs445.historicmachine.view;
 
 import com.google.common.base.Preconditions;
-import edu.bsu.cs445.historicmachine.model.JaxbArtifactRecord;
+import edu.bsu.cs445.historicmachine.model.DomaArtifactRecord;
 import edu.bsu.cs445.historicmachine.model.DomaArtifactRecordCollection;
 import edu.bsu.cs445.historicmachine.model.SearchEngine;
 import javafx.application.Platform;
@@ -10,8 +10,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -90,7 +88,7 @@ public class SearchPane extends VBox {
     @FXML
     public void searchByTitle() {
         initializeSearch();
-        List<JaxbArtifactRecord> records = new ArrayList<>();
+        List<DomaArtifactRecord> records = new ArrayList<>();
         String searchTerm = searchFieldTitle.getText();
         if(!searchTerm.isEmpty() && searchTerm.length()>1) {
             if(isExactWordTitle.isSelected()){
@@ -120,7 +118,7 @@ public class SearchPane extends VBox {
 
     @SuppressWarnings("unused") // This method is used by artifactView.fxml.
     @FXML
-    void searchRelatedWorks(JaxbArtifactRecord record){
+    void searchRelatedWorks(DomaArtifactRecord record){
         initializeSearch();
 
         propagateResults(search.searchRelatedWorks(record));
@@ -145,12 +143,12 @@ public class SearchPane extends VBox {
 
     @SuppressWarnings("unused") // This method is used by searchPane.fxml.
     @FXML
-    private void propagateResults(List<JaxbArtifactRecord> records) {
+    private void propagateResults(List<DomaArtifactRecord> records) {
 
         resultBox.getChildren().clear();
         if (records.size() > 0) {
              for(int i=0; i<records.size() && i<10; i++){
-                 JaxbArtifactRecord record = records.get(i);
+                 DomaArtifactRecord record = records.get(i);
                  ArtifactView newArtifactView = new ArtifactView(record);
                  newArtifactView.parent = this;
                  resultBox.getChildren().add(newArtifactView);

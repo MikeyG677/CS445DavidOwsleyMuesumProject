@@ -8,29 +8,29 @@ import java.util.stream.Collectors;
 
 public class SearchEngine {
 
-    private List<JaxbArtifactRecord> artifacts;
-    private List<JaxbArtifactRecord> results;
+    private List<DomaArtifactRecord> artifacts;
+    private List<DomaArtifactRecord> results;
 
     public SearchEngine(DomaArtifactRecordCollection collection) {
         this.artifacts = collection.records;
     }
 
-    public List<JaxbArtifactRecord> searchTitle_WholeWord(String query) {
+    public List<DomaArtifactRecord> searchTitle_WholeWord(String query) {
         results = artifacts.stream()
                 .filter(artifactRecord -> artifactRecord.getTitle().toLowerCase()
                         .matches(".*\\b" + query.toLowerCase() + "\\b.*")).collect(Collectors.toList());
         return ImmutableList.copyOf(results);
     }
 
-    public List<JaxbArtifactRecord> searchTitle_Contains(String query) {
+    public List<DomaArtifactRecord> searchTitle_Contains(String query) {
         results = artifacts.stream()
                 .filter(artifactRecord -> artifactRecord.getTitle().toLowerCase()
                         .contains(query.toLowerCase())).collect(Collectors.toList());
         return ImmutableList.copyOf(results);
     }
 
-    public List<JaxbArtifactRecord> searchRelatedWorks(JaxbArtifactRecord record){
-        LinkedHashSet<JaxbArtifactRecord> resultsList = new LinkedHashSet<>();
+    public List<DomaArtifactRecord> searchRelatedWorks(DomaArtifactRecord record){
+        LinkedHashSet<DomaArtifactRecord> resultsList = new LinkedHashSet<>();
 
         String[] culturesSeparated = record.getCulture().split(" ; ", -1);
         for (String cultureSingular : culturesSeparated){

@@ -1,6 +1,7 @@
 package edu.bsu.cs445.historicmachine;
 
 import com.google.common.base.Preconditions;
+import edu.bsu.cs445.historicmachine.model.ContentConverter;
 import edu.bsu.cs445.historicmachine.model.DomaArtifactRecordCollection;
 import edu.bsu.cs445.historicmachine.model.JaxbArtifactRecordCollection;
 import edu.bsu.cs445.historicmachine.model.JaxbParser;
@@ -23,15 +24,13 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-
-
-        DomaArtifactRecordCollection domaCollection = new DomaArtifactRecordCollection();
         createInitialScene(primaryStage);
         JaxbParser parser = JaxbParser.create();
         InputStream owsleyStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("owsley.xml");
         CompletableFuture.runAsync(() -> jaxbCollection = parser.parse(owsleyStream))
                 .thenRun(() -> Platform.runLater(() -> {
-                            DomaArtifactRecordCollection convertedCollection = domaCollection.convertCollectionToDoma(jaxbCollection);
+                            ContentConverter artifactRecordConverter = new ContentConverter(jaxbCollection);
+                            DomaArtifactRecordCollection convertedCollection = artifactRecordConverter.convertCollectionToDoma();
                             SearchPane searchPane = new SearchPane(convertedCollection, primaryStage);
                             Scene searchPaneScene = new Scene(searchPane);
 

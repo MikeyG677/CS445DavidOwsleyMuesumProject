@@ -8,19 +8,19 @@ import org.junit.jupiter.api.Test;
 
 class SearchEngineTest {
 
-    private DomaArtifactRecord testRecordFishingBoats = new DomaArtifactRecord.ArtifactRecordBuilder()
+    private DomaArtifactRecord testRecordFishingBoats = new DomaArtifactRecord.DomaArtifactRecordBuilder()
             .withTitle("Fishing Boats (Fischerboote)")
             .withCulture("German ; European")
             .withCentury("20th century")
             .withPeriodStyle("Expressionist")
             .buildRecord();
-    private DomaArtifactRecord testRecordHeadOfGirl = new DomaArtifactRecord.ArtifactRecordBuilder()
+    private DomaArtifactRecord testRecordHeadOfGirl = new DomaArtifactRecord.DomaArtifactRecordBuilder()
             .withTitle("Head of a Girl (Frauenbild)")
             .withCulture("German ; European")
             .withCentury("20th century")
             .withPeriodStyle("Expressionist ; Modern")
             .buildRecord();
-    private DomaArtifactRecord testRecordIncandescents = new DomaArtifactRecord.ArtifactRecordBuilder()
+    private DomaArtifactRecord testRecordIncandescents = new DomaArtifactRecord.DomaArtifactRecordBuilder()
             .withTitle("Incandescents")
             .withCulture("American ; North American")
             .withCentury("20th century")

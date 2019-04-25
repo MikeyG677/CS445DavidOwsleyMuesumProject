@@ -4,9 +4,9 @@ public interface ArtifactRecord {
     String getTitle();
     String getFileName();
     String getArtist();
-    String getSubject_LCSH();
+    String getSubject();
     String getCulture();
     String getCentury();
     String getPeriodStyle();
-    String getDate_Made();
+    String getDate_made();
 }

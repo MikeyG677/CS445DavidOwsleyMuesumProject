@@ -11,8 +11,8 @@ public class DomaArtifactRecord implements ArtifactRecord{
     private String title;
     private String fileName;
     private String artist;
-    private String subject_LCSH;
-    private String date_Made;
+    private String subject;
+    private String date_made;
     private String culture;
     private String century;
     private String periodStyle;
@@ -20,60 +20,60 @@ public class DomaArtifactRecord implements ArtifactRecord{
     public String getTitle() {return title;}
     public String getFileName() {return fileName;}
     public String getArtist(){return artist;}
-    public String getSubject_LCSH(){return subject_LCSH;}
+    public String getSubject(){return subject;}
     public String getCulture(){return culture;}
     public String getCentury(){return century;}
     public String getPeriodStyle(){return periodStyle;}
-    public String getDate_Made(){return date_Made;}
+    public String getDate_made(){return date_made;}
 
-    public static class ArtifactRecordBuilder{
+    public static class DomaArtifactRecordBuilder {
 
         private String title;
         private String fileName;
         private String artist;
-        private String subject_LCSH;
+        private String subject;
         private String culture;
         private String century;
         private String periodStyle;
-        private String date_Made;
+        private String date_made;
 
-        public ArtifactRecordBuilder withTitle(String title){
+        public DomaArtifactRecordBuilder withTitle(String title){
             this.title = title;
             return this;
         }
 
-        public ArtifactRecordBuilder withFileName(String fileName){
+        public DomaArtifactRecordBuilder withFileName(String fileName){
             this.fileName = fileName;
             return this;
         }
 
-        public ArtifactRecordBuilder withArtist(String artist){
+        public DomaArtifactRecordBuilder withArtist(String artist){
             this.artist = artist;
             return this;
         }
 
-        public ArtifactRecordBuilder withSubject_LCSH(String subject_LCSH){
-            this.subject_LCSH = subject_LCSH;
+        public DomaArtifactRecordBuilder withSubject(String subject){
+            this.subject = subject;
             return this;
         }
 
-        public ArtifactRecordBuilder withCulture(String culture){
+        public DomaArtifactRecordBuilder withCulture(String culture){
             this.culture = culture;
             return this;
         }
 
-        public ArtifactRecordBuilder withCentury(String century){
+        public DomaArtifactRecordBuilder withCentury(String century){
             this.century = century;
             return this;
         }
 
-        public ArtifactRecordBuilder withPeriodStyle(String periodStyle){
+        public DomaArtifactRecordBuilder withPeriodStyle(String periodStyle){
             this.periodStyle = periodStyle;
             return this;
         }
 
-        public ArtifactRecordBuilder withDate_Made(String date_Made){
-            this.date_Made = date_Made;
+        public DomaArtifactRecordBuilder withDate(String date){
+            this.date_made = date;
             return this;
         }
 
@@ -82,11 +82,11 @@ public class DomaArtifactRecord implements ArtifactRecord{
             record.title = this.title;
             record.fileName = this.fileName;
             record.artist = this.artist;
-            record.subject_LCSH = this.subject_LCSH;
+            record.subject = this.subject;
             record.culture = this.culture;
             record.century = this.century;
             record.periodStyle = this.periodStyle;
-            record.date_Made = this.date_Made;
+            record.date_made = this.date_made;
             return record;
         }
 

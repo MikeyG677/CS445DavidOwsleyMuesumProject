@@ -8,8 +8,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -53,12 +51,10 @@ public class SearchPane extends VBox {
 
     private final DomaArtifactRecordCollection collection;
     private final SearchEngine search;
-    private final Stage stage;
 
-    public SearchPane(DomaArtifactRecordCollection collection, Stage stage) {
+    public SearchPane(DomaArtifactRecordCollection collection) {
         this.collection = Preconditions.checkNotNull(collection);
         this.search = new SearchEngine(collection);
-        this.stage = stage;
         URL fxmlUrl = getClass().getClassLoader().getResource("edu/bsu/cs445/historicmachine/searchPane.fxml");
         Preconditions.checkNotNull(fxmlUrl, "Fxml asset location is not specified correctly.");
         FXMLLoader loader = new FXMLLoader(fxmlUrl);

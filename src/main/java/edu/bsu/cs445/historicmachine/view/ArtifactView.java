@@ -61,8 +61,8 @@ class ArtifactView extends VBox {
             imageView.setImage(image);
             titleView.setText("Title: " + record.getTitle());
             artistView.setText("Artist: " + record.getArtist());
-            subjectView.setText("Subject: " + record.getSubject_LCSH());
-            dateView.setText("Date:  " + record.getDate_Made());
+            subjectView.setText("Subject: " + record.getSubject());
+            dateView.setText("Date:  " + record.getDate_made());
             cultureView.setText("Culture: " + record.getCulture());
             centuryView.setText("Century: " + record.getCentury());
             periodStyleView.setText("Period Style: " + record.getPeriodStyle());

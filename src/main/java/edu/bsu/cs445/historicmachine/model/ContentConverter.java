@@ -32,12 +32,12 @@ public class ContentConverter {
             int fileNumber = Integer.parseInt(file);
             file = Integer.toString(fileNumber-1) + ".jpg";
         }
-        return new DomaArtifactRecord.ArtifactRecordBuilder()
+        return new DomaArtifactRecord.DomaArtifactRecordBuilder()
                 .withTitle(record.getTitle())
                 .withFileName(file)
                 .withArtist(record.getArtist())
-                .withSubject_LCSH(record.getSubject_LCSH())
-                .withDate_Made(record.getDate_Made())
+                .withSubject(record.getSubject())
+                .withDate(record.getDate_made())
                 .withCulture(record.getCulture())
                 .withCentury(record.getCentury())
                 .withPeriodStyle(record.getPeriodStyle())

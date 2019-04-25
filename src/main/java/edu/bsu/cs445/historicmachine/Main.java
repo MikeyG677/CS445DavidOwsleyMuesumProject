@@ -31,7 +31,7 @@ public class Main extends Application {
                 .thenRun(() -> Platform.runLater(() -> {
                             ContentConverter artifactRecordConverter = new ContentConverter(jaxbCollection);
                             DomaArtifactRecordCollection convertedCollection = artifactRecordConverter.createDomaCollection();
-                            SearchPane searchPane = new SearchPane(convertedCollection, primaryStage);
+                            SearchPane searchPane = new SearchPane(convertedCollection);
                             Scene searchPaneScene = new Scene(searchPane);
                             primaryStage.setScene(searchPaneScene);
                         }

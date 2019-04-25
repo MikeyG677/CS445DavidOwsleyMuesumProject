@@ -54,10 +54,10 @@ Source Self Assessment:
     [X] B.5.S. Source code formatting complies with the rules of Clean Code Chapter 5.
     [X] B.6.S. Classes are small and follow the Single Responsibility Principle, in accordance with Clean Code Chapter 10.
     [X] B.7.S. All signifiers within the user-interface point to implemented features. That is, a user cannot access an incomplete feature.
-    [] B.8.S. Unit tests document the correctness of the model layer, as evidenced in part by having at least 90% coverage.
-    [] B.9.S. Instructions for running the unit tests and measuring coverage are provided in the README file.
-    [ ] A.1.S. The separation between the persistence layer and the model layer is clearly identified through one or more interfaces.
-    [ ] A.2.S. The separation between the UI layer and the model layer is clearly identified through one or more interfaces.
-    [ ] A.3.S. Instructions on how to build and execute the application are provided in the README file.
+    [X] B.8.S. Unit tests document the correctness of the model layer, as evidenced in part by having at least 90% coverage.
+    [X] B.9.S. Instructions for running the unit tests and measuring coverage are provided in the README file.
+    [X] A.1.S. The separation between the persistence layer and the model layer is clearly identified through one or more interfaces.
+    [] A.2.S. The separation between the UI layer and the model layer is clearly identified through one or more interfaces.
+    [] A.3.S. Instructions on how to build and execute the application are provided in the README file.
 
 With the given criteria, our project would recieve a grad of [] based on our assessment.

@@ -14,6 +14,11 @@ This project uses [Gradle](https://gradle.org/). If you clone it into [IntelliJ 
 you will be able to import it as a gradle project. 
 You can run the main application by right-clicking on the Main class and selecting 'Run'. To run the unit tests, right-click on the `tests` folder and select 'Run All Tests'. To run the unit tests with test coverage, select 'Run All Tests with Coverage' in the same menu.
 
+Noted False Positive Errors
+#searchRelatedWorks in artifactView.fxml
+#searchByTitle in searchPane.fxml
+
+
 
 Report Self Assessment:
 

@@ -122,23 +122,6 @@ public class SearchPane extends VBox {
         initializeSearch();
 
         propagateResults(search.searchRelatedWorks(record));
-
-        Platform.runLater(() -> {
-            Parent root;
-            try {
-                URL url = getClass().getClassLoader().getResource("edu/bsu/cs445/historicmachine/loading.fxml");
-                FXMLLoader loader = new FXMLLoader(url);
-//                loader.setRoot(this);
-//                loader.setController(this);
-                root = loader.load();
-                Preconditions.checkNotNull(url, "Cannot load fxml resource");
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-
-        });
     }
 
     @SuppressWarnings("unused") // This method is used by searchPane.fxml.

@@ -35,20 +35,20 @@ Report Self Assessment:
 Source Self Assessment:
 
     [X] D.1.S. The project contains a README file in plain text, HTML, or Markdown in the root directory. This file lists the names of all project contributors and gives appropriate attribution for any third-party assets used in the project.
-    [] D.2.S. The project compiles without errors.
-    [] C.1.S. The project compiles without warnings. Any warning suppressions are clearly documented and justifiable, never excuses for bad design.
-    [] C.2.S. The project executes without warnings or errors during expected usage.
+    [X] D.2.S. The project compiles without errors.
+    [X] C.1.S. The project compiles without warnings. Any warning suppressions are clearly documented and justifiable, never excuses for bad design.
+    [X] C.2.S. The project executes without warnings or errors during expected usage.
     [] C.3.S. The project contains unit tests that document the expected behavior of at least part of the model layer.
-    [] C.4.S. Instructions for running the unit tests are provided in the README file.
-    [] C.5.S. The required self-assessment is included in the README unless it is a report appendix.
-    [] C.6.S. Source code dependencies are automatically managed.
-    [] B.1.S. Variables and methods are meaningfully named in accordance with the rules of Clean Code Chapter 2.
-    [] B.2.S. You follow the naming conventions of your implementation language except where they contradict the previous criterion.
-    [] B.3.S. Methods are short, singular in purpose, and low in arity, in compliance with Clean Code Chapter 3.
-    [] B.4.S. Source code comments comply with the rules of Clean Code Chapter 4.
-    [] B.5.S. Source code formatting complies with the rules of Clean Code Chapter 5.
-    [] B.6.S. Classes are small and follow the Single Responsibility Principle, in accordance with Clean Code Chapter 10.
-    [] B.7.S. All signifiers within the user-interface point to implemented features. That is, a user cannot access an incomplete feature.
+    [X] C.4.S. Instructions for running the unit tests are provided in the README file.
+    [X] C.5.S. The required self-assessment is included in the README unless it is a report appendix.
+    [X] C.6.S. Source code dependencies are automatically managed.
+    [X] B.1.S. Variables and methods are meaningfully named in accordance with the rules of Clean Code Chapter 2.
+    [X] B.2.S. You follow the naming conventions of your implementation language except where they contradict the previous criterion.
+    [X] B.3.S. Methods are short, singular in purpose, and low in arity, in compliance with Clean Code Chapter 3.
+    [X] B.4.S. Source code comments comply with the rules of Clean Code Chapter 4.
+    [X] B.5.S. Source code formatting complies with the rules of Clean Code Chapter 5.
+    [X] B.6.S. Classes are small and follow the Single Responsibility Principle, in accordance with Clean Code Chapter 10.
+    [X] B.7.S. All signifiers within the user-interface point to implemented features. That is, a user cannot access an incomplete feature.
     [] B.8.S. Unit tests document the correctness of the model layer, as evidenced in part by having at least 90% coverage.
     [] B.9.S. Instructions for running the unit tests and measuring coverage are provided in the README file.
     [ ] A.1.S. The separation between the persistence layer and the model layer is clearly identified through one or more interfaces.

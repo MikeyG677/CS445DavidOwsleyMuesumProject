@@ -30,25 +30,25 @@ class SearchEngineTest {
             testRecordFishingBoats, testRecordHeadOfGirl, testRecordIncandescents);
 
     @Test
-    void testSearchTitle_WholeWord_zeroResults_Collection(){
+    void testSearchTitle_wholeWord_zeroResults_collection(){
         SearchEngine testEngine = new SearchEngine(testCollection);
         Assertions.assertEquals(0, testEngine.searchTitle_wholeWord("Foo").size());
     }
 
     @Test
-    void testSearchTitle_Contains_zeroResults_Collection(){
+    void testSearchTitle_contains_zeroResults_collection(){
         SearchEngine testEngine = new SearchEngine(testCollection);
         Assertions.assertEquals(0, testEngine.searchTitle_contains("Z").size());
     }
 
     @Test
-    void testSearchTitle_WholeWord_OneResult_Collection(){
+    void testSearchTitle_wholeWord_oneResult_collection(){
         SearchEngine testEngine = new SearchEngine(testCollection);
         Assertions.assertEquals(1, testEngine.searchTitle_wholeWord("Fishing").size());
     }
 
     @Test
-    void testSearchTitle_Contains_twoResults_Collection(){
+    void testSearchTitle_contains_twoResults_collection(){
         SearchEngine testEngine = new SearchEngine(testCollection);
         Assertions.assertEquals(2, testEngine.searchTitle_contains("F").size());
     }

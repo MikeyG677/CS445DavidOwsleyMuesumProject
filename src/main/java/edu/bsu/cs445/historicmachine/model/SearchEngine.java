@@ -29,7 +29,7 @@ public class SearchEngine {
         return ImmutableList.copyOf(results);
     }
 
-    public List<DomaArtifactRecord> searchRelatedWorks(DomaArtifactRecord record){
+    public List<DomaArtifactRecord> searchRelatedWorks(ArtifactRecord record){
         LinkedHashSet<DomaArtifactRecord> resultsList = new LinkedHashSet<>();
         resultsList.addAll(searchRelatedWorksByCentury(record));
         resultsList.addAll(searchRelatedWorksByCulture(record));
@@ -37,7 +37,7 @@ public class SearchEngine {
         return ImmutableList.copyOf(resultsList);
     }
 
-    public List<DomaArtifactRecord> searchRelatedWorksByCulture(DomaArtifactRecord record){
+    public List<DomaArtifactRecord> searchRelatedWorksByCulture(ArtifactRecord record){
         LinkedHashSet<DomaArtifactRecord> resultsList = new LinkedHashSet<>();
         String[] culturesSeparated = record.getCulture().split(" ; ", -1);
         for (String cultureSingular : culturesSeparated){
@@ -49,7 +49,7 @@ public class SearchEngine {
         return ImmutableList.copyOf(resultsList);
     }
 
-    public List<DomaArtifactRecord> searchRelatedWorksByPeriodStyle(DomaArtifactRecord record){
+    public List<DomaArtifactRecord> searchRelatedWorksByPeriodStyle(ArtifactRecord record){
         LinkedHashSet<DomaArtifactRecord> resultsList = new LinkedHashSet<>();
         String[] periodStylesSeparated = record.getPeriodStyle().split(" ; ", -1);
         for (String periodStyleSingular : periodStylesSeparated){
@@ -61,7 +61,7 @@ public class SearchEngine {
         return ImmutableList.copyOf(resultsList);
     }
 
-    public List<DomaArtifactRecord> searchRelatedWorksByCentury(DomaArtifactRecord record){
+    public List<DomaArtifactRecord> searchRelatedWorksByCentury(ArtifactRecord record){
         LinkedHashSet<DomaArtifactRecord> resultsList = new LinkedHashSet<>();
         String[] centurySeparated = record.getCentury().split(" ; ", -1);
         for (String centurySingular : centurySeparated){

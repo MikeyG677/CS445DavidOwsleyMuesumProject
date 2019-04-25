@@ -17,7 +17,6 @@ public class DomaArtifactRecordCollection {
         Preconditions.checkNotNull(record, "Parameter may not be null");
         DomaArtifactRecordCollection collection = new DomaArtifactRecordCollection();
         collection.records.addAll(Arrays.asList(record));
-        System.out.println(collection);
         return collection;
     }
 

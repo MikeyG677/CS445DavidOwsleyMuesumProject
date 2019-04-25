@@ -122,6 +122,7 @@ public class SearchPane extends VBox {
         initializeSearch();
 
         propagateResults(search.searchRelatedWorks(record));
+
     }
 
     @SuppressWarnings("unused") // This method is used by searchPane.fxml.
@@ -130,11 +131,11 @@ public class SearchPane extends VBox {
 
         resultBox.getChildren().clear();
         if (records.size() > 0) {
-             for(int i=0; i<records.size() && i<10; i++){
-                 DomaArtifactRecord record = records.get(i);
-                 ArtifactView newArtifactView = new ArtifactView(record);
-                 newArtifactView.parent = this;
-                 resultBox.getChildren().add(newArtifactView);
+            for(int i=0; i<records.size() && i<10; i++){
+                DomaArtifactRecord record = records.get(i);
+                ArtifactView newArtifactView = new ArtifactView(record);
+                newArtifactView.parent = this;
+                resultBox.getChildren().add(newArtifactView);
             }
         }
         resultCount.setText(String.valueOf(records.size()));

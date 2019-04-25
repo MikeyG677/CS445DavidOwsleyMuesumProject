@@ -32,7 +32,7 @@
             <TextField fx:id="searchFieldTitle" layoutX="300.0" layoutY="75.0" />
             <Button fx:id="searchButtonTitle" layoutX="475.0" layoutY="75.0" onAction="#searchByTitle" text="Search" />
             <CheckBox fx:id="isExactWordTitle" layoutX="550.0" layoutY="80.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="160.0" text="Keyword Specific" />
-         <RadioButton layoutX="265.0" layoutY="135.0" mnemonicParsing="false" text="Cultute">
+         <RadioButton layoutX="265.0" layoutY="135.0" mnemonicParsing="false" text="Culture">
             <toggleGroup>
                <ToggleGroup fx:id="relatedFilter" />
             </toggleGroup></RadioButton>

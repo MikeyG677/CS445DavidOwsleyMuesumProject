@@ -22,14 +22,14 @@ Report Self Assessment:
     [X] C.1.R. The document begins with an executive summary that provides an overview of the report's content.
     [X] C.2.R. The document describes the problem that is being solved.
     [X] C.3.R. The document describes the solution to the problem as conceived by the authors.
-    [] C.4.R. The required self-assessment is an appendix to your project report unless it is instead included in the README.
-    [] B.1.R. The document describes the process by which the problem was identified.
+    [X] C.4.R. The required self-assessment is an appendix to your project report unless it is instead included in the README.
+    [X] B.1.R. The document describes the process by which the problem was identified.
     [X] B.2.R. The document describes the process by which the solution was designed, including relevant design artifacts such         as personas and journey maps.
-    [] B.3.R. The document explains how the following fundamental principles of interaction are manifest, or fail to manifest,        in your solution: affordances, signifiers, cmappings, feedback, and conceptual models.
-    [] B.4.R. A common use case for the solution is documented through a series of annotated screenshots.
-    [] B.5.R. The document describes the methods by which the solution was evaluated.
-    [] A.1.R. The documented solution evaluation includes both quantitative and qualitative elements that explicitly align with this semester's readings.
-    [] A.2.R. Each of the aforementioned fundamental principles of interaction are explained with clearly annotated and described screenshots or figures.
+    [X] B.3.R. The document explains how the following fundamental principles of interaction are manifest, or fail to manifest, in your solution: affordances, signifiers, cmappings, feedback, and conceptual models.
+    [X] B.4.R. A common use case for the solution is documented through a series of annotated screenshots.
+    [X] B.5.R. The document describes the methods by which the solution was evaluated.
+    [X] A.1.R. The documented solution evaluation includes both quantitative and qualitative elements that explicitly align with this semester's readings.
+    [X] A.2.R. Each of the aforementioned fundamental principles of interaction are explained with clearly annotated and described screenshots or figures.
 
 
 Source Self Assessment:

@@ -26,8 +26,6 @@ public class DomaArtifactRecord implements ArtifactRecord{
     public String getPeriodStyle(){return periodStyle;}
     public String getDate_Made(){return date_Made;}
 
-    void setFileName(String fileName){this.fileName = fileName;}
-
     public static class ArtifactRecordBuilder{
 
         private String title;

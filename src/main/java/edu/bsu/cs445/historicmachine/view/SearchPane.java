@@ -4,11 +4,8 @@ import com.google.common.base.Preconditions;
 import edu.bsu.cs445.historicmachine.model.DomaArtifactRecord;
 import edu.bsu.cs445.historicmachine.model.DomaArtifactRecordCollection;
 import edu.bsu.cs445.historicmachine.model.SearchEngine;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -25,13 +22,7 @@ public class SearchPane extends VBox {
     private TextField searchFieldTitle;
     @FXML
     @SuppressWarnings("unused") // Used in FXML binding
-    private TextField searchFieldSubject;
-    @FXML
-    @SuppressWarnings("unused") // Used in FXML binding
     private Button searchButtonTitle;
-    @FXML
-    @SuppressWarnings("unused") // Used in FXML binding
-    private Button searchButtonSubject;
     @FXML
     @SuppressWarnings("unused") // Used in FXML binding
     private Label resultCount;
@@ -50,8 +41,16 @@ public class SearchPane extends VBox {
     @FXML
     @SuppressWarnings("unused") // Used in FXML binding
     private VBox subjectPresets;
+    @FXML
+    @SuppressWarnings("unused") // Used in FXML binding
+    private RadioButton relatedByCenturySelected;
+    @FXML
+    @SuppressWarnings("unused") // Used in FXML binding
+    private RadioButton relatedByCultureSelected;
+    @FXML
+    @SuppressWarnings("unused") // Used in FXML binding
+    private RadioButton relatedByPeriodStyleSelected;
 
-    //private final JaxbArtifactRecordCollection collection;
     private final DomaArtifactRecordCollection collection;
     private final SearchEngine search;
     private final Stage stage;
@@ -60,7 +59,6 @@ public class SearchPane extends VBox {
         this.collection = Preconditions.checkNotNull(collection);
         this.search = new SearchEngine(collection);
         this.stage = stage;
-
 
         URL fxmlUrl = getClass().getClassLoader().getResource("edu/bsu/cs445/historicmachine/searchPane.fxml");
         Preconditions.checkNotNull(fxmlUrl, "Fxml asset location is not specified correctly.");
@@ -73,6 +71,7 @@ public class SearchPane extends VBox {
             throw new RuntimeException(e);
         }
     }
+
 
     @SuppressWarnings("unused") // This method is used by searchPane.fxml.
     @FXML
@@ -103,10 +102,11 @@ public class SearchPane extends VBox {
         if(searchTerm.length()<=1 || records.size()==0) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Search Error");
-            alert.setHeaderText("Invalid Title Entry");
             if (searchTerm.length() <= 1) {
+                alert.setHeaderText("Incorrect Title Entry");
                 alert.setContentText("Please enter a search query longer than one character.");
             } else if (records.size() < 1) {
+                alert.setHeaderText("No Results Found");
                 alert.setContentText("No results available for " + "'" + searchTerm + "'" + ". Please enter a different query.");
             }
             alert.showAndWait();
@@ -117,8 +117,22 @@ public class SearchPane extends VBox {
     @FXML
     void searchRelatedWorks(DomaArtifactRecord record){
         initializeSearch();
+        List<DomaArtifactRecord> relatedRecords = new ArrayList<>();
 
-        propagateResults(search.searchRelatedWorks(record));
+        if(relatedByPeriodStyleSelected.isSelected()){
+            relatedRecords.addAll(search.searchRelatedWorksByPeriodStyle(record));
+        }
+        else if(relatedByCenturySelected.isSelected()){
+            relatedRecords.addAll(search.searchRelatedWorksByCentury(record));
+        }
+        else if(relatedByCultureSelected.isSelected()){
+            relatedRecords.addAll(search.searchRelatedWorksByCulture(record));
+        }
+        else{
+            relatedRecords.addAll(search.searchRelatedWorks(record));
+        }
+
+        propagateResults(relatedRecords);
 
     }
 

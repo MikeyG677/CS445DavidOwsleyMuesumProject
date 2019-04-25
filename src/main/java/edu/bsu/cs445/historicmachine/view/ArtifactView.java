@@ -2,16 +2,14 @@ package edu.bsu.cs445.historicmachine.view;
 
 import com.google.common.base.Preconditions;
 import edu.bsu.cs445.historicmachine.model.DomaArtifactRecord;
-import edu.bsu.cs445.historicmachine.model.JaxbArtifactRecord;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TitledPane;
 import javafx.scene.image.Image;
-import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+
 import java.io.IOException;
 
 class ArtifactView extends VBox {

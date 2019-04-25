@@ -8,42 +8,72 @@ import org.junit.jupiter.api.Test;
 
 class SearchEngineTest {
 
-    private DomaArtifactRecordCollection testCollectionEmpty = new DomaArtifactRecordCollection();
-    private DomaArtifactRecordCollection testCollectionContainingOne = new DomaArtifactRecordCollection();
-    private DomaArtifactRecord testRecord1 = new DomaArtifactRecord.ArtifactRecordBuilder()
-            .withTitle("Foo")
-            .withFileName("Bar")
-            .withArtist("Fool")
-            .withSubject_LCSH("Foo ; Bar")
-            .withDate_Made("1969")
-            .withCulture("American")
-            .withCentury("21st")
-            .withPeriodStyle("Cubism")
+    private DomaArtifactRecord testRecordFishingBoats = new DomaArtifactRecord.ArtifactRecordBuilder()
+            .withTitle("Fishing Boats (Fischerboote)")
+            .withCulture("German ; European")
+            .withCentury("20th century")
+            .withPeriodStyle("Expressionist")
             .buildRecord();
+    private DomaArtifactRecord testRecordHeadOfGirl = new DomaArtifactRecord.ArtifactRecordBuilder()
+            .withTitle("Head of a Girl (Frauenbild)")
+            .withCulture("German ; European")
+            .withCentury("20th century")
+            .withPeriodStyle("Expressionist ; Modern")
+            .buildRecord();
+    private DomaArtifactRecord testRecordIncandescents = new DomaArtifactRecord.ArtifactRecordBuilder()
+            .withTitle("Incandescents")
+            .withCulture("American ; North American")
+            .withCentury("20th century")
+            .withPeriodStyle("Modern ; Contemporary")
+            .buildRecord();
+    private DomaArtifactRecordCollection testCollection = DomaArtifactRecordCollection.of(
+            testRecordFishingBoats, testRecordHeadOfGirl, testRecordIncandescents);
 
     @Test
-    void testSearchTitle_WholeWord_zeroResults_emptyCollection(){
-        SearchEngine testEngine = new SearchEngine(testCollectionEmpty);
-        Assertions.assertEquals(0, testEngine.searchTitle_WholeWord("Foo").size());
+    void testSearchTitle_WholeWord_zeroResults_Collection(){
+        SearchEngine testEngine = new SearchEngine(testCollection);
+        Assertions.assertEquals(0, testEngine.searchTitle_wholeWord("Foo").size());
     }
 
     @Test
-    void testSearchTitle_Contains_zeroResults_emptyCollection(){
-        SearchEngine testEngine = new SearchEngine(testCollectionEmpty);
-        Assertions.assertEquals(0, testEngine.searchTitle_Contains("F").size());
+    void testSearchTitle_Contains_zeroResults_Collection(){
+        SearchEngine testEngine = new SearchEngine(testCollection);
+        Assertions.assertEquals(0, testEngine.searchTitle_contains("Z").size());
     }
 
     @Test
-    void testSearchTitle_WholeWord_oneResult_oneCollection(){
-        testCollectionContainingOne.records.add(testRecord1);
-        SearchEngine testEngine = new SearchEngine(testCollectionContainingOne);
-        Assertions.assertEquals(1, testEngine.searchTitle_WholeWord("Foo").size());
+    void testSearchTitle_WholeWord_OneResult_Collection(){
+        SearchEngine testEngine = new SearchEngine(testCollection);
+        Assertions.assertEquals(1, testEngine.searchTitle_wholeWord("Fishing").size());
     }
 
     @Test
-    void testSearchTitle_Contains_oneResult_oneCollection(){
-        testCollectionContainingOne.records.add(testRecord1);
-        SearchEngine testEngine = new SearchEngine(testCollectionContainingOne);
-        Assertions.assertEquals(1, testEngine.searchTitle_Contains("F").size());
+    void testSearchTitle_Contains_twoResults_Collection(){
+        SearchEngine testEngine = new SearchEngine(testCollection);
+        Assertions.assertEquals(2, testEngine.searchTitle_contains("F").size());
+    }
+
+    @Test
+    void testSearchRelatedWorks_threeResults(){
+        SearchEngine testEngine = new SearchEngine(testCollection);
+        Assertions.assertEquals(3, testEngine.searchRelatedWorks(testRecordFishingBoats).size());
+    }
+
+    @Test
+    void testSearchRelatedWorksByCulture_twoResults(){
+        SearchEngine testEngine = new SearchEngine(testCollection);
+        Assertions.assertEquals(2, testEngine.searchRelatedWorksByCulture(testRecordFishingBoats).size());
+    }
+
+    @Test
+    void testSearchRelatedWorksByPeriodStyle_twoResults(){
+        SearchEngine testEngine = new SearchEngine(testCollection);
+        Assertions.assertEquals(2, testEngine.searchRelatedWorksByPeriodStyle(testRecordFishingBoats).size());
+    }
+
+    @Test
+    void testSearchRelatedWorksByCentury_threeResults(){
+        SearchEngine testEngine = new SearchEngine(testCollection);
+        Assertions.assertEquals(3, testEngine.searchRelatedWorksByCentury(testRecordFishingBoats).size());
     }
 }

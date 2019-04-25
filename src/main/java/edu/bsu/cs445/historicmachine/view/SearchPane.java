@@ -56,8 +56,6 @@ public class SearchPane extends VBox {
     private final SearchEngine search;
     private final Stage stage;
 
-
-
     public SearchPane(DomaArtifactRecordCollection collection, Stage stage) {
         this.collection = Preconditions.checkNotNull(collection);
         this.search = new SearchEngine(collection);
@@ -76,7 +74,6 @@ public class SearchPane extends VBox {
         }
     }
 
-
     @SuppressWarnings("unused") // This method is used by searchPane.fxml.
     @FXML
     private void initializeSearch() { // Precondition for all search methods.
@@ -92,10 +89,10 @@ public class SearchPane extends VBox {
         String searchTerm = searchFieldTitle.getText();
         if(!searchTerm.isEmpty() && searchTerm.length()>1) {
             if(isExactWordTitle.isSelected()){
-                records = search.searchTitle_WholeWord(searchTerm);
+                records = search.searchTitle_wholeWord(searchTerm);
             }
             else{
-                records = search.searchTitle_Contains(searchTerm);
+                records = search.searchTitle_contains(searchTerm);
             }
         }
         titleNotFound(searchTerm,records);

@@ -49,13 +49,13 @@ class DomaArtifactRecordCollectionTest {
     @Test
     void testCountRecords_emptyCollection(){
         DomaArtifactRecordCollection collection = new DomaArtifactRecordCollection();
-        Assertions.assertEquals(0, collection.size());
+        Assertions.assertEquals(0, collection);
     }
 
     @Test
     void testCountRecords_collection_two(){
         DomaArtifactRecordCollection collection = DomaArtifactRecordCollection.of(testRecordJpg, testRecordJpg);
-        Assertions.assertEquals(2, collection.size());
+        Assertions.assertEquals(2, collection);
     }
 
     /*

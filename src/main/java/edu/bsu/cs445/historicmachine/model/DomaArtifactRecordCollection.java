@@ -24,6 +24,4 @@ public class DomaArtifactRecordCollection {
     @SuppressWarnings({"unused","MismatchedQueryAndUpdateOfCollection"})
     @XmlElement(name="DomaRecords")
     public List<DomaArtifactRecord> records = Lists.newArrayList();
-
-    public int size() { return records.size(); }
 }

@@ -10,6 +10,7 @@ import javafx.scene.control.TitledPane;
 import javafx.scene.image.Image;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import java.io.IOException;
 
@@ -47,9 +48,6 @@ class ArtifactView extends VBox {
     @SuppressWarnings("unused") // Used in FXML binding
     @FXML
     private Label periodStyleView;
-    @SuppressWarnings("unused") // Used in FXML binding
-    @FXML
-    private Button relatedWorks;
 
     SearchPane parent;
 

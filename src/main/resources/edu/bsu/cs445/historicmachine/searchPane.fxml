@@ -15,16 +15,13 @@
 <?import javafx.scene.text.Font?>
 
 <fx:root maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="594.0" minWidth="800.0" prefHeight="594.0" prefWidth="652.0" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
-
     <SplitPane fx:id="searchPanes" minHeight="-Infinity" prefHeight="170.0" prefWidth="800.0">
-
         <AnchorPane fx:id="AnchorPaneTitle" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
             <Label layoutX="265.0" layoutY="25.0" text="DOMA Historic Machine">
                 <font>
                     <Font size="24.0" />
                 </font>
             </Label>
-
             <Label layoutX="120.0" layoutY="78.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Search by Title Keyword:">
                 <font>
                     <Font size="15.0" />
@@ -43,16 +40,12 @@
                     <Font size="14.0" />
                 </font>
             </Label>
-
         </AnchorPane>
-
     </SplitPane>
-
     <ScrollPane hbarPolicy="NEVER" minViewportWidth="500.0" minWidth="100.0" prefHeight="483.0" prefWidth="652.0"
                 VBox.vgrow="ALWAYS">
         <VBox fx:id="resultBox" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="381.0" prefWidth="782.0"/>
     </ScrollPane>
-
     <Pane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="652.0" scaleShape="false" VBox.vgrow="NEVER">
         <Label layoutX="10.0" layoutY="10.0" text="Results Found:">
             <font>
@@ -67,6 +60,4 @@
             </font>
         </Label>
     </Pane>
-
-
 </fx:root>

@@ -96,8 +96,6 @@
                         </VBox>
                     </AnchorPane>
                 </ScrollPane>
-
-
             </AnchorPane>
         </SplitPane>
     </AnchorPane>

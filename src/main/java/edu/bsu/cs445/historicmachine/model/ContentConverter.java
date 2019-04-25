@@ -15,8 +15,8 @@ public class ContentConverter {
         Preconditions.checkNotNull(artifactCollection, "Collection may not be null");
         DomaArtifactRecordCollection collection = new DomaArtifactRecordCollection();
         for(int i=0; i<artifactCollection.size(); i++){
-            ArtifactRecord jaxbRecord = artifactCollection.getItem(i);
-            DomaArtifactRecord record = createDomaRecord(jaxbRecord);
+            ArtifactRecord artifactRecord = artifactCollection.getItem(i);
+            DomaArtifactRecord record = createDomaRecord(artifactRecord);
             if(!record.getTitle().isEmpty()){
                 collection.records.add(record);
             }

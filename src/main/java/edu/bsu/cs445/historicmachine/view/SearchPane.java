@@ -59,7 +59,6 @@ public class SearchPane extends VBox {
         this.collection = Preconditions.checkNotNull(collection);
         this.search = new SearchEngine(collection);
         this.stage = stage;
-
         URL fxmlUrl = getClass().getClassLoader().getResource("edu/bsu/cs445/historicmachine/searchPane.fxml");
         Preconditions.checkNotNull(fxmlUrl, "Fxml asset location is not specified correctly.");
         FXMLLoader loader = new FXMLLoader(fxmlUrl);
@@ -71,7 +70,6 @@ public class SearchPane extends VBox {
             throw new RuntimeException(e);
         }
     }
-
 
     @SuppressWarnings("unused") // This method is used by searchPane.fxml.
     @FXML
@@ -151,23 +149,5 @@ public class SearchPane extends VBox {
         }
         resultCount.setText(String.valueOf(records.size()));
         searchPanes.setDisable(false);
-
-//        Platform.runLater(() -> {
-//            Parent root;
-//            try {
-//                URL url = getClass().getClassLoader().getResource("edu/bsu/cs445/historicmachine/artifactView.fxml");
-//                FXMLLoader loader = new FXMLLoader(url);
-////                loader.setRoot(this);
-////                loader.setController(this);
-//                root = loader.load();
-//                Preconditions.checkNotNull(url, "Cannot load fxml resource");
-//            } catch (IOException e) {
-//                throw new RuntimeException(e);
-//            }
-//            Scene scene = new Scene(root);
-//            stage.setScene(scene);
-//
-//        });
-
     }
 }

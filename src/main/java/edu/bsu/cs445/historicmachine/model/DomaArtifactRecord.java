@@ -87,7 +87,6 @@ public class DomaArtifactRecord implements ArtifactRecord{
             record.century = this.century;
             record.periodStyle = this.periodStyle;
             record.date_Made = this.date_Made;
-
             return record;
         }
 

@@ -12,13 +12,7 @@ class JaxbArtifactRecordCollectionTest {
 
     @Test
     void testSize_zero() {
-        JaxbArtifactRecordCollection collection = JaxbArtifactRecordCollection.createEmpty();
-        Assertions.assertEquals(0, collection.size());
     }
 
-    @Test
-    void testSize_one() {
-        JaxbArtifactRecordCollection collection = JaxbArtifactRecordCollection.of(buildTestRecord());
-        Assertions.assertEquals(1, collection.size());
-    }
+
 }
